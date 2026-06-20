@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://b1aewbxsnqiev"]
 
 [ext_resource type="PackedScene" uid="uid://b51umw08b4s3t" path="res://scenes/background_scene.tscn" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="2_main_char"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
+
+[node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
 
 [node name="MainCamera" type="Camera2D" parent="." unique_id=835444324]
 offset = Vector2(240, 135)
 
-[node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
+[node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("2_main_char")]
+position = Vector2(240, 135)
+speed = 100.0
