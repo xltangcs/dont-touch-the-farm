@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://daxlfnlwm7a7g" path="res://assets/game/characters/basic_charakter_spritesheet.png" id="1_fhrlp"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhrlp"]
+atlas = ExtResource("1_fhrlp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafbc"]
+atlas = ExtResource("1_fhrlp")
+region = Rect2(48, 0, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qk6y3"]
 atlas = ExtResource("1_fhrlp")
 region = Rect2(16, 64, 16, 16)
@@ -70,6 +78,17 @@ region = Rect2(160, 160, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fhrlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bafbc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qk6y3")
 }, {
 "duration": 1.0,
@@ -81,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0knnt")
 }],
-"loop": false,
+"loop": true,
 "name": &"normal_back",
 "speed": 8.0
 }, {
@@ -99,7 +118,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_r0gl1")
 }],
 "loop": true,
-"name": &"normal_farward",
+"name": &"normal_forward",
 "speed": 8.0
 }, {
 "frames": [{

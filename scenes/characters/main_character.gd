@@ -25,10 +25,10 @@ func _physics_process(_delta: float) -> void:
 				anim.play("normal_left")
 		else:
 			if direction.y > 0:
-				anim.play("normal_farward")
+				anim.play("normal_forward")
 			else:
 				anim.play("normal_back")
 	else:
-		anim.play("normal_farward")
+		anim.play("idle")
 
 	move_and_slide()

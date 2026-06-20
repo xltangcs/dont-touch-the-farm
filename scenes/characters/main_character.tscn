@@ -13,7 +13,5 @@ shape = SubResource("CapsuleShape2D_g01af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 sprite_frames = ExtResource("1_g70jx")
-animation = &"normal_back"
-autoplay = "normal_farward"
-frame = 3
-frame_progress = 1.0
+animation = &"normal_forward"
+autoplay = "idle"
