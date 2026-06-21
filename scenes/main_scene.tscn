@@ -25,4 +25,3 @@ position = Vector2(240, 135)
 speed = 100.0
 
 [node name="GameScreen" parent="." unique_id=811351460 instance=ExtResource("4_pu3yx")]
-script = null
