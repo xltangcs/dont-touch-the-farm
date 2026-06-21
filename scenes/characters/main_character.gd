@@ -5,13 +5,13 @@ extends CharacterBody2D
 func _physics_process(_delta: float) -> void:
 	var direction := Vector2.ZERO
 
-	if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
+	if Input.is_action_pressed("walk_right"):
 		direction.x += 1
-	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT):
+	if Input.is_action_pressed("walk_left"):
 		direction.x -= 1
-	if Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN):
+	if Input.is_action_pressed("walk_down"):
 		direction.y += 1
-	if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP):
+	if Input.is_action_pressed("walk_up"):
 		direction.y -= 1
 
 	velocity = direction.normalized() * speed

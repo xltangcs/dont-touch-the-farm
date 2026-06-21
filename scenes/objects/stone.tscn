@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bex52pnqxye5w"]
+
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="1_hxrs0"]
+[ext_resource type="Script" uid="uid://cxekgrjot81kn" path="res://scenes/objects/stone.gd" id="1_mohl7"]
+[ext_resource type="PackedScene" uid="uid://dw5wrusc1xpfk" path="res://scenes/components/CollectableComponent.tscn" id="2_hxrs0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mohl7"]
+atlas = ExtResource("1_hxrs0")
+region = Rect2(1, 18, 14, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mohl7"]
+radius = 7.071068
+
+[node name="Stone" type="Node2D" unique_id=864763383]
+script = ExtResource("1_mohl7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310804781]
+position = Vector2(0, -3)
+texture = SubResource("AtlasTexture_mohl7")
+
+[node name="CollectableComponent" parent="." unique_id=1927919521 instance=ExtResource("2_hxrs0")]
+position = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=856550537]
+shape = SubResource("CircleShape2D_mohl7")
+debug_color = Color(0.8670805, 0.24126649, 0.654296, 0.41960785)

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bg78kreila0fn"]
+
+[ext_resource type="Script" uid="uid://bbha10wnr6g31" path="res://scenes/objects/block.gd" id="1_mahf3"]
+[ext_resource type="Texture2D" uid="uid://bxwsumasa4nt8" path="res://assets/game/objects/basic_plants.png" id="1_srbs8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mahf3"]
+atlas = ExtResource("1_srbs8")
+region = Rect2(17, 7, 13, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ditdd"]
+size = Vector2(20, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ditdd"]
+
+[node name="Block" type="Area2D" unique_id=285844004]
+script = ExtResource("1_mahf3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123444297]
+texture = SubResource("AtlasTexture_mahf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=885033482]
+shape = SubResource("RectangleShape2D_ditdd")
+
+[node name="Button" type="Button" parent="." unique_id=779455476]
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 14.0
+offset_bottom = -7.0
+theme_override_font_sizes/font_size = 8
+text = "mine"
+icon = SubResource("AtlasTexture_ditdd")
+icon_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

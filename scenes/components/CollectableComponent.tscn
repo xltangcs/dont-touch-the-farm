@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dw5wrusc1xpfk"]
+
+[ext_resource type="Script" uid="uid://goroqh1x8ycf" path="res://scenes/components/collectable_component.gd" id="1_ajl1a"]
+
+[node name="CollectableComponent" type="Area2D" unique_id=1927919521]
+script = ExtResource("1_ajl1a")

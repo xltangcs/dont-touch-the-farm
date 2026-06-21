@@ -4,8 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://dtn3xenkstvu7" path="res://scenes/characters/main_character_anim.tres" id="1_g70jx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g01af"]
+radius = 8.0
+height = 20.0
 
-[node name="MainCharacter" type="CharacterBody2D" unique_id=225226000]
+[node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
 script = ExtResource("1_g01af")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
@@ -13,5 +15,5 @@ shape = SubResource("CapsuleShape2D_g01af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 sprite_frames = ExtResource("1_g70jx")
-animation = &"normal_forward"
+animation = &"normal_right"
 autoplay = "idle"
