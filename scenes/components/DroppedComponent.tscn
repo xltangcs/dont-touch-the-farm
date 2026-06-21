@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3gmbdqpkdwas"]
+
+[ext_resource type="Script" uid="uid://dd0gvnqoq66ul" path="res://scenes/components/dropped_component.gd" id="1_j07xt"]
+
+[node name="DroppedComponent" type="Area2D" unique_id=392418401]
+script = ExtResource("1_j07xt")

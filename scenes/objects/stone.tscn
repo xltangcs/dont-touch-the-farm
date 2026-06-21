@@ -22,5 +22,6 @@ texture = SubResource("AtlasTexture_mohl7")
 position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent" unique_id=856550537]
+visible = false
 shape = SubResource("CircleShape2D_mohl7")
 debug_color = Color(0.8670805, 0.24126649, 0.654296, 0.41960785)
