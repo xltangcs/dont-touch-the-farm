@@ -2,7 +2,17 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 
+var _is_mining: bool = false
+
+@onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
+
+
 func _physics_process(_delta: float) -> void:
+	if _is_mining:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
 	var direction := Vector2.ZERO
 
 	if Input.is_action_pressed("walk_right"):
@@ -16,19 +26,42 @@ func _physics_process(_delta: float) -> void:
 
 	velocity = direction.normalized() * speed
 
-	var anim: AnimatedSprite2D = $AnimatedSprite2D
 	if direction != Vector2.ZERO:
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
-				anim.play("normal_right")
+				_anim.play("normal_right")
 			else:
-				anim.play("normal_left")
+				_anim.play("normal_left")
 		else:
 			if direction.y > 0:
-				anim.play("normal_forward")
+				_anim.play("normal_forward")
 			else:
-				anim.play("normal_back")
+				_anim.play("normal_back")
 	else:
-		anim.play("idle")
+		_anim.play("idle")
 
 	move_and_slide()
+
+
+func play_mine_toward(target_position: Vector2) -> void:
+	_is_mining = true
+	velocity = Vector2.ZERO
+
+	var direction := target_position - global_position
+	if direction.length_squared() < 0.01:
+		direction = Vector2.DOWN
+
+	_anim.play(_get_mine_animation_name(direction))
+	await _anim.animation_finished
+	_is_mining = false
+
+
+func _get_mine_animation_name(direction: Vector2) -> String:
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			return "mine_right"
+		return "mine_left"
+
+	if direction.y > 0:
+		return "mine_forward"
+	return "mine_back"
