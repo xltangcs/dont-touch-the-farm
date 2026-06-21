@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://tpntoayc0yrg"]
+
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="1_ev0jo"]
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_vjuy2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm3fg"]
+atlas = ExtResource("1_vjuy2")
+region = Rect2(8, 56, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjuy2"]
+atlas = ExtResource("1_ev0jo")
+region = Rect2(0, 16, 16, 16)
+
+[node name="BagSlotButton" type="Button" unique_id=527410307]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=804122984]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_wm3fg")
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=71830249]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot_item" type="Control" parent="TextureRect/CenterContainer" unique_id=1639712792]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/CenterContainer/slot_item" unique_id=1639198971]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vjuy2")
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/slot_item" unique_id=932350716]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 5
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

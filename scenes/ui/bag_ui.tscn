@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cbk0hsxjpqrlu"]
+
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_eiw0v"]
+[ext_resource type="PackedScene" uid="uid://tpntoayc0yrg" path="res://scenes/ui/bag_slot.tscn" id="2_5y0r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgqf8"]
+atlas = ExtResource("1_eiw0v")
+region = Rect2(152, 56, 32, 32)
+
+[node name="BagUi" type="Control" unique_id=362606343]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -50.0
+offset_right = 167.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=155329193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kgqf8")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1750225450]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=2103795908]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="BagSlotButton" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=527410307 instance=ExtResource("2_5y0r1")]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton2" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=680150759 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton3" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1412700750 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton4" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=469062348 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton5" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=548169091 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton6" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1645536959 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton7" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1621970607 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton8" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=245370277 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton9" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1625061705 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton10" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1173979025 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton11" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1540227242 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BagSlotButton12" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=422592727 instance=ExtResource("2_5y0r1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

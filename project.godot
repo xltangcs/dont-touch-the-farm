@@ -8,16 +8,16 @@
 
 config_version=5
 
-[autoload]
-
-BlockConfigManager="*res://scripts/block_config_manager.gd"
-
 [application]
 
 config/name="DontTouchTheFarm"
 run/main_scene="uid://b1aewbxsnqiev"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+BlockConfigManager="*res://scripts/block_config_manager.gd"
 
 [display]
 
@@ -74,4 +74,5 @@ walk_right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

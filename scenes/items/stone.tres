@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dpx5ismvpg0ik"]
+
+[ext_resource type="Script" uid="uid://dvtqytl0kqqug" path="res://scripts/item_data.gd" id="1_recqb"]
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="2_6seh3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x08u"]
+atlas = ExtResource("2_6seh3")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_recqb")
+name = "石头"
+texture = SubResource("AtlasTexture_8x08u")
+description = "这是石头！"
+metadata/_custom_type_script = "uid://dvtqytl0kqqug"
