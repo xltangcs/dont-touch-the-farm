@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://tlpshe855ebx"]
+
+[ext_resource type="Theme" uid="uid://cmb40lfrua8c4" path="res://scenes/ui/game_theme.tres" id="1_4uc8o"]
+[ext_resource type="Script" uid="uid://cnb7jyh3hfrp1" path="res://scenes/ui/block_interact_panel.gd" id="1_s7af2"]
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="2_4uc8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo8eg"]
+atlas = ExtResource("2_4uc8o")
+region = Rect2(1, 18, 14, 13)
+
+[node name="BlockInteractPanel" type="PanelContainer" unique_id=1492406399]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_4uc8o")
+theme_type_variation = &"BlockPanelContainer"
+script = ExtResource("1_s7af2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=440046726]
+layout_mode = 2
+theme = ExtResource("1_4uc8o")
+theme_type_variation = &"BlockMarginContainer"
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2012251093]
+layout_mode = 2
+
+[node name="ActionButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=326411779]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+theme_type_variation = &"BlockMineButton"
+theme_override_font_sizes/font_size = 8
+text = "mine"
+icon = SubResource("AtlasTexture_yo8eg")

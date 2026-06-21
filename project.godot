@@ -8,6 +8,10 @@
 
 config_version=5
 
+[autoload]
+
+BlockConfigManager="*res://scripts/block_config_manager.gd"
+
 [application]
 
 config/name="DontTouchTheFarm"
@@ -27,6 +31,15 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="DontTouchTheFarm"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange",
+"res://data/": "yellow",
+"res://scenes/": "green",
+"res://scripts/": "pink"
+}
 
 [input]
 

@@ -1,0 +1,53 @@
+[gd_resource type="Theme" format=3 uid="uid://cmb40lfrua8c4"]
+
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_v351s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqqhs"]
+atlas = ExtResource("1_v351s")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4uc8o"]
+texture = SubResource("AtlasTexture_dqqhs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uc8o"]
+atlas = ExtResource("1_v351s")
+region = Rect2(153, 105, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo8eg"]
+texture = SubResource("AtlasTexture_4uc8o")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v351s"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-bf2b9bae7639a80c22ddd29682f75ee3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x5vq"]
+atlas = SubResource("CompressedTexture2D_v351s")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6q0ak"]
+texture = SubResource("AtlasTexture_5x5vq")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[resource]
+BlockMarginContainer/base_type = &"MarginContainer"
+BlockMarginContainer/constants/margin_bottom = 10
+BlockMarginContainer/constants/margin_left = 10
+BlockMarginContainer/constants/margin_right = 10
+BlockMarginContainer/constants/margin_top = 10
+BlockMineButton/base_type = &"Button"
+BlockMineButton/styles/normal = SubResource("StyleBoxTexture_4uc8o")
+BlockPanelContainer/base_type = &"PanelContainer"
+BlockPanelContainer/styles/panel = SubResource("StyleBoxTexture_yo8eg")
+BlockRestrictedMineButton/base_type = &"Button"
+BlockRestrictedMineButton/colors/font_color = Color(1, 0, 0, 1)
+BlockRestrictedMineButton/styles/normal = SubResource("StyleBoxTexture_6q0ak")

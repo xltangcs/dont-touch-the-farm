@@ -8,6 +8,7 @@ radius = 8.0
 height = 20.0
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
+y_sort_enabled = true
 script = ExtResource("1_g01af")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]

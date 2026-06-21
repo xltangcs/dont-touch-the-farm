@@ -2,9 +2,14 @@ extends Area2D
 
 const STONE_SCENE := preload("res://scenes/objects/stone.tscn")
 
-@export var max_mine_count: int = 3
-@export var resource_id: String = "stone"
-@export var resource_amount: int = 1
+@export var config_id: String = "normal_stone_block"
+
+var max_mine_count: int = 3
+var resource_id: String = "stone"
+var resource_icon: Texture2D
+var resource_amount: int = 1
+var requires_force_mining: bool = false
+var debuff_id: String = ""
 
 var _remaining_mine_count: int = 0
 var _stones_spawned: int = 0
@@ -12,14 +17,34 @@ var _player_in_range: bool = false
 var _is_mining: bool = false
 var _nearby_player: Node2D = null
 
-@onready var _button: Button = $Button
+@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _dropped_component: DroppedComponent = $DroppedComponent
+@onready var _interact_panel: BlockInteractPanel = $BlockInteractPanel
 
 
 func _ready() -> void:
+	_apply_config()
 	_remaining_mine_count = max_mine_count
-	_button.visible = false
-	_update_button_text()
+	_interact_panel.setup(resource_icon, requires_force_mining)
+	_interact_panel.hide_panel()
+	_interact_panel.action_pressed.connect(_on_interact_panel_action_pressed)
+
+
+func _apply_config() -> void:
+	var config := BlockConfigManager.get_config(config_id)
+	if config == null:
+		push_warning("Block config not found: %s" % config_id)
+		return
+
+	max_mine_count = config.max_mine_count
+	resource_id = config.resource_id
+	resource_icon = config.resource_icon
+	resource_amount = config.resource_amount
+	requires_force_mining = config.requires_force_mining
+	debuff_id = config.debuff_id
+
+	if config.block_texture != null:
+		_sprite.texture = config.block_texture
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -28,7 +53,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	_nearby_player = body
 	_player_in_range = true
-	_button.visible = true
+	_interact_panel.show_panel()
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -39,11 +64,38 @@ func _on_body_exited(body: Node2D) -> void:
 		_nearby_player = null
 
 	_player_in_range = false
-	_button.visible = false
+	_interact_panel.hide_panel()
 
 
-func _on_button_pressed() -> void:
+func _on_interact_panel_action_pressed() -> void:
 	if _remaining_mine_count <= 0 or _nearby_player == null or _is_mining:
+		return
+
+	if requires_force_mining:
+		await _request_force_mine_confirmation()
+		return
+
+	_start_mining()
+
+
+func _request_force_mine_confirmation() -> void:
+	var game_ui := get_tree().get_first_node_in_group("game_ui")
+	if game_ui == null:
+		push_warning("GameScreen not found.")
+		return
+
+	_interact_panel.set_interactable(false)
+
+	var confirmed: bool = await game_ui.request_force_mine_confirmation(
+		resource_id,
+		resource_amount,
+		debuff_id
+	)
+
+	if _remaining_mine_count > 0:
+		_interact_panel.set_interactable(true)
+
+	if not confirmed:
 		return
 
 	_start_mining()
@@ -51,7 +103,7 @@ func _on_button_pressed() -> void:
 
 func _start_mining() -> void:
 	_is_mining = true
-	_button.disabled = true
+	_interact_panel.set_interactable(false)
 
 	if _nearby_player.has_method("play_mine_toward"):
 		await _nearby_player.play_mine_toward(global_position)
@@ -60,13 +112,12 @@ func _start_mining() -> void:
 
 	_is_mining = false
 	if _remaining_mine_count > 0:
-		_button.disabled = false
+		_interact_panel.set_interactable(true)
 
 
 func mine() -> void:
 	_remaining_mine_count -= 1
 	_spawn_stone()
-	_update_button_text()
 
 	if _remaining_mine_count <= 0:
 		queue_free()
@@ -85,7 +136,3 @@ func _spawn_stone() -> void:
 	get_tree().current_scene.add_child(stone)
 	stone.global_position = global_position
 	stone.pop_to(target_position)
-
-
-func _update_button_text() -> void:
-	_button.text = "mine (%d)" % _remaining_mine_count

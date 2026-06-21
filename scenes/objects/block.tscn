@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbha10wnr6g31" path="res://scenes/objects/block.gd" id="1_mahf3"]
 [ext_resource type="Texture2D" uid="uid://bxwsumasa4nt8" path="res://assets/game/objects/basic_plants.png" id="1_srbs8"]
 [ext_resource type="PackedScene" uid="uid://3gmbdqpkdwas" path="res://scenes/components/DroppedComponent.tscn" id="3_drop"]
+[ext_resource type="PackedScene" uid="uid://tlpshe855ebx" path="res://scenes/ui/block_interact_panel.tscn" id="4_b5vfb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mahf3"]
 atlas = ExtResource("1_srbs8")
@@ -10,8 +11,6 @@ region = Rect2(17, 7, 13, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ditdd"]
 size = Vector2(20, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ditdd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drop"]
 radius = 20.0
@@ -25,22 +24,18 @@ texture = SubResource("AtlasTexture_mahf3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=885033482]
 shape = SubResource("RectangleShape2D_ditdd")
 
-[node name="Button" type="Button" parent="." unique_id=779455476]
-offset_left = -14.0
-offset_top = -27.0
-offset_right = 14.0
-offset_bottom = -7.0
-theme_override_font_sizes/font_size = 8
-text = "mine"
-icon = SubResource("AtlasTexture_ditdd")
-icon_alignment = 1
-
 [node name="DroppedComponent" parent="." unique_id=1812206061 instance=ExtResource("3_drop")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DroppedComponent" unique_id=563659463]
 shape = SubResource("CircleShape2D_drop")
 debug_color = Color(0.8584526, 0.30224586, 0.52979934, 0.41960785)
 
+[node name="BlockInteractPanel" parent="." unique_id=1492406399 instance=ExtResource("4_b5vfb")]
+visible = false
+offset_left = -34.0
+offset_top = -71.0
+offset_right = 34.0
+offset_bottom = -26.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
