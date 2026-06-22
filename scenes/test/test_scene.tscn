@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://x0knxvntswwh"]
+
+[ext_resource type="Texture2D" uid="uid://ciwcdy532kpj3" path="res://assets/test/test_backgroundpng.png" id="1_wvq6k"]
+[ext_resource type="Script" uid="uid://dpf05o6357aua" path="res://scenes/test/background_fit.gd" id="2_bgfit"]
+[ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="3_lpkca"]
+
+[node name="TestScene" type="Node2D" unique_id=2067183801]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2002798921]
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=994795417]
+texture = ExtResource("1_wvq6k")
+script = ExtResource("2_bgfit")
+
+[node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("3_lpkca")]
+speed = 80.0
