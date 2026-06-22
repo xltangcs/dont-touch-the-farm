@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://tpntoayc0yrg"]
 
 [ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="1_ev0jo"]
+[ext_resource type="Script" uid="uid://hwur6blyr14s" path="res://scenes/ui/bag_slot.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_vjuy2"]
-[ext_resource type="Script" path="res://scenes/ui/bag_slot.gd" id="1_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm3fg"]
 atlas = ExtResource("1_vjuy2")
@@ -13,9 +13,10 @@ atlas = ExtResource("1_ev0jo")
 region = Rect2(0, 16, 16, 16)
 
 [node name="BagSlotButton" type="Button" unique_id=527410307]
-script = ExtResource("1_script")
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(32, 32)
 size_flags_horizontal = 0
+script = ExtResource("1_script")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=804122984]
 layout_mode = 1

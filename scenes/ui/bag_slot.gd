@@ -6,7 +6,7 @@ extends Button
 
 
 func _ready() -> void:
-	self_modulate = Color.WHITE
+	pass
 
 
 func set_item(item_data: ItemData, count: int) -> void:
