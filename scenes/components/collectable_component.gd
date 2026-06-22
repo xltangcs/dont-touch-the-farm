@@ -30,4 +30,11 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	collected.emit(item_id, amount, body)
+	_add_to_inventory(item_id, amount)
 	get_parent().queue_free()
+
+
+func _add_to_inventory(item_id: String, amount: int) -> void:
+	var im := get_node_or_null("/root/InventoryManager")
+	if im and im.has_method("add_item"):
+		im.add_item(item_id, amount)

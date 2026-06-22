@@ -2,13 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_eiw0v"]
 [ext_resource type="PackedScene" uid="uid://tpntoayc0yrg" path="res://scenes/ui/bag_slot.tscn" id="2_5y0r1"]
+[ext_resource type="Script" path="res://scenes/ui/bag_ui.gd" id="1_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgqf8"]
 atlas = ExtResource("1_eiw0v")
 region = Rect2(152, 56, 32, 32)
 
 [node name="BagUi" type="Control" unique_id=362606343]
-self_modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_script")
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
