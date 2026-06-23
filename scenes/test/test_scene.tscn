@@ -3,14 +3,60 @@
 [ext_resource type="Texture2D" uid="uid://ciwcdy532kpj3" path="res://assets/test/test_backgroundpng.png" id="1_wvq6k"]
 [ext_resource type="Script" uid="uid://dpf05o6357aua" path="res://scenes/test/background_fit.gd" id="2_bgfit"]
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="3_lpkca"]
+[ext_resource type="Texture2D" uid="uid://dtfyhu77dyx6m" path="res://assets/test/3layers.png" id="4_omf4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cntqm"]
+atlas = ExtResource("4_omf4g")
+region = Rect2(192, 786, 1202, 315)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eyv0"]
+atlas = ExtResource("4_omf4g")
+region = Rect2(185, 46, 1154, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47ptp"]
+atlas = ExtResource("4_omf4g")
+region = Rect2(226, 348, 1108, 414)
 
 [node name="TestScene" type="Node2D" unique_id=2067183801]
+y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2002798921]
+[node name="BackgroundLayers" type="Node2D" parent="." unique_id=701530634]
+position = Vector2(-5, -71)
+scale = Vector2(0.405, 0.545)
 
-[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=994795417]
+[node name="Background" type="Sprite2D" parent="BackgroundLayers" unique_id=994795417]
+position = Vector2(14.814813, 128.44035)
+scale = Vector2(0.45679012, 0.33944952)
 texture = ExtResource("1_wvq6k")
 script = ExtResource("2_bgfit")
 
+[node name="GroundLayer" type="Sprite2D" parent="BackgroundLayers" unique_id=1926925985]
+position = Vector2(31, 180)
+texture = SubResource("AtlasTexture_cntqm")
+
+[node name="FarLayer" type="Sprite2D" parent="BackgroundLayers" unique_id=774231680]
+position = Vector2(0, 9)
+texture = SubResource("AtlasTexture_0eyv0")
+
+[node name="CollisionLayers" type="Node2D" parent="." unique_id=567988468]
+y_sort_enabled = true
+
+[node name="MidLayer" type="Sprite2D" parent="CollisionLayers" unique_id=1452147985]
+y_sort_enabled = true
+position = Vector2(-100.99999, -6)
+scale = Vector2(0.405, 0.545)
+texture = SubResource("AtlasTexture_47ptp")
+offset = Vector2(2.47, 3.16)
+region_enabled = true
+region_rect = Rect2(264, 152, 144, 120)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionLayers/MidLayer" unique_id=759905971]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionLayers/MidLayer/StaticBody2D" unique_id=94967824]
+position = Vector2(0, 11.009174)
+polygon = PackedVector2Array(-24.69136, 38.532112, 39.506165, 16.513762, 37.037033, -7.339449, -56.790115, -3.6697245, -59.259262, 33.027523)
+
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("3_lpkca")]
 speed = 80.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2002798921]

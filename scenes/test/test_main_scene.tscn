@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://7w6knmoj2mar"]
+
+[ext_resource type="PackedScene" uid="uid://b51umw08b4s3t" path="res://scenes/background_scene.tscn" id="1_2ahbt"]
+[ext_resource type="PackedScene" uid="uid://bg78kreila0fn" path="res://scenes/objects/block.tscn" id="2_gu0c3"]
+[ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="3_mlab3"]
+[ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="4_8uuek"]
+
+[node name="MainScene" type="Node2D" unique_id=1187652428]
+
+[node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_2ahbt")]
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=835444324]
+y_sort_enabled = true
+offset = Vector2(240, 135)
+
+[node name="Block" parent="." unique_id=285844004 instance=ExtResource("2_gu0c3")]
+position = Vector2(145, 121)
+
+[node name="Block2" parent="." unique_id=744445796 instance=ExtResource("2_gu0c3")]
+position = Vector2(145, 178)
+config_id = "restricted_stone_block"
+
+[node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("3_mlab3")]
+position = Vector2(240, 135)
+speed = 100.0
+
+[node name="GameScreen" parent="." unique_id=811351460 instance=ExtResource("4_8uuek")]
+script = null

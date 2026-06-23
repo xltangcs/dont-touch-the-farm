@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://b6lkf8qyfn4ww" path="res://scenes/characters/main_character.gd" id="1_g01af"]
 [ext_resource type="SpriteFrames" uid="uid://dtn3xenkstvu7" path="res://scenes/characters/main_character_anim.tres" id="1_g70jx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g01af"]
-radius = 8.0
-height = 20.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_g01af"]
+radius = 5.0
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
 y_sort_enabled = true
 script = ExtResource("1_g01af")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
-shape = SubResource("CapsuleShape2D_g01af")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 sprite_frames = ExtResource("1_g70jx")
 animation = &"normal_right"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_g01af")
