@@ -7,14 +7,18 @@
 [ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_bgm"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
+y_sort_enabled = true
 
 [node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
+y_sort_enabled = true
 position = Vector2(0, 20)
 
 [node name="Block" parent="." unique_id=285844004 instance=ExtResource("3_7ykc4")]
+y_sort_enabled = true
 position = Vector2(145, 121)
 
 [node name="Block2" parent="." unique_id=744445796 instance=ExtResource("3_7ykc4")]
+y_sort_enabled = true
 position = Vector2(166, 575)
 config_id = "restricted_stone_block"
 

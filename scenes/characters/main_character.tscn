@@ -7,6 +7,7 @@
 radius = 107.53
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_g01af")
 
@@ -14,7 +15,8 @@ script = ExtResource("1_g01af")
 sprite_frames = ExtResource("1_g70jx")
 animation = &"normal_right"
 autoplay = "idle"
+offset = Vector2(0, -190)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
-position = Vector2(0, 82)
+position = Vector2(0, -110)
 shape = SubResource("CircleShape2D_g01af")

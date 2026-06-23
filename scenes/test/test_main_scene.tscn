@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bix72c5b22qhh" path="res://scenes/objects/building.tscn" id="5_a7myx"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
+y_sort_enabled = true
 
 [node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_2ahbt")]
 

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://chgr85h7btwg8" path="res://assets/scene/background/路.png" id="3_myj6h"]
 [ext_resource type="Texture2D" uid="uid://bw5fmfmot7a0s" path="res://assets/scene/props/1.png" id="4_8xgje"]
 [ext_resource type="Texture2D" uid="uid://dxb01bg14wm0a" path="res://assets/scene/props/2.png" id="5_31aai"]
+[ext_resource type="Script" uid="uid://7sprk18cyvud" path="res://scripts/prop_sprite.gd" id="5_2274u"]
 [ext_resource type="Texture2D" uid="uid://0lfqcofrg3i7" path="res://assets/scene/props/3.png" id="6_mkpbc"]
 [ext_resource type="Texture2D" uid="uid://dr4hs8fs6l6ou" path="res://assets/scene/props/7.png" id="7_chi3x"]
 [ext_resource type="Texture2D" uid="uid://drbn8kpuq5s60" path="res://assets/scene/props/34.png" id="8_kmvo2"]
@@ -14,48 +15,88 @@
 [ext_resource type="Texture2D" uid="uid://b48k52xre7b1v" path="res://assets/scene/props/51.png" id="12_c6im2"]
 
 [node name="BackgroundScene" type="Node2D" unique_id=665967244]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1776307945]
+z_index = -1
 texture = ExtResource("1_3djyj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=774911797]
+z_index = -1
 texture = ExtResource("2_3mpil")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1346459203]
+z_index = -1
 texture = ExtResource("3_myj6h")
 
 [node name="1" type="Sprite2D" parent="." unique_id=132783694]
-position = Vector2(2040, -2184)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(2064, -1787)
 texture = ExtResource("4_8xgje")
+offset = Vector2(0, -580)
+script = ExtResource("5_2274u")
 
 [node name="2" type="Sprite2D" parent="." unique_id=1541517369]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(4152, -352)
 texture = ExtResource("5_31aai")
+offset = Vector2(0, -120.5)
+script = ExtResource("5_2274u")
 
 [node name="3" type="Sprite2D" parent="." unique_id=79703411]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(2728, -328)
 texture = ExtResource("6_mkpbc")
+offset = Vector2(0, -509.5)
+script = ExtResource("5_2274u")
 
 [node name="7" type="Sprite2D" parent="." unique_id=1936851413]
-position = Vector2(872, -2880)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(785, -1863)
 texture = ExtResource("7_chi3x")
+offset = Vector2(0, -684.5)
+script = ExtResource("5_2274u")
 
 [node name="34" type="Sprite2D" parent="." unique_id=1982708408]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(4584, 392)
 texture = ExtResource("8_kmvo2")
+offset = Vector2(0, -57.5)
+script = ExtResource("5_2274u")
 
 [node name="35" type="Sprite2D" parent="." unique_id=699321521]
-position = Vector2(2856, 3040)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(3047, 4192)
 texture = ExtResource("9_c6im2")
+offset = Vector2(0, -1450)
+script = ExtResource("5_2274u")
 
 [node name="22" type="Sprite2D" parent="." unique_id=1342640696]
-position = Vector2(-2056, -3456)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1436, -1899)
 texture = ExtResource("10_2274u")
+offset = Vector2(0, -1290.5)
+script = ExtResource("5_2274u")
 
 [node name="39" type="Sprite2D" parent="." unique_id=304432584]
-position = Vector2(-3785, -356)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-3547, 883)
 texture = ExtResource("11_cmb1m")
+offset = Vector2(0, -1466)
+script = ExtResource("5_2274u")
 
 [node name="51" type="Sprite2D" parent="." unique_id=942672788]
-position = Vector2(-690, 3066)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-102, 6109)
 texture = ExtResource("12_c6im2")
+offset = Vector2(0, -1925)
+script = ExtResource("5_2274u")

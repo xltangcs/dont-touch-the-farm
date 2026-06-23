@@ -16,6 +16,7 @@ size = Vector2(196, 105)
 radius = 115.01739
 
 [node name="Block" type="Area2D" unique_id=285844004]
+y_sort_enabled = true
 script = ExtResource("1_mahf3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123444297]
