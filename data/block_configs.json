@@ -9,7 +9,9 @@
 	"resource_amount": 1,
 	"max_mine_count": 3,
 	"requires_force_mining": false,
-	"debuff_id": ""
+	"debuff_id": "",
+	"action_text": "mine",
+	"restricted_action_text": "mine?"
   },
   "restricted_stone_block": {
 	"display_name": "Restricted Stone Block",
@@ -21,6 +23,8 @@
 	"resource_amount": 1,
 	"max_mine_count": 3,
 	"requires_force_mining": true,
-	"debuff_id": "slow_move"
+	"debuff_id": "slow_move",
+	"action_text": "mine",
+	"restricted_action_text": "mine?"
   }
 }

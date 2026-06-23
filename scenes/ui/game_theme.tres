@@ -51,3 +51,4 @@ BlockPanelContainer/styles/panel = SubResource("StyleBoxTexture_yo8eg")
 BlockRestrictedMineButton/base_type = &"Button"
 BlockRestrictedMineButton/colors/font_color = Color(1, 0, 0, 1)
 BlockRestrictedMineButton/styles/normal = SubResource("StyleBoxTexture_6q0ak")
+BuildingBuildButton/base_type = &"BlockMineButton"

@@ -1,6 +1,5 @@
 extends Button
 
-@onready var _slot_bg: TextureRect = $TextureRect
 @onready var _item_icon: TextureRect = $TextureRect/CenterContainer/slot_item/TextureRect
 @onready var _quantity_label: Label = $TextureRect/CenterContainer/slot_item/Label
 

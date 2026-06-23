@@ -1,6 +1,6 @@
 extends Area2D
 
-signal collected(item_id: String, amount: int, collector: Node2D)
+signal collected(collected_item_id: String, collected_amount: int, collector: Node2D)
 
 @export var item_id: String = ""
 @export var amount: int = 1
@@ -30,11 +30,11 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	collected.emit(item_id, amount, body)
-	_add_to_inventory(item_id, amount)
+	_add_to_inventory()
 	get_parent().queue_free()
 
 
-func _add_to_inventory(item_id: String, amount: int) -> void:
+func _add_to_inventory() -> void:
 	var im := get_node_or_null("/root/InventoryManager")
 	if im and im.has_method("add_item"):
 		im.add_item(item_id, amount)

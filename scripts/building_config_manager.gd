@@ -1,7 +1,7 @@
 extends Node
 
-const BlockConfigData = preload("res://scripts/block_config_data.gd")
-const CONFIG_PATH := "res://data/block_configs.json"
+const BuildingConfigData = preload("res://scripts/building_config_data.gd")
+const CONFIG_PATH := "res://data/building_configs.json"
 
 var _configs: Dictionary = {}
 
@@ -14,12 +14,12 @@ func load_configs() -> void:
 	_configs.clear()
 
 	if not FileAccess.file_exists(CONFIG_PATH):
-		push_error("Block config file not found: %s" % CONFIG_PATH)
+		push_error("Building config file not found: %s" % CONFIG_PATH)
 		return
 
 	var file := FileAccess.open(CONFIG_PATH, FileAccess.READ)
 	if file == null:
-		push_error("Failed to open block config file: %s" % CONFIG_PATH)
+		push_error("Failed to open building config file: %s" % CONFIG_PATH)
 		return
 
 	var text := file.get_as_text()
@@ -27,23 +27,23 @@ func load_configs() -> void:
 
 	var parsed = JSON.parse_string(text)
 	if parsed == null:
-		push_error("Failed to parse block config JSON: %s" % CONFIG_PATH)
+		push_error("Failed to parse building config JSON: %s" % CONFIG_PATH)
 		return
 
 	if typeof(parsed) != TYPE_DICTIONARY:
-		push_error("Block config JSON root must be a dictionary.")
+		push_error("Building config JSON root must be a dictionary.")
 		return
 
 	for id in parsed.keys():
 		var entry = parsed[id]
 		if typeof(entry) != TYPE_DICTIONARY:
-			push_warning("Skipping invalid block config entry: %s" % id)
+			push_warning("Skipping invalid building config entry: %s" % id)
 			continue
 
 		_configs[id] = _parse_config(str(id), entry)
 
 
-func get_config(id: String) -> BlockConfigData:
+func get_config(id: String) -> BuildingConfigData:
 	return _configs.get(id)
 
 
@@ -51,25 +51,16 @@ func has_config(id: String) -> bool:
 	return _configs.has(id)
 
 
-func _parse_config(id: String, data: Dictionary) -> BlockConfigData:
-	var config: BlockConfigData = BlockConfigData.new()
+func _parse_config(id: String, data: Dictionary) -> BuildingConfigData:
+	var config: BuildingConfigData = BuildingConfigData.new()
 	config.id = id
 	config.display_name = str(data.get("display_name", id))
-	config.resource_id = str(data.get("resource_id", ""))
-	config.resource_amount = int(data.get("resource_amount", 1))
-	config.max_mine_count = int(data.get("max_mine_count", 1))
-	config.requires_force_mining = bool(data.get("requires_force_mining", false))
-	config.debuff_id = str(data.get("debuff_id", ""))
-	config.action_text = str(data.get("action_text", "mine"))
-	config.restricted_action_text = str(data.get("restricted_action_text", "mine?"))
-	config.block_texture = _make_texture(
-		str(data.get("block_texture", "")),
-		data.get("block_region", null)
+	config.building_texture = _make_texture(
+		str(data.get("building_texture", "")),
+		data.get("building_region", null)
 	)
-	config.resource_icon = _make_texture(
-		str(data.get("resource_icon", "")),
-		data.get("resource_icon_region", null)
-	)
+	config.action_text = str(data.get("action_text", "upgrade"))
+	config.button_variation = StringName(str(data.get("button_variation", "BuildingBuildButton")))
 	return config
 
 

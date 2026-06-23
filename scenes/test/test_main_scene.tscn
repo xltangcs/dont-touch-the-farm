@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://7w6knmoj2mar"]
 
-[ext_resource type="PackedScene" uid="uid://b51umw08b4s3t" path="res://scenes/background_scene.tscn" id="1_2ahbt"]
+[ext_resource type="PackedScene" uid="uid://b51umw08b4s3t" path="res://scenes/env/background_scene.tscn" id="1_2ahbt"]
 [ext_resource type="PackedScene" uid="uid://bg78kreila0fn" path="res://scenes/objects/block.tscn" id="2_gu0c3"]
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="3_mlab3"]
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="4_8uuek"]
+[ext_resource type="PackedScene" uid="uid://bix72c5b22qhh" path="res://scenes/objects/building.tscn" id="5_a7myx"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
 
@@ -19,6 +20,9 @@ position = Vector2(145, 121)
 [node name="Block2" parent="." unique_id=744445796 instance=ExtResource("2_gu0c3")]
 position = Vector2(145, 178)
 config_id = "restricted_stone_block"
+
+[node name="Building" parent="." unique_id=111209587 instance=ExtResource("5_a7myx")]
+position = Vector2(303, 114)
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("3_mlab3")]
 position = Vector2(240, 135)

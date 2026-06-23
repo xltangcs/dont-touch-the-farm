@@ -1,15 +1,17 @@
 extends Area2D
 
 const STONE_SCENE := preload("res://scenes/objects/stone.tscn")
+const BlockConfigData = preload("res://scripts/block_config_data.gd")
 
 @export var config_id: String = "normal_stone_block"
 
 var max_mine_count: int = 3
 var resource_id: String = "stone"
-var resource_icon: Texture2D
 var resource_amount: int = 1
 var requires_force_mining: bool = false
 var debuff_id: String = ""
+
+var _config: BlockConfigData
 
 var _remaining_mine_count: int = 0
 var _stones_spawned: int = 0
@@ -19,32 +21,32 @@ var _nearby_player: Node2D = null
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _dropped_component: DroppedComponent = $DroppedComponent
-@onready var _interact_panel: BlockInteractPanel = $BlockInteractPanel
+@onready var _interact_panel: InteractPanel = $InteractPanel
 
 
 func _ready() -> void:
 	_apply_config()
 	_remaining_mine_count = max_mine_count
-	_interact_panel.setup(resource_icon, requires_force_mining)
+	if _config != null:
+		_interact_panel.setup(_config.get_interact_config())
 	_interact_panel.hide_panel()
 	_interact_panel.action_pressed.connect(_on_interact_panel_action_pressed)
 
 
 func _apply_config() -> void:
-	var config := BlockConfigManager.get_config(config_id)
-	if config == null:
+	_config = BlockConfigManager.get_config(config_id)
+	if _config == null:
 		push_warning("Block config not found: %s" % config_id)
 		return
 
-	max_mine_count = config.max_mine_count
-	resource_id = config.resource_id
-	resource_icon = config.resource_icon
-	resource_amount = config.resource_amount
-	requires_force_mining = config.requires_force_mining
-	debuff_id = config.debuff_id
+	max_mine_count = _config.max_mine_count
+	resource_id = _config.resource_id
+	resource_amount = _config.resource_amount
+	requires_force_mining = _config.requires_force_mining
+	debuff_id = _config.debuff_id
 
-	if config.block_texture != null:
-		_sprite.texture = config.block_texture
+	if _config.block_texture != null:
+		_sprite.texture = _config.block_texture
 
 
 func _on_body_entered(body: Node2D) -> void:

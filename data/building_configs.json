@@ -1,0 +1,9 @@
+{
+  "small_shrine": {
+	"display_name": "Small Shrine",
+	"building_texture": "res://assets/game/objects/basic_grass_biom_things.png",
+	"building_region": [16, 0, 32, 32],
+	"action_text": "upgrade",
+	"button_variation": "BuildingBuildButton"
+  }
+}
