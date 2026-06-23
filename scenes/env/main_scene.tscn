@@ -9,19 +9,20 @@
 
 [node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
 
-[node name="MainCamera" type="Camera2D" parent="." unique_id=835444324]
-y_sort_enabled = true
-offset = Vector2(240, 135)
-
 [node name="Block" parent="." unique_id=285844004 instance=ExtResource("3_7ykc4")]
 position = Vector2(145, 121)
 
 [node name="Block2" parent="." unique_id=744445796 instance=ExtResource("3_7ykc4")]
-position = Vector2(145, 178)
+position = Vector2(166, 575)
 config_id = "restricted_stone_block"
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("2_main_char")]
-position = Vector2(240, 135)
-speed = 100.0
+position = Vector2(631, 133)
+speed = 1200.0
+
+[node name="MainCamera" type="Camera2D" parent="MainCharacter" unique_id=835444324]
+y_sort_enabled = true
+position = Vector2(-240, -135)
+zoom = Vector2(0.5, 0.5)
 
 [node name="GameScreen" parent="." unique_id=811351460 instance=ExtResource("4_pu3yx")]

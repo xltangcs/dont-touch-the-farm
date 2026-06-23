@@ -16,6 +16,7 @@ script = ExtResource("1_mohl7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310804781]
 position = Vector2(0, -3)
+scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_mohl7")
 
 [node name="CollectableComponent" parent="." unique_id=1927919521 instance=ExtResource("2_hxrs0")]

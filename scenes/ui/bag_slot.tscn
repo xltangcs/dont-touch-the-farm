@@ -12,76 +12,76 @@ region = Rect2(8, 56, 32, 32)
 atlas = ExtResource("1_ev0jo")
 region = Rect2(0, 16, 16, 16)
 
-[node name="BagSlotButton" type="Button" unique_id=527410307]
+[node name="BagSlotControl" type="Control" unique_id=1188601705]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(32, 32)
-size_flags_horizontal = 0
-script = ExtResource("1_script")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=804122984]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_script")
+
+[node name="Button" type="Button" parent="." unique_id=973852182]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Button" unique_id=804122984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_wm3fg")
+expand_mode = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=71830249]
+[node name="TextureRect" type="TextureRect" parent="Button/TextureRect" unique_id=1639198971]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="slot_item" type="Control" parent="TextureRect/CenterContainer" unique_id=1639712792]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/CenterContainer/slot_item" unique_id=1639198971]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_vjuy2")
+expand_mode = 3
 
-[node name="Label" type="Label" parent="TextureRect/CenterContainer/slot_item" unique_id=932350716]
+[node name="Label" type="Label" parent="Button/TextureRect" unique_id=932350716]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -12.0
-offset_right = -3.0
-offset_bottom = -3.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/font_size = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = -14.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1

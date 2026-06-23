@@ -2,10 +2,15 @@
 
 [ext_resource type="Theme" uid="uid://cmb40lfrua8c4" path="res://scenes/ui/game_theme.tres" id="1_oytce"]
 [ext_resource type="Script" uid="uid://cnb7jyh3hfrp1" path="res://scenes/ui/interact_panel.gd" id="2_avrt0"]
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="3_oytce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avrt0"]
+atlas = ExtResource("3_oytce")
+region = Rect2(0, 16, 16, 16)
 
 [node name="InteractPanel" type="PanelContainer" unique_id=1492406399]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 200.0
+offset_bottom = 150.0
 theme = ExtResource("1_oytce")
 theme_type_variation = &"BlockPanelContainer"
 script = ExtResource("2_avrt0")
@@ -23,8 +28,10 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="ActionButton" type="Button" parent="MarginContainer/CenterContainer" unique_id=326411779]
-custom_minimum_size = Vector2(13, 13)
+custom_minimum_size = Vector2(150, 104)
 layout_mode = 2
 theme_type_variation = &"BlockMineButton"
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 42
 text = "mine"
+icon = SubResource("AtlasTexture_avrt0")
+expand_icon = true

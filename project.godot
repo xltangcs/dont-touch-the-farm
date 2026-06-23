@@ -20,11 +20,12 @@ config/icon="res://icon.svg"
 BlockConfigManager="*res://scripts/block_config_manager.gd"
 InventoryManager="*res://scripts/inventory_manager.gd"
 BuildingConfigManager="*res://scripts/building_config_manager.gd"
+MCPRuntimeProbe="*res://addons/godot_mcp/runtime/mcp_runtime_probe.gd"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
@@ -33,6 +34,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="DontTouchTheFarm"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 
 [file_customization]
 

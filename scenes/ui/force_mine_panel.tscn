@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bakwu2i4pr5lc" path="res://scenes/ui/force_mine_panel.gd" id="2_q02kb"]
 
 [node name="ForceMinePanel" type="PanelContainer" unique_id=1266606709]
-custom_minimum_size = Vector2(222, 105)
+custom_minimum_size = Vector2(666, 315)
 theme = ExtResource("1_lx0a8")
 theme_type_variation = &"BlockPanelContainer"
 script = ExtResource("2_q02kb")
@@ -12,39 +12,41 @@ script = ExtResource("2_q02kb")
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1013724580]
 layout_mode = 2
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=372046378]
 layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1222605207]
+custom_minimum_size = Vector2(192, 45)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 50
 text = "是否要强行开采？"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=831081577]
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 alignment = 1
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1755227435]
-custom_minimum_size = Vector2(48, 24)
+custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 theme_type_variation = &"BlockMineButton"
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 30
 text = "yes"
 
 [node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1952879413]
-custom_minimum_size = Vector2(48, 24)
+custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 theme_type_variation = &"BlockMineButton"
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 30
 text = "no"

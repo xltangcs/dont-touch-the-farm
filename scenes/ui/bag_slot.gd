@@ -1,11 +1,12 @@
-extends Button
+extends Control
 
-@onready var _item_icon: TextureRect = $TextureRect/CenterContainer/slot_item/TextureRect
-@onready var _quantity_label: Label = $TextureRect/CenterContainer/slot_item/Label
+@onready var _item_icon: TextureRect = $Button/TextureRect/TextureRect
+@onready var _quantity_label: Label = $Button/TextureRect/Label
 
 
 func _ready() -> void:
-	pass
+	_item_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_item_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 
 func set_item(item_data: ItemData, count: int) -> void:
