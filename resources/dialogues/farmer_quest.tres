@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=4 format=3 uid="uid://cfarmerquest01"]
+
+[ext_resource type="Script" uid="uid://c23cd443-1aaf-4bdd-b43f-24d38e1c3dc8" path="res://scripts/dialogue_tree.gd" id="1_dialogue_tree"]
+[ext_resource type="Script" uid="uid://a3091419-2401-4647-85cb-519571d7bdea" path="res://scripts/dialogue_node.gd" id="2_dialogue_node"]
+[ext_resource type="Script" uid="uid://fa4f8e76-5075-4a90-8893-77127ab8cd1e" path="res://scripts/dialogue_choice.gd" id="3_dialogue_choice"]
+
+[sub_resource type="Resource" script_class="DialogueChoice" id="DialogueChoice_yes"]
+text = "好的，我去帮你找"
+next_index = 1
+
+[sub_resource type="Resource" script_class="DialogueChoice" id="DialogueChoice_no"]
+text = "抱歉，我现在没空"
+next_index = 2
+
+[sub_resource type="Resource" script_class="DialogueNode" id="DialogueNode_ask"]
+speaker = "农夫"
+text = "旅行者，你能帮我找3块石头吗？"
+next_index = -1
+choices = Array[DialogueChoice]([SubResource("DialogueChoice_yes"), SubResource("DialogueChoice_no")])
+
+[sub_resource type="Resource" script_class="DialogueNode" id="DialogueNode_yes"]
+speaker = "农夫"
+text = "太感谢你了！这些石头对我的田地很重要。"
+next_index = -1
+choices = Array[DialogueChoice]([])
+
+[sub_resource type="Resource" script_class="DialogueNode" id="DialogueNode_no"]
+speaker = "农夫"
+text = "好吧，等你方便的时候再来找我。"
+next_index = -1
+choices = Array[DialogueChoice]([])
+
+[resource]
+script = ExtResource("1_dialogue_tree")
+nodes = Array[DialogueNode]([SubResource("DialogueNode_ask"), SubResource("DialogueNode_yes"), SubResource("DialogueNode_no")])
+start_index = 0
