@@ -5,25 +5,24 @@
 [ext_resource type="PackedScene" uid="uid://bg78kreila0fn" path="res://scenes/objects/block.tscn" id="3_7ykc4"]
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="4_pu3yx"]
 [ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_bgm"]
+[ext_resource type="PackedScene" uid="uid://cdfktbxqjoxxa" path="res://scenes/characters/npc_character.tscn" id="6_fnplm"]
+[ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="7_75hl3"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
 y_sort_enabled = true
 
 [node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
-y_sort_enabled = true
 position = Vector2(0, 20)
 
 [node name="Block" parent="." unique_id=285844004 instance=ExtResource("3_7ykc4")]
-y_sort_enabled = true
 position = Vector2(145, 121)
 
 [node name="Block2" parent="." unique_id=744445796 instance=ExtResource("3_7ykc4")]
-y_sort_enabled = true
 position = Vector2(166, 575)
 config_id = "restricted_stone_block"
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("2_main_char")]
-position = Vector2(631, 133)
+position = Vector2(1079, 598)
 speed = 1200.0
 
 [node name="MainCamera" type="Camera2D" parent="MainCharacter" unique_id=835444324]
@@ -33,6 +32,11 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1981813350]
 stream = ExtResource("5_bgm")
+volume_db = -13.85
 autoplay = true
 
 [node name="GameScreen" parent="." unique_id=811351460 instance=ExtResource("4_pu3yx")]
+
+[node name="NpcCharacter" parent="." unique_id=1847791177 instance=ExtResource("6_fnplm")]
+position = Vector2(2606, 810)
+npc_portrait = ExtResource("7_75hl3")

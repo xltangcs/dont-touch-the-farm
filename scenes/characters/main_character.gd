@@ -6,9 +6,25 @@ var _is_mining: bool = false
 
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
+var _dialogue_ui: DialogueUi
+
+
+func _ready() -> void:
+	call_deferred("_find_dialogue_ui")
+
+
+func _find_dialogue_ui() -> void:
+	var game_uis := get_tree().get_nodes_in_group("game_ui")
+	if game_uis.size() > 0:
+		_dialogue_ui = game_uis[0].get_node_or_null("DialogueUi") as DialogueUi
+
+
+func _is_in_dialogue() -> bool:
+	return _dialogue_ui != null and _dialogue_ui.visible
+
 
 func _physics_process(_delta: float) -> void:
-	if _is_mining:
+	if _is_mining or _is_in_dialogue():
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bqm7x8k2n4p1w" path="res://scenes/ui/game_ui.gd" id="1_game_ui"]
 [ext_resource type="PackedScene" uid="uid://jwtwhse2qhod" path="res://scenes/ui/force_mine_panel.tscn" id="1_gwk6t"]
 [ext_resource type="PackedScene" uid="uid://cbk0hsxjpqrlu" path="res://scenes/ui/bag_ui.tscn" id="2_bag_ui"]
+[ext_resource type="PackedScene" uid="uid://bomfr73abwl8s" path="res://scenes/ui/dialogue_ui.tscn" id="3_dialogue_ui"]
+[ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="5_ru5ln"]
 
 [node name="GameScreen" type="CanvasLayer" unique_id=811351460]
 script = ExtResource("1_game_ui")
@@ -20,3 +22,25 @@ visible = false
 layout_mode = 2
 
 [node name="BagUi" parent="." unique_id=362606343 instance=ExtResource("2_bag_ui")]
+
+[node name="DialogueUi" parent="." unique_id=1122334455 instance=ExtResource("3_dialogue_ui")]
+visible = false
+text_speed = 0.03
+auto_advance_delay = 0.0
+player_portrait = ExtResource("5_ru5ln")
+
+[node name="TalkPrompt" type="Button" parent="." unique_id=-2061521730]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -340.0
+offset_right = 80.0
+offset_bottom = -290.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "对话"
