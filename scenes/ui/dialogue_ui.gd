@@ -3,7 +3,6 @@ extends Control
 
 signal dialogue_started
 signal dialogue_ended
-signal line_changed(line_index: int)
 signal choice_selected(choice_index: int)
 
 @export var text_speed: float = 0.03
@@ -15,36 +14,33 @@ signal choice_selected(choice_index: int)
 @onready var _player_portrait: TextureRect = $DialoguePanel/MarginContainer/HBoxContainer/PlayerPortrait
 @onready var _name_label: Label = $DialoguePanel/MarginContainer/HBoxContainer/TextArea/NameLabel
 @onready var _text_label: RichTextLabel = $DialoguePanel/MarginContainer/HBoxContainer/TextArea/TextLabel
-@onready var _choice_btn1: Button = $DialoguePanel/MarginContainer/HBoxContainer/TextArea/ChoiceContainer/ChoiceBtn1
-@onready var _choice_btn2: Button = $DialoguePanel/MarginContainer/HBoxContainer/TextArea/ChoiceContainer/ChoiceBtn2
+@onready var _choice_container: Control = $DialoguePanel/MarginContainer/HBoxContainer/TextArea/ChoiceContainer
 
-var _lines: Array[DialogueLine] = []
-var _current_index: int = 0
+var is_active: bool = false
+
+var _current_node: DialogueNode
+var _current_choices: Array[DialogueChoice] = []
 var _tween: Tween
 var _is_typing: bool = false
-var _choices: Array[String] = []
-var _has_choices: bool = false
 
 
 func _ready() -> void:
 	visible = false
 	_panel.modulate.a = 0.0
 
-	if _choice_btn1 == null:
-		push_error("DialogueUi: ChoiceBtn1 not found — check scene node path")
-	if _choice_btn2 == null:
-		push_error("DialogueUi: ChoiceBtn2 not found — check scene node path")
 
+func show_dialogue(node: DialogueNode, choices: Array[DialogueChoice] = []) -> void:
+	if is_active:
+		push_warning("DialogueUi: dialogue already active")
+		return
+	is_active = true
 
-func show_dialogue(lines: Array[DialogueLine]) -> void:
 	if _tween and _tween.is_valid():
 		_tween.kill()
 	_clear_choice_buttons()
 
-	_lines = lines
-	_current_index = 0
-	_choices.clear()
-	_has_choices = false
+	_current_node = node
+	_current_choices = choices
 	_text_label.clear()
 	
 	var was_visible := visible
@@ -63,53 +59,17 @@ func show_dialogue(lines: Array[DialogueLine]) -> void:
 	_apply_player_portrait()
 	_show_current_line()
 
-
-func show_dialogue_with_choices(lines: Array[DialogueLine], choices: Array[String]) -> void:
-	if _tween and _tween.is_valid():
-		_tween.kill()
-	_clear_choice_buttons()
-
-	_lines = lines
-	_current_index = 0
-	_choices = choices
-	_has_choices = true
-	_text_label.clear()
-	
-	var was_visible := visible
-	visible = true
-
-	if not was_visible:
-		dialogue_started.emit()
-		_panel.modulate.a = 0.0
-		var tween := create_tween()
-		tween.set_ease(Tween.EASE_OUT)
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(_panel, "modulate:a", 1.0, 0.25)
-		await tween.finished
-
-	_text_label.text = ""
-	_apply_player_portrait()
-	_show_current_line()
 
 func _show_current_line() -> void:
-	if _current_index >= _lines.size():
-		if _has_choices:
-			_show_choice_buttons()
-		else:
-			hide_dialogue()
-		return
+	_name_label.text = _current_node.speaker
 
-	var line: DialogueLine = _lines[_current_index]
-	_name_label.text = line.speaker_name
-
-	if line.portrait != null:
-		_portrait.texture = line.portrait
+	if _current_node.portrait != null:
+		_portrait.texture = _current_node.portrait
 		_portrait.visible = true
 	else:
 		_portrait.visible = false
 
-	_type_text(line.text)
-	line_changed.emit(_current_index)
+	_type_text(_current_node.text)
 
 
 func _type_text(text: String) -> void:
@@ -124,20 +84,22 @@ func _type_text(text: String) -> void:
 	_tween.tween_property(
 		_text_label,
 		"visible_characters",
-		text.length(),
-		float(text.length()) * text_speed
+		_text_label.get_total_character_count(),
+		float(_text_label.get_total_character_count()) * text_speed
 	).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
-	_tween.tween_callback(func(): _is_typing = false)
+	_tween.tween_callback(func(): _is_typing = false; _on_typing_complete())
 
-	if auto_advance_delay > 0.0:
-		_tween.tween_callback(_advance).set_delay(auto_advance_delay)
+
+func _on_typing_complete() -> void:
+	if _current_choices.size() > 0:
+		_show_choice_buttons()
 
 
 func _input(event: InputEvent) -> void:
 	if not visible or _panel.modulate.a < 1.0:
 		return
 
-	if _choice_btn1.visible or _choice_btn2.visible:
+	if _current_choices.size() > 0:
 		return
 
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
@@ -148,8 +110,7 @@ func _input(event: InputEvent) -> void:
 func _handle_advance() -> void:
 	if _is_typing:
 		_skip_typing()
-	else:
-		_advance()
+	# else: Component handles traversal via advance_requested (Task 11)
 
 
 func _skip_typing() -> void:
@@ -157,46 +118,31 @@ func _skip_typing() -> void:
 		_tween.kill()
 	_text_label.visible_characters = -1
 	_is_typing = false
-
-
-func _advance() -> void:
-	_current_index += 1
-	_show_current_line()
+	_on_typing_complete()
 
 
 func _show_choice_buttons() -> void:
 	_clear_choice_buttons()
 
-	print("DialogueUi: showing %d choices" % _choices.size())
+	print("DialogueUi: showing %d choices" % _current_choices.size())
 
-	for i in range(_choices.size()):
-		var btn: Button
-		match i:
-			0: btn = _choice_btn1
-			1: btn = _choice_btn2
-			_: continue
-
-		if btn == null:
-			push_error("DialogueUi: choice button %d is null" % i)
-			continue
-
-		btn.text = _choices[i]
-		btn.visible = true
-		if not btn.pressed.is_connected(_on_choice_pressed):
-			btn.pressed.connect(_on_choice_pressed.bind(i))
+	for i in range(_current_choices.size()):
+		var btn := Button.new()
+		btn.text = _current_choices[i].text
+		btn.pressed.connect(_on_choice_pressed.bind(i))
+		_choice_container.add_child(btn)
 
 
 func _clear_choice_buttons() -> void:
-	_choice_btn1.visible = false
-	_choice_btn2.visible = false
+	for child in _choice_container.get_children():
+		child.queue_free()
 
 
 func _on_choice_pressed(index: int) -> void:
 	_clear_choice_buttons()
-	_has_choices = false
+	_current_choices.clear()
 	_text_label.text = ""
 	choice_selected.emit(index)
-	# Don't hide — caller handles next dialogue transition
 
 
 func hide_dialogue() -> void:
@@ -207,9 +153,21 @@ func hide_dialogue() -> void:
 	await tween.finished
 
 	visible = false
-	_lines.clear()
-	_choices.clear()
-	_has_choices = false
+	is_active = false
+	_current_choices.clear()
+	dialogue_ended.emit()
+
+
+func force_hide() -> void:
+	if not is_active:
+		return
+	if _tween and _tween.is_valid():
+		_tween.kill()
+	_panel.modulate.a = 0.0
+	visible = false
+	is_active = false
+	_current_choices.clear()
+	_text_label.text = ""
 	dialogue_ended.emit()
 
 
