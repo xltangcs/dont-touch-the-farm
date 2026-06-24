@@ -4,6 +4,7 @@ extends Control
 signal dialogue_started
 signal dialogue_ended
 signal choice_selected(choice_index: int)
+signal advance_requested
 
 @export var text_speed: float = 0.03
 @export var auto_advance_delay: float = 0.0
@@ -110,7 +111,8 @@ func _input(event: InputEvent) -> void:
 func _handle_advance() -> void:
 	if _is_typing:
 		_skip_typing()
-	# else: Component handles traversal via advance_requested (Task 11)
+	else:
+		advance_requested.emit()
 
 
 func _skip_typing() -> void:
