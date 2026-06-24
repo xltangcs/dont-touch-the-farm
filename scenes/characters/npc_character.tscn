@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://cdfktbxqjoxxa"]
+[gd_scene load_steps=7 format=3 uid="uid://cdfktbxqjoxxa"]
 
 [ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="1_16wv8"]
 [ext_resource type="Script" uid="uid://dn554ii8o73x" path="res://scenes/characters/npc_character.gd" id="1_vwdjj"]
+[ext_resource type="Script" uid="uid://27d7a798-fd93-434f-a343-624352905e16" path="res://scenes/components/dialogue_component.gd" id="2_dialogue_component"]
+[ext_resource type="Resource" uid="uid://cfarmerquest01" path="res://resources/dialogues/farmer_quest.tres" id="3_farmer_quest"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocgll"]
 animations = [{
@@ -32,3 +34,7 @@ position = Vector2(0, 86)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" unique_id=734633035]
 position = Vector2(2, -62)
 shape = SubResource("CapsuleShape2D_vwdjj")
+
+[node name="DialogueComponent" type="Node" parent="."]
+script = ExtResource("2_dialogue_component")
+dialogue_tree = ExtResource("3_farmer_quest")
