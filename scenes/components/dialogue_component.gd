@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name DialogueComponent
 
 ## ────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ var _is_active: bool = false
 var _current_index: int = 0
 var _step_count: int = 0
 var _max_steps: int = 100
-var _prompt_button: Button
+@onready var _prompt_button: Button = $DialogueButton
 
 ## ── Lifecycle ─────────────────────────────────────────────
 
@@ -67,12 +67,8 @@ func _ready() -> void:
 		return
 	_player = players[0]
 
-	# --- create TalkPrompt button as child of this component ---
-	_prompt_button = Button.new()
-	_prompt_button.text = "对话"
-	_prompt_button.visible = false
+	# --- connect button signal ---
 	_prompt_button.pressed.connect(_on_talk_pressed)
-	add_child(_prompt_button)
 
 	# --- connect to DialogueUi signals ---
 	if not _dialogue_ui.choice_selected.is_connected(_on_choice_selected):
@@ -93,12 +89,8 @@ func _process(_delta: float) -> void:
 		_prompt_button.visible = false
 		return
 
-	# --- position the prompt button above the NPC ---
-	var npc_world_pos: Vector2 = get_parent().global_position
-	_prompt_button.position = _camera.unproject_position(npc_world_pos)
-
 	# --- range check ---
-	var dist: float = _player.global_position.distance_to(npc_world_pos)
+	var dist: float = _player.global_position.distance_to(global_position)
 	_player_in_range = dist <= interaction_range
 
 	# --- visibility logic ---
@@ -132,10 +124,6 @@ func _exit_tree() -> void:
 			_dialogue_ui.dialogue_ended.disconnect(_on_dialogue_ended)
 		if _dialogue_ui.has_signal("advance_requested") and _dialogue_ui.advance_requested.is_connected(_on_advance_requested):
 			_dialogue_ui.advance_requested.disconnect(_on_advance_requested)
-
-	# --- free the prompt button ---
-	if _prompt_button != null:
-		_prompt_button.queue_free()
 
 ## ── Public API ────────────────────────────────────────────
 
@@ -235,6 +223,8 @@ func _on_dialogue_ended() -> void:
 ## End the dialogue flow, restore player input, and emit dialogue_ended.
 ## Idempotent: safe to call even if already inactive.
 func end_dialogue() -> void:
+	if is_instance_valid(_dialogue_ui) and _dialogue_ui.has_method("force_hide"):
+		_dialogue_ui.force_hide()
 	_is_active = false
 	if is_instance_valid(_player):
 		_player.process_mode = Node.PROCESS_MODE_INHERIT
