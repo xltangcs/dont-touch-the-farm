@@ -31,31 +31,31 @@ func _ready() -> void:
 
 
 func show_dialogue(node: DialogueNode, choices: Array[DialogueChoice] = []) -> void:
-	if is_active:
-		push_warning("DialogueUi: dialogue already active")
-		return
-	is_active = true
-
 	if _tween and _tween.is_valid():
 		_tween.kill()
-	_clear_choice_buttons()
+
+	if not is_active:
+		# First open: fade in + emit signal + set flag
+		_clear_choice_buttons()
+		_text_label.clear()
+		var was_visible := visible
+		visible = true
+		if not was_visible:
+			dialogue_started.emit()
+			_panel.modulate.a = 0.0
+			var tween := create_tween()
+			tween.set_ease(Tween.EASE_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(_panel, "modulate:a", 1.0, 0.25)
+			await tween.finished
+		is_active = true
+	else:
+		# In-session update: just refresh content
+		_clear_choice_buttons()
+		_text_label.clear()
 
 	_current_node = node
-	_current_choices = choices
-	_text_label.clear()
-	
-	var was_visible := visible
-	visible = true
-
-	if not was_visible:
-		dialogue_started.emit()
-		_panel.modulate.a = 0.0
-		var tween := create_tween()
-		tween.set_ease(Tween.EASE_OUT)
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(_panel, "modulate:a", 1.0, 0.25)
-		await tween.finished
-
+	_current_choices = choices.duplicate()
 	_text_label.text = ""
 	_apply_player_portrait()
 	_show_current_line()

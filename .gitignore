@@ -2,5 +2,8 @@
 .godot/
 /android/
 
+# OpenCode workspaces
+.omo/
+
 # Temp files
 *.tmp

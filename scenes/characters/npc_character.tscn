@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdfktbxqjoxxa"]
+[gd_scene format=3 uid="uid://cdfktbxqjoxxa"]
 
 [ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="1_16wv8"]
 [ext_resource type="Script" uid="uid://dn554ii8o73x" path="res://scenes/characters/npc_character.gd" id="1_vwdjj"]
-[ext_resource type="Script" uid="uid://27d7a798-fd93-434f-a343-624352905e16" path="res://scenes/components/dialogue_component.gd" id="2_dialogue_component"]
-[ext_resource type="Resource" uid="uid://cfarmerquest01" path="res://resources/dialogues/farmer_quest.tres" id="3_farmer_quest"]
+[ext_resource type="PackedScene" uid="uid://pb888c1ltcju" path="res://scenes/components/dialogue_component.tscn" id="2_dialogue_component"]
+[ext_resource type="Resource" uid="uid://dpfxrq7b753ea" path="res://resources/dialogues/farmer_quest.tres" id="3_farmer_quest"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocgll"]
 animations = [{
@@ -16,25 +16,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwdjj"]
-radius = 100.0
-height = 328.0
-
 [node name="NpcCharacter" type="Node2D" unique_id=1249396512]
 script = ExtResource("1_vwdjj")
-quest_amount = 3
+npc_portrait = ExtResource("1_16wv8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1600365177]
 sprite_frames = SubResource("SpriteFrames_ocgll")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="Area2D" parent="." unique_id=2005983756]
-position = Vector2(0, 86)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" unique_id=734633035]
-position = Vector2(2, -62)
-shape = SubResource("CapsuleShape2D_vwdjj")
-
-[node name="DialogueComponent" type="Node" parent="."]
-script = ExtResource("2_dialogue_component")
+[node name="DialogueComponent" parent="AnimatedSprite2D" unique_id=1850424137 instance=ExtResource("2_dialogue_component")]
+position = Vector2(0, -200)
+scale = Vector2(1.2, 1.2)
 dialogue_tree = ExtResource("3_farmer_quest")
+interaction_range = 500.0

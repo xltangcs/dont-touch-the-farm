@@ -11,8 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_dialogue_ui")
-text_speed = null
-auto_advance_delay = null
 
 [node name="DialoguePanel" type="Panel" parent="." unique_id=1563081054]
 layout_mode = 1
