@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chqpeq88y4u35"
-path="res://.godot/imported/chanchu_nitan.png-e911b0dc5a39af43a0198f7cb1b195ae.ctex"
+uid="uid://dorvrpehncb5j"
+path="res://.godot/imported/zhuangshi_hua02.png-4e9b49939bb1ae8316f100a48fb3a09b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/产出/chanchu_nitan.png"
-dest_files=["res://.godot/imported/chanchu_nitan.png-e911b0dc5a39af43a0198f7cb1b195ae.ctex"]
+source_file="res://assets/environment/scenery/zhuangshi_hua02.png"
+dest_files=["res://.godot/imported/zhuangshi_hua02.png-4e9b49939bb1ae8316f100a48fb3a09b.ctex"]
 
 [params]
 

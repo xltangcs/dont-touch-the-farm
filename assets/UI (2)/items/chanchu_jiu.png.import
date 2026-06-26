@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddijbrjx4et0s"
-path="res://.godot/imported/chanchu_jiu.png-1a8d289a13101dc79be15c2ddb4ce9bc.ctex"
+path="res://.godot/imported/chanchu_jiu.png-7aa49bf9563d9ff89fde6751568636bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/产出/chanchu_jiu.png"
-dest_files=["res://.godot/imported/chanchu_jiu.png-1a8d289a13101dc79be15c2ddb4ce9bc.ctex"]
+source_file="res://assets/UI (2)/items/chanchu_jiu.png"
+dest_files=["res://.godot/imported/chanchu_jiu.png-7aa49bf9563d9ff89fde6751568636bf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb3h1j0uqkord"
-path="res://.godot/imported/chanchu_shitou.png-fd10a07d475237508071cbd1a21b4fd5.ctex"
+uid="uid://dkt032j8r4f2m"
+path="res://.godot/imported/dikuai_zhaoze.png-63bb607abee3f8dd3713583bd267fefe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/产出/chanchu_shitou.png"
-dest_files=["res://.godot/imported/chanchu_shitou.png-fd10a07d475237508071cbd1a21b4fd5.ctex"]
+source_file="res://assets/environment/collectable/dikuai_zhaoze.png"
+dest_files=["res://.godot/imported/dikuai_zhaoze.png-63bb607abee3f8dd3713583bd267fefe.ctex"]
 
 [params]
 

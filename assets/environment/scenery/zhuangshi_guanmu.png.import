@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba32cng3qepqm"
-path="res://.godot/imported/zhuangshi_hua01.png-35a8a824de77369a2e351fb1e28ea3f2.ctex"
+uid="uid://daexd2wkh5tl5"
+path="res://.godot/imported/zhuangshi_guanmu.png-dd2314e273c4b127a9ce82ef835c259a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/装饰/zhuangshi_hua01.png"
-dest_files=["res://.godot/imported/zhuangshi_hua01.png-35a8a824de77369a2e351fb1e28ea3f2.ctex"]
+source_file="res://assets/environment/scenery/zhuangshi_guanmu.png"
+dest_files=["res://.godot/imported/zhuangshi_guanmu.png-dd2314e273c4b127a9ce82ef835c259a.ctex"]
 
 [params]
 

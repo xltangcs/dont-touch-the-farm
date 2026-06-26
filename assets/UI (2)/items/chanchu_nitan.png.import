@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bym7v6lak0ix7"
-path="res://.godot/imported/zhuangshi_lupai.png-590e167daf589dd07120838e70a4a960.ctex"
+uid="uid://chqpeq88y4u35"
+path="res://.godot/imported/chanchu_nitan.png-ad62c0e5fef4e34d20b26a1fa26e80c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/装饰/zhuangshi_lupai.png"
-dest_files=["res://.godot/imported/zhuangshi_lupai.png-590e167daf589dd07120838e70a4a960.ctex"]
+source_file="res://assets/UI (2)/items/chanchu_nitan.png"
+dest_files=["res://.godot/imported/chanchu_nitan.png-ad62c0e5fef4e34d20b26a1fa26e80c9.ctex"]
 
 [params]
 

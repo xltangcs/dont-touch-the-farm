@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvay1c5w8vlal"
-path="res://.godot/imported/zhuangshi_shizhuo01.png-efaa1808a994c0705e40bd368b462b89.ctex"
+uid="uid://cp02uhpt5pmui"
+path="res://.godot/imported/dikuai_huacong.png-44a14140f17a42e40aa917dbcb9c8406.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/装饰/zhuangshi_shizhuo01.png"
-dest_files=["res://.godot/imported/zhuangshi_shizhuo01.png-efaa1808a994c0705e40bd368b462b89.ctex"]
+source_file="res://assets/environment/collectable/dikuai_huacong.png"
+dest_files=["res://.godot/imported/dikuai_huacong.png-44a14140f17a42e40aa917dbcb9c8406.ctex"]
 
 [params]
 

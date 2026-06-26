@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkt032j8r4f2m"
-path="res://.godot/imported/dikuai_zhaoze.png-e1d56cb8fc7c0db71f941a59dc93155b.ctex"
+uid="uid://ccbjfmh6br8jm"
+path="res://.godot/imported/zhuangshi_shizhuo02.png-7d5e251e6c58ab375fd5759299847e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/地块/dikuai_zhaoze.png"
-dest_files=["res://.godot/imported/dikuai_zhaoze.png-e1d56cb8fc7c0db71f941a59dc93155b.ctex"]
+source_file="res://assets/environment/scenery/zhuangshi_shizhuo02.png"
+dest_files=["res://.godot/imported/zhuangshi_shizhuo02.png-7d5e251e6c58ab375fd5759299847e6a.ctex"]
 
 [params]
 

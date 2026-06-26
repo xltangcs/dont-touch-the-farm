@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7880n0llhej"
-path="res://.godot/imported/tongyong_yingzi.png-65bccadec09e14eee523330827ed207a.ctex"
+uid="uid://cru8v5tnml7fg"
+path="res://.godot/imported/chanchu_mutou.png-348a291836ea6fed7360e2ab2581e438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/通用/tongyong_yingzi.png"
-dest_files=["res://.godot/imported/tongyong_yingzi.png-65bccadec09e14eee523330827ed207a.ctex"]
+source_file="res://assets/UI (2)/items/chanchu_mutou.png"
+dest_files=["res://.godot/imported/chanchu_mutou.png-348a291836ea6fed7360e2ab2581e438.ctex"]
 
 [params]
 

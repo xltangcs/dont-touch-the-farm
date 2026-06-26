@@ -11,16 +11,35 @@
 [ext_resource type="Texture2D" uid="uid://b81dl8e5sxwof" path="res://assets/scene/props/35.png" id="9_c6im2"]
 [ext_resource type="Texture2D" uid="uid://c0b1dt0jkfhcp" path="res://assets/scene/props/22.png" id="10_2274u"]
 [ext_resource type="Texture2D" uid="uid://dmydkwgoqvojh" path="res://assets/scene/props/39.png" id="11_cmb1m"]
-[ext_resource type="Texture2D" uid="uid://b48k52xre7b1v" path="res://assets/scene/props/51.png" id="12_c6im2"]
 [ext_resource type="Texture2D" uid="uid://bglmxis5q06ap" path="res://assets/scene/props/25.png" id="14_unm37"]
+[ext_resource type="Texture2D" uid="uid://dvonh8eiim4ue" path="res://assets/environment/buildings/jianzhu_huodui.png" id="15_4c6pn"]
 [ext_resource type="Texture2D" uid="uid://cy5xon1vco1wy" path="res://assets/scene/props/27.png" id="15_icouy"]
 [ext_resource type="Texture2D" uid="uid://ct22dklmeavkk" path="res://assets/scene/props/32.png" id="16_icouy"]
+[ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="16_pk3id"]
+[ext_resource type="Texture2D" uid="uid://cp02uhpt5pmui" path="res://assets/environment/collectable/dikuai_huacong.png" id="17_sroqg"]
+[ext_resource type="Texture2D" uid="uid://b5v0o0s8y0323" path="res://assets/environment/collectable/dikuai_mogu.png" id="18_aby25"]
+[ext_resource type="Texture2D" uid="uid://cfyqgk3t3llxe" path="res://assets/scene/props/40.png" id="19_ma1u5"]
+[ext_resource type="Texture2D" uid="uid://by0ny5qvjtwi1" path="res://assets/scene/props/20.png" id="20_5cfeg"]
+[ext_resource type="Texture2D" uid="uid://bok8aybc6r48j" path="res://assets/scene/props/16.png" id="21_udc8y"]
+[ext_resource type="Texture2D" uid="uid://cpj4vfm60pbqo" path="res://assets/scene/props/41.png" id="22_p2ggh"]
+[ext_resource type="Texture2D" uid="uid://db2vv2h45oypq" path="res://assets/scene/props/17.png" id="23_1645h"]
+[ext_resource type="Texture2D" uid="uid://b8ah42xxb7fmj" path="res://assets/scene/props/15.png" id="24_0vxg2"]
+[ext_resource type="Texture2D" uid="uid://ln0cruyoqacd" path="res://assets/scene/props/13.png" id="25_ftpfg"]
+[ext_resource type="Texture2D" uid="uid://cbb1kri4t4d83" path="res://assets/scene/props/33.png" id="26_8wtck"]
+[ext_resource type="Texture2D" uid="uid://bdwclb84hk1jc" path="res://assets/scene/props/14.png" id="27_3gh6h"]
+[ext_resource type="Texture2D" uid="uid://dpc2gmv5r7c5s" path="res://assets/scene/props/11.png" id="28_si78j"]
+[ext_resource type="Texture2D" uid="uid://bym7v6lak0ix7" path="res://assets/environment/scenery/zhuangshi_lupai.png" id="29_hl0db"]
+[ext_resource type="Texture2D" uid="uid://df7xbpvt7lnwe" path="res://assets/environment/scenery/zhuangshi_hua03.png" id="30_yq8gr"]
+[ext_resource type="Texture2D" uid="uid://ba32cng3qepqm" path="res://assets/environment/scenery/zhuangshi_hua01.png" id="31_4pxh6"]
+[ext_resource type="Texture2D" uid="uid://dorvrpehncb5j" path="res://assets/environment/scenery/zhuangshi_hua02.png" id="32_1muox"]
 
 [node name="BackgroundScene" type="Node2D" unique_id=665967244]
 y_sort_enabled = true
 
 [node name="Beijing" type="Sprite2D" parent="." unique_id=1776307945]
 z_index = -1
+position = Vector2(-1695.9999, -1056)
+scale = Vector2(1.5080501, 1.5080501)
 texture = ExtResource("1_3djyj")
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=774911797]
@@ -29,6 +48,7 @@ texture = ExtResource("2_3mpil")
 
 [node name="Road" type="Sprite2D" parent="." unique_id=1346459203]
 z_index = -1
+position = Vector2(320, 128)
 texture = ExtResource("3_myj6h")
 
 [node name="1" type="Sprite2D" parent="." unique_id=132783694]
@@ -69,7 +89,7 @@ offset = Vector2(0, -57.5)
 [node name="35" type="Sprite2D" parent="." unique_id=699321521]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(3047, 4192)
+position = Vector2(4268, 4059)
 texture = ExtResource("9_c6im2")
 offset = Vector2(0, -1450)
 
@@ -83,16 +103,9 @@ offset = Vector2(0, -1290.5)
 [node name="39" type="Sprite2D" parent="." unique_id=304432584]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-3547, 883)
+position = Vector2(-3825, 997)
 texture = ExtResource("11_cmb1m")
 offset = Vector2(0, -1466)
-
-[node name="51" type="Sprite2D" parent="." unique_id=942672788]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-102, 6109)
-texture = ExtResource("12_c6im2")
-offset = Vector2(0, -1925)
 
 [node name="25" type="Sprite2D" parent="." unique_id=548074552]
 y_sort_enabled = true
@@ -110,3 +123,94 @@ offset = Vector2(89.1, -610.485)
 y_sort_enabled = true
 position = Vector2(-683, 814)
 texture = ExtResource("16_icouy")
+
+[node name="JianzhuHuodui" type="Sprite2D" parent="." unique_id=1951931246]
+z_index = 1
+position = Vector2(1271, -233)
+texture = ExtResource("15_4c6pn")
+
+[node name="6人比" type="Sprite2D" parent="." unique_id=2110198301]
+position = Vector2(2632, 806)
+texture = ExtResource("16_pk3id")
+
+[node name="DikuaiHuacong" type="Sprite2D" parent="." unique_id=1371273515]
+position = Vector2(-2654, -1200)
+texture = ExtResource("17_sroqg")
+
+[node name="DikuaiMogu" type="Sprite2D" parent="." unique_id=1452217079]
+position = Vector2(-2223, -1137)
+texture = ExtResource("18_aby25")
+
+[node name="40" type="Sprite2D" parent="." unique_id=1757620756]
+position = Vector2(3492, 606)
+texture = ExtResource("19_ma1u5")
+
+[node name="20" type="Sprite2D" parent="." unique_id=760951056]
+position = Vector2(3438, 1012)
+texture = ExtResource("20_5cfeg")
+
+[node name="16" type="Sprite2D" parent="." unique_id=1434585315]
+position = Vector2(3671, 1007)
+texture = ExtResource("21_udc8y")
+
+[node name="41" type="Sprite2D" parent="." unique_id=2016974259]
+position = Vector2(3138, 598)
+texture = ExtResource("22_p2ggh")
+
+[node name="17" type="Sprite2D" parent="." unique_id=1300760216]
+position = Vector2(3292, 65)
+texture = ExtResource("23_1645h")
+
+[node name="18" type="Sprite2D" parent="." unique_id=51603570]
+position = Vector2(3573.9998, 207)
+scale = Vector2(0.71997327, 0.71997327)
+texture = ExtResource("23_1645h")
+
+[node name="19" type="Sprite2D" parent="." unique_id=565619758]
+position = Vector2(4010, 653)
+scale = Vector2(0.7219321, 0.7219321)
+texture = ExtResource("23_1645h")
+
+[node name="15" type="Sprite2D" parent="." unique_id=1761272262]
+position = Vector2(2903, 501)
+texture = ExtResource("24_0vxg2")
+
+[node name="13" type="Sprite2D" parent="." unique_id=1827177016]
+position = Vector2(3198, 1491)
+texture = ExtResource("25_ftpfg")
+
+[node name="33" type="Sprite2D" parent="." unique_id=1885306604]
+position = Vector2(3399, 772)
+texture = ExtResource("26_8wtck")
+
+[node name="26" type="Sprite2D" parent="." unique_id=1188380726]
+position = Vector2(3767, 1169)
+texture = ExtResource("14_unm37")
+
+[node name="14" type="Sprite2D" parent="." unique_id=1018072474]
+position = Vector2(3894, 1059)
+texture = ExtResource("27_3gh6h")
+
+[node name="11" type="Sprite2D" parent="." unique_id=1162010499]
+position = Vector2(2737, 1765)
+texture = ExtResource("28_si78j")
+
+[node name="ZhuangshiLupai" type="Sprite2D" parent="." unique_id=282176297]
+position = Vector2(2087, 433)
+texture = ExtResource("29_hl0db")
+
+[node name="ZhuangshiHua03" type="Sprite2D" parent="." unique_id=1533582287]
+position = Vector2(2941, 1664)
+texture = ExtResource("30_yq8gr")
+
+[node name="JianzhuHuodui2" type="Sprite2D" parent="." unique_id=1812935508]
+position = Vector2(2469, 931)
+texture = ExtResource("15_4c6pn")
+
+[node name="ZhuangshiHua01" type="Sprite2D" parent="." unique_id=1105519432]
+position = Vector2(2136, 597)
+texture = ExtResource("31_4pxh6")
+
+[node name="ZhuangshiHua02" type="Sprite2D" parent="." unique_id=954348891]
+position = Vector2(2680, 1583)
+texture = ExtResource("32_1muox")

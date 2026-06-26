@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyub816sx411p"
-path="res://.godot/imported/zhuangshi_mogu.png-155a6bda94d18cad6c33d5669bd8cbf0.ctex"
+uid="uid://dvonh8eiim4ue"
+path="res://.godot/imported/jianzhu_huodui.png-a002e07d1536e8c046ea3f66bff95c0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/装饰/zhuangshi_mogu.png"
-dest_files=["res://.godot/imported/zhuangshi_mogu.png-155a6bda94d18cad6c33d5669bd8cbf0.ctex"]
+source_file="res://assets/environment/buildings/jianzhu_huodui.png"
+dest_files=["res://.godot/imported/jianzhu_huodui.png-a002e07d1536e8c046ea3f66bff95c0c.ctex"]
 
 [params]
 
