@@ -1,0 +1,26 @@
+{
+  "0": {
+	"display_name": "空",
+	"scene": "",
+	"texture": "",
+	"has_collision": false
+  },
+  "1": {
+	"display_name": "草地",
+	"scene": "res://scenes/env/tile_base.tscn",
+	"texture": "res://assets/test/Tile01.png",
+	"has_collision": true
+  },
+  "2": {
+	"display_name": "泥土",
+	"scene": "res://scenes/env/tile_base.tscn",
+	"texture": "res://assets/test/Tile02.png",
+	"has_collision": true
+  },
+  "3": {
+	"display_name": "水",
+	"scene": "res://scenes/env/tile_base.tscn",
+	"texture": "",
+	"has_collision": false
+  }
+}

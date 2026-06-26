@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dyfa37jwoiwu2"]
+
+[ext_resource type="Texture2D" uid="uid://b2wbgvc7me8fg" path="res://assets/test/NightBackground.png" id="1_lcubo"]
+
+[node name="NightBackgroundScne" type="Node2D" unique_id=518491627]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642413381]
+position = Vector2(960, 540)
+texture = ExtResource("1_lcubo")

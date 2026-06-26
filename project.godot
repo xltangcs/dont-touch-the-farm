@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BlockConfigManager="*res://scripts/block_config_manager.gd"
 InventoryManager="*res://scripts/inventory_manager.gd"
 BuildingConfigManager="*res://scripts/building_config_manager.gd"
+TileMapConfigManager="*res://scripts/tilemap_config_manager.gd"
 
 [display]
 
