@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 
 var _is_mining: bool = false
+var _input_enabled: bool = true
 
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -23,8 +24,14 @@ func _is_in_dialogue() -> bool:
 	return _dialogue_ui != null and _dialogue_ui.visible
 
 
+func set_input_enabled(enabled: bool) -> void:
+	_input_enabled = enabled
+	if not _input_enabled:
+		velocity = Vector2.ZERO
+
+
 func _physics_process(_delta: float) -> void:
-	if _is_mining or _is_in_dialogue():
+	if not _input_enabled or _is_mining or _is_in_dialogue():
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return

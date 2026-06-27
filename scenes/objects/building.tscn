@@ -2,47 +2,49 @@
 
 [ext_resource type="Script" uid="uid://bklaw3cpky4q6" path="res://scenes/objects/building.gd" id="1_kxxft"]
 [ext_resource type="Texture2D" uid="uid://beklcwyudfslq" path="res://assets/game/objects/basic_grass_biom_things.png" id="2_kxxft"]
-[ext_resource type="PackedScene" uid="uid://3gmbdqpkdwas" path="res://scenes/components/DroppedComponent.tscn" id="3_40pna"]
 [ext_resource type="PackedScene" uid="uid://tlpshe855ebx" path="res://scenes/ui/interact_panel.tscn" id="4_skyw0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxxft"]
 atlas = ExtResource("2_kxxft")
 region = Rect2(16, 0, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ditdd"]
-size = Vector2(6, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_physics"]
+size = Vector2(36, 26)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kxxft"]
-radius = 18.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_interact"]
+radius = 48.0
 
-[node name="Building" type="Area2D" unique_id=285844004]
+[node name="Building" type="Node2D" unique_id=111209587]
 y_sort_enabled = true
-position = Vector2(0, -5)
-collision_layer = 2
 script = ExtResource("1_kxxft")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123444297]
+scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_kxxft")
 offset = Vector2(0, -6.915)
 
-[node name="InteractPanel" parent="." unique_id=1492406399 instance=ExtResource("4_skyw0")]
-visible = false
-offset_left = -34.0
-offset_top = -71.0
-offset_right = 34.0
-offset_bottom = -26.0
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=885033482]
+collision_layer = 2
 
-[node name="BuildingCollisionShape2D" type="CollisionShape2D" parent="." unique_id=885033482]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_ditdd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=885033483]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_physics")
 
-[node name="DroppedComponent" parent="." unique_id=392418401 instance=ExtResource("3_40pna")]
-position = Vector2(0, -7)
+[node name="InteractArea" type="Area2D" parent="." unique_id=392418401]
+collision_layer = 8
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppedComponent" unique_id=1180167432]
-position = Vector2(0, 13)
-shape = SubResource("CircleShape2D_kxxft")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1180167432]
+position = Vector2(0, 30)
+shape = SubResource("CircleShape2D_interact")
 debug_color = Color(0.9067415, 0.120491184, 0.68099046, 0.41960785)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="InteractPanel" parent="." unique_id=1492406399 instance=ExtResource("4_skyw0")]
+visible = false
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = -30.0
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_body_exited"]

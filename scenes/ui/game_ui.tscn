@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jwtwhse2qhod" path="res://scenes/ui/force_mine_panel.tscn" id="1_gwk6t"]
 [ext_resource type="PackedScene" uid="uid://cbk0hsxjpqrlu" path="res://scenes/ui/bag_ui.tscn" id="2_bag_ui"]
 [ext_resource type="PackedScene" uid="uid://bomfr73abwl8s" path="res://scenes/ui/dialogue_ui.tscn" id="3_dialogue_ui"]
+[ext_resource type="PackedScene" uid="uid://bve24xqdmcgdf" path="res://scenes/ui/building_production_panel.tscn" id="3_v1bdg"]
 [ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="5_ru5ln"]
 
 [node name="GameScreen" type="CanvasLayer" unique_id=811351460]
@@ -21,10 +22,12 @@ mouse_filter = 2
 visible = false
 layout_mode = 2
 
+[node name="BuildingProductionPanel" parent="CenterContainer" unique_id=600835497 instance=ExtResource("3_v1bdg")]
+visible = false
+layout_mode = 2
+
 [node name="BagUi" parent="." unique_id=362606343 instance=ExtResource("2_bag_ui")]
 
 [node name="DialogueUi" parent="." unique_id=1122334455 instance=ExtResource("3_dialogue_ui")]
 visible = false
-text_speed = 0.03
-auto_advance_delay = 0.0
 player_portrait = ExtResource("5_ru5ln")

@@ -16,6 +16,8 @@ size = Vector2(196, 105)
 radius = 115.01739
 
 [node name="Block" type="Area2D" unique_id=285844004]
+collision_layer = 8
+collision_mask = 4
 y_sort_enabled = true
 script = ExtResource("1_mahf3")
 

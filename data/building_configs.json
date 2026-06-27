@@ -4,6 +4,18 @@
 	"building_texture": "res://assets/game/objects/basic_grass_biom_things.png",
 	"building_region": [16, 0, 32, 32],
 	"action_text": "upgrade",
-	"button_variation": "BuildingBuildButton"
+	"button_variation": "BuildingBuildButton",
+	"recipes": [
+	  {
+		"output_id": "egg_item",
+		"output_amount": 1,
+		"display_name": "胃",
+		"description": "需要石头 x3",
+		"product_texture": "res://assets/game/objects/egg_item.png",
+		"inputs": [
+		  { "item_id": "stone", "amount": 3 }
+		]
+	  }
+	]
   }
 }

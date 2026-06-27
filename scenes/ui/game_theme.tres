@@ -38,6 +38,22 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_hover"]
+texture = SubResource("AtlasTexture_dqqhs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+modulate_color = Color(1.15, 1.15, 1.15, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_pressed"]
+texture = SubResource("AtlasTexture_dqqhs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.85, 0.85, 0.85, 1)
+
 [resource]
 BlockMarginContainer/base_type = &"MarginContainer"
 BlockMarginContainer/constants/margin_bottom = 10
@@ -45,10 +61,15 @@ BlockMarginContainer/constants/margin_left = 10
 BlockMarginContainer/constants/margin_right = 10
 BlockMarginContainer/constants/margin_top = 10
 BlockMineButton/base_type = &"Button"
+BlockMineButton/styles/hover = SubResource("StyleBoxTexture_build_hover")
 BlockMineButton/styles/normal = SubResource("StyleBoxTexture_4uc8o")
+BlockMineButton/styles/pressed = SubResource("StyleBoxTexture_build_pressed")
 BlockPanelContainer/base_type = &"PanelContainer"
 BlockPanelContainer/styles/panel = SubResource("StyleBoxTexture_yo8eg")
 BlockRestrictedMineButton/base_type = &"Button"
 BlockRestrictedMineButton/colors/font_color = Color(1, 0, 0, 1)
 BlockRestrictedMineButton/styles/normal = SubResource("StyleBoxTexture_6q0ak")
 BuildingBuildButton/base_type = &"BlockMineButton"
+BuildingBuildButton/styles/hover = SubResource("StyleBoxTexture_build_hover")
+BuildingBuildButton/styles/normal = SubResource("StyleBoxTexture_4uc8o")
+BuildingBuildButton/styles/pressed = SubResource("StyleBoxTexture_build_pressed")

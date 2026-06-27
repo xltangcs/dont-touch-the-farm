@@ -66,6 +66,54 @@ func get_slot(index: int) -> InventorySlot:
 	return inventory.inventory_slots[index]
 
 
+func get_item_count(item_id: String) -> int:
+	var total := 0
+	for slot in inventory.inventory_slots:
+		if slot == null or slot.item == null:
+			continue
+		if _slot_matches_item_id(slot, item_id):
+			total += slot.item_count
+	return total
+
+
+func remove_item(item_id: String, amount: int) -> bool:
+	if amount <= 0:
+		return true
+
+	var item_data := _get_item_data(item_id)
+	if item_data == null:
+		push_warning("ItemData not found for item_id: %s" % item_id)
+		return false
+
+	if get_item_count(item_id) < amount:
+		return false
+
+	var remaining := amount
+	for slot in inventory.inventory_slots:
+		if remaining <= 0:
+			break
+		if slot == null or slot.item == null:
+			continue
+		if not _slot_matches_item_id(slot, item_id):
+			continue
+
+		var removed := mini(remaining, slot.item_count)
+		slot.item_count -= removed
+		remaining -= removed
+		if slot.item_count <= 0:
+			slot.item = null
+
+	inventory_changed.emit()
+	return remaining == 0
+
+
+func _slot_matches_item_id(slot: InventorySlot, item_id: String) -> bool:
+	var item_data := _get_item_data(item_id)
+	if item_data == null or slot.item == null:
+		return false
+	return slot.item == item_data
+
+
 func _get_item_data(item_id: String) -> ItemData:
 	if not ResourceLoader.exists("res://scenes/items/%s.tres" % item_id):
 		return null

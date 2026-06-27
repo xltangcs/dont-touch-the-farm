@@ -2,6 +2,8 @@ extends Area2D
 
 signal collected(collected_item_id: String, collected_amount: int, collector: Node2D)
 
+const PLAYER_LAYER := 4
+
 @export var item_id: String = ""
 @export var amount: int = 1
 
@@ -9,6 +11,7 @@ var _can_collect: bool = false
 
 
 func _ready() -> void:
+	collision_mask = PLAYER_LAYER
 	monitoring = false
 	body_entered.connect(_on_body_entered)
 
@@ -21,6 +24,13 @@ func set_item(new_item_id: String, new_amount: int) -> void:
 func set_collectable(enabled: bool) -> void:
 	_can_collect = enabled
 	monitoring = enabled
+	if enabled:
+		_try_collect_overlapping_bodies()
+
+
+func _try_collect_overlapping_bodies() -> void:
+	for body in get_overlapping_bodies():
+		_on_body_entered(body)
 
 
 func _on_body_entered(body: Node2D) -> void:

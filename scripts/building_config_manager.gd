@@ -1,6 +1,8 @@
 extends Node
 
 const BuildingConfigData = preload("res://scripts/building_config_data.gd")
+const BuildingRecipeData = preload("res://scripts/building_recipe_data.gd")
+const BuildingRecipeInputData = preload("res://scripts/building_recipe_input_data.gd")
 const CONFIG_PATH := "res://data/building_configs.json"
 
 var _configs: Dictionary = {}
@@ -61,7 +63,56 @@ func _parse_config(id: String, data: Dictionary) -> BuildingConfigData:
 	)
 	config.action_text = str(data.get("action_text", "upgrade"))
 	config.button_variation = StringName(str(data.get("button_variation", "BuildingBuildButton")))
+	config.recipes = _parse_recipes(data.get("recipes", []))
 	return config
+
+
+func _parse_recipes(recipes_data: Variant) -> Array:
+	var recipes: Array = []
+
+	if typeof(recipes_data) != TYPE_ARRAY:
+		return recipes
+
+	for entry in recipes_data:
+		if typeof(entry) != TYPE_DICTIONARY:
+			push_warning("Skipping invalid building recipe entry.")
+			continue
+		recipes.append(_parse_recipe(entry))
+
+	return recipes
+
+
+func _parse_recipe(data: Dictionary) -> BuildingRecipeData:
+	var recipe := BuildingRecipeData.new()
+	recipe.output_id = str(data.get("output_id", ""))
+	recipe.output_amount = int(data.get("output_amount", 1))
+	recipe.display_name = str(data.get("display_name", recipe.output_id))
+	recipe.description = str(data.get("description", ""))
+	recipe.product_texture = _make_texture(
+		str(data.get("product_texture", "")),
+		data.get("product_region", null)
+	)
+	recipe.inputs = _parse_recipe_inputs(data.get("inputs", []))
+	return recipe
+
+
+func _parse_recipe_inputs(inputs_data: Variant) -> Array:
+	var inputs: Array = []
+
+	if typeof(inputs_data) != TYPE_ARRAY:
+		return inputs
+
+	for entry in inputs_data:
+		if typeof(entry) != TYPE_DICTIONARY:
+			push_warning("Skipping invalid recipe input entry.")
+			continue
+
+		var input := BuildingRecipeInputData.new()
+		input.item_id = str(entry.get("item_id", ""))
+		input.amount = int(entry.get("amount", 1))
+		inputs.append(input)
+
+	return inputs
 
 
 func _make_texture(path: String, region_data: Variant) -> Texture2D:

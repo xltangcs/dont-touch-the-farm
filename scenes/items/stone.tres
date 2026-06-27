@@ -9,6 +9,7 @@ region = Rect2(0, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_recqb")
+item_id = "stone"
 name = "石头"
 texture = SubResource("AtlasTexture_8x08u")
 description = "这是石头！"

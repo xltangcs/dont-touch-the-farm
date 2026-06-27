@@ -10,6 +10,7 @@ signal action_pressed
 
 func _ready() -> void:
 	visible = false
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	_action_button.pressed.connect(_on_action_button_pressed)
 
 
@@ -28,6 +29,7 @@ func setup(interact: InteractConfigData) -> void:
 
 func show_panel() -> void:
 	visible = true
+	move_to_front()
 
 
 func hide_panel() -> void:

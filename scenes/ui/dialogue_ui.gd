@@ -28,6 +28,7 @@ var _is_typing: bool = false
 func _ready() -> void:
 	visible = false
 	_panel.modulate.a = 0.0
+	_sync_mouse_filter()
 
 
 func show_dialogue(node: DialogueNode, choices: Array[DialogueChoice] = []) -> void:
@@ -49,6 +50,7 @@ func show_dialogue(node: DialogueNode, choices: Array[DialogueChoice] = []) -> v
 			tween.tween_property(_panel, "modulate:a", 1.0, 0.25)
 			await tween.finished
 		is_active = true
+		_sync_mouse_filter()
 	else:
 		# In-session update: just refresh content
 		_clear_choice_buttons()
@@ -157,6 +159,7 @@ func hide_dialogue() -> void:
 	visible = false
 	is_active = false
 	_current_choices.clear()
+	_sync_mouse_filter()
 	dialogue_ended.emit()
 
 
@@ -170,7 +173,12 @@ func force_hide() -> void:
 	is_active = false
 	_current_choices.clear()
 	_text_label.text = ""
+	_sync_mouse_filter()
 	dialogue_ended.emit()
+
+
+func _sync_mouse_filter() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP if visible and is_active else Control.MOUSE_FILTER_IGNORE
 
 
 func _apply_player_portrait() -> void:
