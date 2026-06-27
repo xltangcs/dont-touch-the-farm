@@ -40,11 +40,10 @@ shape = SubResource("CircleShape2D_interact")
 debug_color = Color(0.9067415, 0.120491184, 0.68099046, 0.41960785)
 
 [node name="InteractPanel" parent="." unique_id=1492406399 instance=ExtResource("4_skyw0")]
-visible = false
-offset_left = -100.0
-offset_top = -150.0
-offset_right = 100.0
-offset_bottom = -30.0
+offset_left = -259.0
+offset_top = -243.0
+offset_right = -59.0
+offset_bottom = -117.0
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_body_exited"]

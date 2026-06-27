@@ -16,9 +16,9 @@ size = Vector2(196, 105)
 radius = 115.01739
 
 [node name="Block" type="Area2D" unique_id=285844004]
+y_sort_enabled = true
 collision_layer = 8
 collision_mask = 4
-y_sort_enabled = true
 script = ExtResource("1_mahf3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123444297]
@@ -36,6 +36,7 @@ shape = SubResource("CircleShape2D_drop")
 debug_color = Color(0.8584526, 0.30224586, 0.52979934, 0.41960785)
 
 [node name="InteractPanel" parent="." unique_id=1492406399 instance=ExtResource("4_b5vfb")]
+visible = false
 offset_left = -271.0
 offset_top = -310.0
 offset_right = -29.0
