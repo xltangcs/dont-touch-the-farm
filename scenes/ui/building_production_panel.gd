@@ -11,11 +11,11 @@ signal closed
 @onready var _product_icon: TextureRect = $MarginContainer/VBoxContainer/HBoxContainer/ProductBox/ProductIcon
 @onready var _description_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/ProductBox/DescriptionLabel
 @onready var _input_slots_container: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/InputSlots
+@onready var _fill_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/FillButton
 @onready var _produce_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/ProduceButton
 @onready var _close_button: Button = $MarginContainer/VBoxContainer/CloseButtonRow/CloseButton
 
 var _building_config: BuildingConfigData
-var _recipe_index: int = 0
 var _input_buffer: Array = []
 var _craft_slots: Array = []
 var _inventory_manager: Node
@@ -26,6 +26,7 @@ func _ready() -> void:
 	visible = false
 	_inventory_manager = get_node("/root/InventoryManager")
 	_close_button.pressed.connect(close)
+	_fill_button.pressed.connect(_on_fill_pressed)
 	_produce_button.pressed.connect(_on_produce_pressed)
 	_produce_button.disabled = true
 	_input_buffer.resize(3)
@@ -41,14 +42,13 @@ func open(building_id: String) -> bool:
 	if _building_config == null:
 		push_warning("BuildingProductionPanel: config not found: %s" % building_id)
 		return false
-	if _building_config.get_recipe_count() == 0:
-		push_warning("BuildingProductionPanel: no recipes for: %s" % building_id)
+	if not _building_config.has_recipe():
+		push_warning("BuildingProductionPanel: no recipe for: %s" % building_id)
 		return false
 
 	_cache_player()
-	_recipe_index = 0
 	_clear_input_buffer()
-	_show_recipe(_recipe_index)
+	_show_recipe()
 	_set_player_input_enabled(false)
 	visible = true
 	return true
@@ -83,8 +83,8 @@ func _init_craft_slots() -> void:
 		_craft_slots.append(slot)
 
 
-func _show_recipe(index: int) -> void:
-	var recipe := _building_config.get_recipe(index)
+func _show_recipe() -> void:
+	var recipe := _building_config.get_recipe()
 	if recipe == null:
 		return
 
@@ -170,13 +170,15 @@ func _get_buffer_totals() -> Dictionary:
 
 
 func _can_produce() -> bool:
-	var recipe := _building_config.get_recipe(_recipe_index)
+	var recipe := _building_config.get_recipe()
 	if recipe == null:
 		return false
 
+	var totals := _get_buffer_totals()
 	for input in recipe.inputs:
 		if input is BuildingRecipeInputData:
-			if _get_buffer_totals().get(input.item_id, 0) < input.amount:
+			var recipe_input := input as BuildingRecipeInputData
+			if int(totals.get(recipe_input.item_id, 0)) < recipe_input.amount:
 				return false
 	return true
 
@@ -185,11 +187,39 @@ func _refresh_produce_button() -> void:
 	_produce_button.disabled = not _can_produce()
 
 
+func _on_fill_pressed() -> void:
+	var recipe := _building_config.get_recipe()
+	if recipe == null:
+		return
+
+	var totals := _get_buffer_totals()
+	for input in recipe.inputs:
+		if not input is BuildingRecipeInputData:
+			continue
+
+		var recipe_input := input as BuildingRecipeInputData
+		var current_amount := int(totals.get(recipe_input.item_id, 0))
+		var missing_amount := recipe_input.amount - current_amount
+		if missing_amount <= 0:
+			continue
+
+		var available_amount: int = _inventory_manager.get_item_count(recipe_input.item_id)
+		var fill_amount: int = mini(missing_amount, available_amount)
+		if fill_amount <= 0:
+			continue
+
+		if try_take_from_inventory(recipe_input.item_id, fill_amount):
+			totals[recipe_input.item_id] = current_amount + fill_amount
+
+	_refresh_all_slot_displays()
+	_refresh_produce_button()
+
+
 func _on_produce_pressed() -> void:
 	if not _can_produce():
 		return
 
-	var recipe := _building_config.get_recipe(_recipe_index)
+	var recipe := _building_config.get_recipe()
 	if recipe == null:
 		return
 

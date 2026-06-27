@@ -36,8 +36,14 @@ func _connect_game_ui() -> void:
 	var game_ui := _get_game_ui()
 	if game_ui == null:
 		return
+	if not game_ui.building_production_opened.is_connected(_on_production_panel_opened):
+		game_ui.building_production_opened.connect(_on_production_panel_opened)
 	if not game_ui.building_production_closed.is_connected(_on_production_panel_closed):
 		game_ui.building_production_closed.connect(_on_production_panel_closed)
+
+
+func _on_production_panel_opened() -> void:
+	_hide_interact_panel()
 
 
 func _on_production_panel_closed() -> void:

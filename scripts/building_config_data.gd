@@ -8,17 +8,15 @@ var display_name: String = ""
 var building_texture: Texture2D
 var action_text: String = "upgrade"
 var button_variation: StringName = &"BuildingBuildButton"
-var recipes: Array = []
+var recipe: BuildingRecipeData
 
 
-func get_recipe_count() -> int:
-	return recipes.size()
+func has_recipe() -> bool:
+	return recipe != null
 
 
-func get_recipe(index: int) -> BuildingRecipeData:
-	if index < 0 or index >= recipes.size():
-		return null
-	return recipes[index]
+func get_recipe() -> BuildingRecipeData:
+	return recipe
 
 
 func get_interact_config() -> InteractConfigData:

@@ -6,12 +6,28 @@
 atlas = ExtResource("1_v351s")
 region = Rect2(11, 155, 26, 28)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_hover"]
+texture = SubResource("AtlasTexture_dqqhs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+modulate_color = Color(1.15, 1.15, 1.15, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4uc8o"]
 texture = SubResource("AtlasTexture_dqqhs")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_pressed"]
+texture = SubResource("AtlasTexture_dqqhs")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.85, 0.85, 0.85, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uc8o"]
 atlas = ExtResource("1_v351s")
@@ -37,22 +53,6 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_hover"]
-texture = SubResource("AtlasTexture_dqqhs")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 6.0
-modulate_color = Color(1.15, 1.15, 1.15, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_build_pressed"]
-texture = SubResource("AtlasTexture_dqqhs")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 6.0
-modulate_color = Color(0.85, 0.85, 0.85, 1)
 
 [resource]
 BlockMarginContainer/base_type = &"MarginContainer"

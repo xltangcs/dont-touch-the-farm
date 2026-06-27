@@ -5,17 +5,33 @@
 	"building_region": [16, 0, 32, 32],
 	"action_text": "upgrade",
 	"button_variation": "BuildingBuildButton",
-	"recipes": [
-	  {
-		"output_id": "egg_item",
-		"output_amount": 1,
-		"display_name": "胃",
-		"description": "需要石头 x3",
-		"product_texture": "res://assets/game/objects/egg_item.png",
-		"inputs": [
-		  { "item_id": "stone", "amount": 3 }
-		]
-	  }
-	]
+	"recipe": {
+	  "output_id": "egg_item",
+	  "output_amount": 1,
+	  "display_name": "胃",
+	  "description": "需要石头 x3",
+	  "product_texture": "res://assets/game/objects/egg_item.png",
+	  "inputs": [
+		{ "item_id": "stone", "amount": 3 }
+	  ]
+	}
+  },
+  "wood_shrine": {
+	"display_name": "Wood Shrine",
+	"building_texture": "res://assets/game/objects/basic_grass_biom_things.png",
+	"building_region": [48, 0, 32, 32],
+	"action_text": "upgrade",
+	"button_variation": "BuildingBuildButton",
+	"recipe": {
+	  "output_id": "wood",
+	  "output_amount": 1,
+	  "display_name": "木头",
+	  "description": "需要石头 x1",
+	  "product_texture": "res://assets/game/objects/basic_tools_and_meterials_1.png",
+	  "product_region": [32, 16, 16, 16],
+	  "inputs": [
+		{ "item_id": "stone", "amount": 1 }
+	  ]
+	}
   }
 }

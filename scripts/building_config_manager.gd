@@ -63,23 +63,15 @@ func _parse_config(id: String, data: Dictionary) -> BuildingConfigData:
 	)
 	config.action_text = str(data.get("action_text", "upgrade"))
 	config.button_variation = StringName(str(data.get("button_variation", "BuildingBuildButton")))
-	config.recipes = _parse_recipes(data.get("recipes", []))
+	config.recipe = _parse_recipe_data(data.get("recipe", null))
 	return config
 
 
-func _parse_recipes(recipes_data: Variant) -> Array:
-	var recipes: Array = []
-
-	if typeof(recipes_data) != TYPE_ARRAY:
-		return recipes
-
-	for entry in recipes_data:
-		if typeof(entry) != TYPE_DICTIONARY:
-			push_warning("Skipping invalid building recipe entry.")
-			continue
-		recipes.append(_parse_recipe(entry))
-
-	return recipes
+func _parse_recipe_data(recipe_data: Variant) -> BuildingRecipeData:
+	if typeof(recipe_data) != TYPE_DICTIONARY:
+		push_warning("Skipping invalid building recipe.")
+		return null
+	return _parse_recipe(recipe_data)
 
 
 func _parse_recipe(data: Dictionary) -> BuildingRecipeData:

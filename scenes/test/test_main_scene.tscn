@@ -22,8 +22,12 @@ position = Vector2(145, 121)
 position = Vector2(145, 178)
 config_id = "restricted_stone_block"
 
-[node name="Building" parent="." unique_id=111209587 instance=ExtResource("5_a7myx")]
+[node name="EggBuilding" parent="." unique_id=111209587 instance=ExtResource("5_a7myx")]
 position = Vector2(448, 118)
+
+[node name="WoodBuilding" parent="." unique_id=111209588 instance=ExtResource("5_a7myx")]
+position = Vector2(448, 290)
+config_id = "wood_shrine"
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("3_mlab3")]
 position = Vector2(240, 135)

@@ -10,6 +10,7 @@ region = Rect2(32, 16, 16, 16)
 [resource]
 script = ExtResource("1_h8bct")
 id = 1
+item_id = "wood"
 name = "木头"
 texture = SubResource("AtlasTexture_yni3e")
 description = "这是木头鸭"

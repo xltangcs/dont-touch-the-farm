@@ -81,7 +81,17 @@ layout_mode = 2
 [node name="CraftSlotControl3" parent="MarginContainer/VBoxContainer/HBoxContainer/CraftBox/InputSlots" unique_id=952768441 instance=ExtResource("1_idjmf")]
 layout_mode = 2
 
-[node name="ProduceButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CraftBox" unique_id=1370639141]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CraftBox" unique_id=1316832559]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FillButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CraftBox/HBoxContainer" unique_id=1203456793]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"BuildingBuildButton"
+text = "一键填充"
+
+[node name="ProduceButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CraftBox/HBoxContainer" unique_id=1370639141]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8

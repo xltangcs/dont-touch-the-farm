@@ -2,6 +2,7 @@ class_name GameUi
 extends CanvasLayer
 
 signal building_production_closed
+signal building_production_opened
 
 @onready var _force_mine_panel: ForceMinePanel = $CenterContainer/ForceMinePanel
 @onready var _building_production_panel: BuildingProductionPanel = $CenterContainer/BuildingProductionPanel
@@ -23,7 +24,10 @@ func request_force_mine_confirmation(
 
 
 func open_building_production(building_id: String) -> bool:
-	return _building_production_panel.open(building_id)
+	var opened := _building_production_panel.open(building_id)
+	if opened:
+		building_production_opened.emit()
+	return opened
 
 
 func close_building_production() -> void:
