@@ -11,8 +11,8 @@ signal closed
 @onready var _product_icon: TextureRect = $MarginContainer/VBoxContainer/HBoxContainer/ProductBox/ProductIcon
 @onready var _description_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/ProductBox/DescriptionLabel
 @onready var _input_slots_container: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/InputSlots
-@onready var _fill_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/FillButton
-@onready var _produce_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/ProduceButton
+@onready var _fill_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/HBoxContainer/FillButton
+@onready var _produce_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/CraftBox/HBoxContainer/ProduceButton
 @onready var _close_button: Button = $MarginContainer/VBoxContainer/CloseButtonRow/CloseButton
 
 var _building_config: BuildingConfigData

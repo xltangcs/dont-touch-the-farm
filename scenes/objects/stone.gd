@@ -7,13 +7,30 @@ extends Node2D
 @export var pop_down_duration: float = 0.16
 @export var collect_delay: float = 0.1
 
+@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _collectable_component: Area2D = $CollectableComponent
 
 
 func _ready() -> void:
 	add_to_group("dropped_item")
+	_apply_item_visual()
 	if _collectable_component.has_method("set_item"):
 		_collectable_component.set_item(item_id, amount)
+
+
+func _apply_item_visual() -> void:
+	var item_data := _load_item_data(item_id)
+	if item_data == null or item_data.texture == null:
+		push_warning("Dropped item visual not found for: %s" % item_id)
+		return
+	_sprite.texture = item_data.texture
+
+
+func _load_item_data(id: String) -> ItemData:
+	var path := "res://scenes/items/%s.tres" % id
+	if not ResourceLoader.exists(path):
+		return null
+	return load(path) as ItemData
 
 
 func pop_to(target_position: Vector2) -> void:

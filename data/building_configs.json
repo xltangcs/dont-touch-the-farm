@@ -9,10 +9,11 @@
 	  "output_id": "egg_item",
 	  "output_amount": 1,
 	  "display_name": "胃",
-	  "description": "需要石头 x3",
+	  "description": "需要石头 x3, 木头 x1",
 	  "product_texture": "res://assets/game/objects/egg_item.png",
 	  "inputs": [
-		{ "item_id": "stone", "amount": 3 }
+		{ "item_id": "stone", "amount": 3 },
+		{ "item_id": "wood", "amount": 1 }
 	  ]
 	}
   },
@@ -24,13 +25,13 @@
 	"button_variation": "BuildingBuildButton",
 	"recipe": {
 	  "output_id": "wood",
-	  "output_amount": 1,
+	  "output_amount": 2,
 	  "display_name": "木头",
-	  "description": "需要石头 x1",
+	  "description": "需要石头 x2",
 	  "product_texture": "res://assets/game/objects/basic_tools_and_meterials_1.png",
 	  "product_region": [32, 16, 16, 16],
 	  "inputs": [
-		{ "item_id": "stone", "amount": 1 }
+		{ "item_id": "stone", "amount": 2 }
 	  ]
 	}
   }

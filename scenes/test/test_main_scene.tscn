@@ -15,22 +15,26 @@ y_sort_enabled = true
 y_sort_enabled = true
 offset = Vector2(240, 135)
 
-[node name="Block" parent="." unique_id=285844004 instance=ExtResource("2_gu0c3")]
-position = Vector2(145, 121)
+[node name="StoneBlock" parent="." unique_id=285844004 instance=ExtResource("2_gu0c3")]
+position = Vector2(120, 110)
 
-[node name="Block2" parent="." unique_id=744445796 instance=ExtResource("2_gu0c3")]
-position = Vector2(145, 178)
+[node name="WoodBlock" parent="." unique_id=285844005 instance=ExtResource("2_gu0c3")]
+position = Vector2(100, 555)
+config_id = "normal_wood_block"
+
+[node name="RestrictedStoneBlock" parent="." unique_id=744445796 instance=ExtResource("2_gu0c3")]
+position = Vector2(-271, 290)
 config_id = "restricted_stone_block"
 
-[node name="EggBuilding" parent="." unique_id=111209587 instance=ExtResource("5_a7myx")]
-position = Vector2(448, 118)
+[node name="FusionBuilding" parent="." unique_id=111209587 instance=ExtResource("5_a7myx")]
+position = Vector2(711, 64)
 
 [node name="WoodBuilding" parent="." unique_id=111209588 instance=ExtResource("5_a7myx")]
-position = Vector2(448, 290)
+position = Vector2(711, 500)
 config_id = "wood_shrine"
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("3_mlab3")]
 position = Vector2(240, 135)
-speed = 100.0
+speed = 500.0
 
 [node name="GameScreen" parent="." unique_id=811351460 instance=ExtResource("4_8uuek")]
