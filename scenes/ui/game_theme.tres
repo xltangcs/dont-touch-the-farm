@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://cmb40lfrua8c4"]
 
-[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_v351s"]
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/test_game/ui/Sprite sheet for Basic Pack.png" id="1_v351s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqqhs"]
 atlas = ExtResource("1_v351s")

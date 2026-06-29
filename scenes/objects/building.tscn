@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bix72c5b22qhh"]
 
 [ext_resource type="Script" uid="uid://bklaw3cpky4q6" path="res://scenes/objects/building.gd" id="1_kxxft"]
-[ext_resource type="Texture2D" uid="uid://beklcwyudfslq" path="res://assets/game/objects/basic_grass_biom_things.png" id="2_kxxft"]
+[ext_resource type="Texture2D" uid="uid://beklcwyudfslq" path="res://assets/test_game/objects/basic_grass_biom_things.png" id="2_kxxft"]
 [ext_resource type="PackedScene" uid="uid://tlpshe855ebx" path="res://scenes/ui/interact_panel.tscn" id="4_skyw0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxxft"]

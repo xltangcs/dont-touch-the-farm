@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://tpntoayc0yrg"]
 
-[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="1_ev0jo"]
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/test_game/objects/basic_tools_and_meterials.png" id="1_ev0jo"]
 [ext_resource type="Script" uid="uid://hwur6blyr14s" path="res://scenes/ui/bag_slot.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_vjuy2"]
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/test_game/ui/Sprite sheet for Basic Pack.png" id="1_vjuy2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm3fg"]
 atlas = ExtResource("1_vjuy2")

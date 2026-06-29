@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bg78kreila0fn"]
 
 [ext_resource type="Script" uid="uid://bbha10wnr6g31" path="res://scenes/objects/block.gd" id="1_mahf3"]
-[ext_resource type="Texture2D" uid="uid://bxwsumasa4nt8" path="res://assets/game/objects/basic_plants.png" id="1_srbs8"]
+[ext_resource type="Texture2D" uid="uid://bxwsumasa4nt8" path="res://assets/test_game/objects/basic_plants.png" id="1_srbs8"]
 [ext_resource type="PackedScene" uid="uid://3gmbdqpkdwas" path="res://scenes/components/DroppedComponent.tscn" id="3_drop"]
 [ext_resource type="PackedScene" uid="uid://tlpshe855ebx" path="res://scenes/ui/interact_panel.tscn" id="4_b5vfb"]
 

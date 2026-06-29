@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://sgcomv1knhyx" path="res://scenes/ui/craft_slot.tscn" id="1_idjmf"]
 [ext_resource type="Theme" uid="uid://cmb40lfrua8c4" path="res://scenes/ui/game_theme.tres" id="1_k51r5"]
 [ext_resource type="Script" uid="uid://d3fjd5685mb30" path="res://scenes/ui/building_production_panel.gd" id="2_4bjh2"]
-[ext_resource type="Texture2D" uid="uid://dwqtbg3jnv3ba" path="res://assets/game/objects/egg_item.png" id="2_bw8ag"]
+[ext_resource type="Texture2D" uid="uid://dwqtbg3jnv3ba" path="res://assets/test_game/objects/egg_item.png" id="2_bw8ag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bjh2"]
 atlas = ExtResource("2_bw8ag")

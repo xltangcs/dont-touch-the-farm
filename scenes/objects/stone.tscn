@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bex52pnqxye5w"]
 
-[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/game/objects/basic_tools_and_meterials.png" id="1_hxrs0"]
+[ext_resource type="Texture2D" uid="uid://wv5hk1vf2ypr" path="res://assets/test_game/objects/basic_tools_and_meterials.png" id="1_hxrs0"]
 [ext_resource type="Script" uid="uid://cxekgrjot81kn" path="res://scenes/objects/stone.gd" id="1_mohl7"]
 [ext_resource type="PackedScene" uid="uid://dw5wrusc1xpfk" path="res://scenes/components/CollectableComponent.tscn" id="2_hxrs0"]
 

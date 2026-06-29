@@ -1,7 +1,7 @@
 {
   "small_shrine": {
 	"display_name": "Small Shrine",
-	"building_texture": "res://assets/game/objects/basic_grass_biom_things.png",
+	"building_texture": "res://assets/test_game/objects/basic_grass_biom_things.png",
 	"building_region": [16, 0, 32, 32],
 	"action_text": "upgrade",
 	"button_variation": "BuildingBuildButton",
@@ -10,7 +10,7 @@
 	  "output_amount": 1,
 	  "display_name": "胃",
 	  "description": "需要石头 x3, 木头 x1",
-	  "product_texture": "res://assets/game/objects/egg_item.png",
+	  "product_texture": "res://assets/test_game/objects/egg_item.png",
 	  "inputs": [
 		{ "item_id": "stone", "amount": 3 },
 		{ "item_id": "wood", "amount": 1 }
@@ -19,7 +19,7 @@
   },
   "wood_shrine": {
 	"display_name": "Wood Shrine",
-	"building_texture": "res://assets/game/objects/basic_grass_biom_things.png",
+	"building_texture": "res://assets/test_game/objects/basic_grass_biom_things.png",
 	"building_region": [48, 0, 32, 32],
 	"action_text": "upgrade",
 	"button_variation": "BuildingBuildButton",
@@ -28,7 +28,7 @@
 	  "output_amount": 2,
 	  "display_name": "木头",
 	  "description": "需要石头 x2",
-	  "product_texture": "res://assets/game/objects/basic_tools_and_meterials_1.png",
+	  "product_texture": "res://assets/test_game/objects/basic_tools_and_meterials_1.png",
 	  "product_region": [32, 16, 16, 16],
 	  "inputs": [
 		{ "item_id": "stone", "amount": 2 }

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbk0hsxjpqrlu"]
 
-[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="1_eiw0v"]
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/test_game/ui/Sprite sheet for Basic Pack.png" id="1_eiw0v"]
 [ext_resource type="Script" uid="uid://wo76obpjyx1a" path="res://scenes/ui/bag_ui.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://tpntoayc0yrg" path="res://scenes/ui/bag_slot.tscn" id="2_5y0r1"]
 

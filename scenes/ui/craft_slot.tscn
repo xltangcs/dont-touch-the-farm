@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sgcomv1knhyx"]
 
 [ext_resource type="Script" uid="uid://8i4fniu81tc3" path="res://scenes/ui/craft_slot.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="2_cwilb"]
+[ext_resource type="Texture2D" uid="uid://j8m267w3m34n" path="res://assets/test_game/ui/Sprite sheet for Basic Pack.png" id="2_cwilb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm3fg"]
 atlas = ExtResource("2_cwilb")

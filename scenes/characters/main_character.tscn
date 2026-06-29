@@ -7,15 +7,15 @@
 radius = 107.53
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
-collision_layer = 4
-collision_mask = 3
 z_index = 1
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_g01af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 sprite_frames = ExtResource("1_g70jx")
-animation = &"normal_right"
+animation = &"normal_forward"
 autoplay = "idle"
 offset = Vector2(0, -190)
 
