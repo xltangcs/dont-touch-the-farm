@@ -15,7 +15,7 @@ script = ExtResource("1_g01af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 sprite_frames = ExtResource("1_g70jx")
-animation = &"normal_forward"
+animation = &"normal_right"
 autoplay = "idle"
 offset = Vector2(0, -190)
 
