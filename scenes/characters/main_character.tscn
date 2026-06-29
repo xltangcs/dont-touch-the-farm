@@ -14,11 +14,12 @@ collision_mask = 3
 script = ExtResource("1_g01af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
+position = Vector2(4, -130)
 sprite_frames = ExtResource("1_g70jx")
-animation = &"normal_right"
-autoplay = "idle"
-offset = Vector2(0, -190)
+animation = &"mine_right"
+autoplay = "idle_forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
+visible = false
 position = Vector2(0, -110)
 shape = SubResource("CircleShape2D_g01af")

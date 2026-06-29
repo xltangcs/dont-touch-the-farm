@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 var _is_mining: bool = false
 var _input_enabled: bool = true
+var _facing: String = "forward"
 
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -50,18 +51,10 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction.normalized() * speed
 
 	if direction != Vector2.ZERO:
-		if abs(direction.x) > abs(direction.y):
-			if direction.x > 0:
-				_anim.play("normal_right")
-			else:
-				_anim.play("normal_left")
-		else:
-			if direction.y > 0:
-				_anim.play("normal_forward")
-			else:
-				_anim.play("normal_back")
+		_facing = _get_facing_from_direction(direction)
+		_anim.play(_get_walk_animation(_facing))
 	else:
-		_anim.play("idle")
+		_play_facing_idle()
 
 	move_and_slide()
 
@@ -74,17 +67,35 @@ func play_mine_toward(target_position: Vector2) -> void:
 	if direction.length_squared() < 0.01:
 		direction = Vector2.DOWN
 
-	_anim.play(_get_mine_animation_name(direction))
+	_facing = _get_facing_from_direction(direction)
+	_anim.play(_get_mine_animation(_facing))
 	await _anim.animation_finished
 	_is_mining = false
+	_play_facing_idle()
 
 
-func _get_mine_animation_name(direction: Vector2) -> String:
+func _get_facing_from_direction(direction: Vector2) -> String:
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
-			return "mine_right"
-		return "mine_left"
+			return "right"
+		return "left"
 
 	if direction.y > 0:
-		return "mine_forward"
-	return "mine_back"
+		return "forward"
+	return "back"
+
+
+func _get_walk_animation(facing: String) -> String:
+	return "normal_%s" % facing
+
+
+func _get_idle_animation(facing: String) -> String:
+	return "idle_%s" % facing
+
+
+func _get_mine_animation(facing: String) -> String:
+	return "mine_%s" % facing
+
+
+func _play_facing_idle() -> void:
+	_anim.play(_get_idle_animation(_facing))
