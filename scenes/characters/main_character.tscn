@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://b6lkf8qyfn4ww" path="res://scenes/characters/main_character.gd" id="1_g01af"]
 [ext_resource type="SpriteFrames" uid="uid://dtn3xenkstvu7" path="res://scenes/characters/main_character_anim.tres" id="1_g70jx"]
+[ext_resource type="AudioStream" uid="uid://g67bs718cykf" path="res://audio/Footstep/Grass_01.wav" id="3_rv8sq"]
+[ext_resource type="AudioStream" uid="uid://dgesrs33e20uj" path="res://audio/Footstep/Grass_02.wav" id="4_bmlpm"]
+[ext_resource type="AudioStream" uid="uid://b0416tb7ksx87" path="res://audio/Footstep/Grass_03.wav" id="5_vxdse"]
+[ext_resource type="AudioStream" uid="uid://cocv23mwy40by" path="res://audio/Footstep/Grass_04.wav" id="6_2afpo"]
+[ext_resource type="AudioStream" uid="uid://cnuysdmofgo7d" path="res://audio/Footstep/Grass_05.wav" id="7_2mxrj"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wr6f5"]
+random_pitch = 1.035265
+random_volume_offset_db = 1.5
+streams_count = 5
+stream_0/stream = ExtResource("3_rv8sq")
+stream_1/stream = ExtResource("4_bmlpm")
+stream_2/stream = ExtResource("5_vxdse")
+stream_3/stream = ExtResource("6_2afpo")
+stream_4/stream = ExtResource("7_2mxrj")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g01af"]
 radius = 107.53
@@ -18,6 +33,12 @@ position = Vector2(4, -130)
 sprite_frames = ExtResource("1_g70jx")
 animation = &"mine_right"
 autoplay = "idle_forward"
+frame = 3
+frame_progress = 1.0
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="AnimatedSprite2D" unique_id=1941347862]
+stream = SubResource("AudioStreamRandomizer_wr6f5")
+autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
 visible = false

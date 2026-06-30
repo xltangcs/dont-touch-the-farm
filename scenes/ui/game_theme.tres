@@ -41,7 +41,6 @@ texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v351s"]
-load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-bf2b9bae7639a80c22ddd29682f75ee3.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5x5vq"]
 atlas = SubResource("CompressedTexture2D_v351s")

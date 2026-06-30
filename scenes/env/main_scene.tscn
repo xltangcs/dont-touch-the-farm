@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="4_pu3yx"]
 [ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_bgm"]
 [ext_resource type="PackedScene" uid="uid://cdfktbxqjoxxa" path="res://scenes/characters/npc_character.tscn" id="6_fnplm"]
+[ext_resource type="AudioStream" uid="uid://b22rpno2nqgbt" path="res://audio/Ambience/Field.wav" id="8_rvn4v"]
 
 [node name="MainScene" type="Node2D" unique_id=1187652428]
 y_sort_enabled = true
 
 [node name="BackgroundScene" parent="." unique_id=665967244 instance=ExtResource("1_w2twt")]
-position = Vector2(0, 20)
+position = Vector2(-388, -146)
 
 [node name="StoneBlock" parent="." unique_id=285844004 instance=ExtResource("3_7ykc4")]
 position = Vector2(145, 121)
@@ -32,6 +33,8 @@ position = Vector2(1477, 239)
 position = Vector2(1591, 733)
 config_id = "wood_shrine"
 
+[node name="Building" parent="Building2" unique_id=2046083631 instance=ExtResource("3_75hl3")]
+
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("2_main_char")]
 position = Vector2(1079, 598)
 speed = 1200.0
@@ -50,3 +53,7 @@ autoplay = true
 
 [node name="NpcCharacter" parent="." unique_id=1847791177 instance=ExtResource("6_fnplm")]
 position = Vector2(2606, 810)
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1870242763]
+stream = ExtResource("8_rvn4v")
+autoplay = true
