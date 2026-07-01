@@ -3,52 +3,60 @@
 	"display_name": "空",
 	"scene": "",
 	"texture": "",
-	"has_collision": false
+	"has_collision": false,
+	"z_index": 0
   },
   "1": {
 	"display_name": "草地",
 	"scene": "res://scenes/env/tile_base.tscn",
 	"texture": "res://assets/environment/tileset/grass.png",
-	"has_collision": true
+	"has_collision": true,
+	"z_index": 2
   },
   "2": {
 	"display_name": "泥土",
 	"scene": "res://scenes/env/tile_base.tscn",
 	"texture": "res://assets/environment/tileset/ground.png",
-	"has_collision": false
+	"has_collision": false,
+	"z_index": 1
   },
   "3": {
 	"display_name": "水",
 	"scene": "res://scenes/env/tile_base.tscn",
 	"texture": "res://assets/environment/tileset/water.png",
-	"has_collision": false
+	"has_collision": false,
+	"z_index": -1
   },
   "4": {
 	"display_name": "禁用A键地块",
 	"scene": "res://scenes/env/tile_key.tscn",
 	"texture": "res://assets/environment/tileset/trap_A.png",
 	"has_collision": false,
-	"disabled_action": "walk_left"
+	"disabled_action": "walk_left",
+	"z_index": 0
   },
   "5": {
 	"display_name": "禁用S键地块",
 	"scene": "res://scenes/env/tile_key.tscn",
 	"texture": "res://assets/environment/tileset/trap_S.png",
 	"has_collision": false,
-	"disabled_action": "walk_down"
+	"disabled_action": "walk_down",
+	"z_index": 0
   },
   "6": {
 	"display_name": "禁用W键地块",
 	"scene": "res://scenes/env/tile_key.tscn",
 	"texture": "res://assets/environment/tileset/trap_W.png",
 	"has_collision": false,
-	"disabled_action": "walk_up"
+	"disabled_action": "walk_up",
+	"z_index": 0
   },
   "7": {
 	"display_name": "禁用D键地块",
 	"scene": "res://scenes/env/tile_key.tscn",
 	"texture": "res://assets/environment/tileset/trap_D.png",
 	"has_collision": false,
-	"disabled_action": "walk_right"
+	"disabled_action": "walk_right",
+	"z_index": 0
   }
 }

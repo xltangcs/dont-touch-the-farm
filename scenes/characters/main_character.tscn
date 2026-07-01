@@ -22,7 +22,7 @@ stream_4/stream = ExtResource("7_2mxrj")
 radius = 67.08204
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 3

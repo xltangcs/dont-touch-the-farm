@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://bc3okxvwv3svg"]
 
+[ext_resource type="PackedScene" uid="uid://dyfa37jwoiwu2" path="res://scenes/env/night_background_scne.tscn" id="1_7rmwi"]
 [ext_resource type="PackedScene" uid="uid://c0th5u6hwb17h" path="res://scenes/env/night_scene.tscn" id="1_pd2i6"]
+[ext_resource type="PackedScene" uid="uid://d3p3fp3ma0hxm" path="res://scenes/env/tile_base.tscn" id="2_5lmwq"]
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="2_omf7m"]
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="3_game_ui"]
 [ext_resource type="AudioStream" uid="uid://b22rpno2nqgbt" path="res://audio/Ambience/Field.wav" id="4_0p5sh"]
 [ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_ejooh"]
+[ext_resource type="Texture2D" uid="uid://btni51i0d52df" path="res://assets/environment/tileset/ground.png" id="8_3mp71"]
 
 [node name="NightGameScene" type="Node2D" unique_id=451639201]
+z_index = 2
+
+[node name="BackgroundScene" parent="." unique_id=518491627 instance=ExtResource("1_7rmwi")]
 
 [node name="NightScene" parent="." unique_id=1319284389 instance=ExtResource("1_pd2i6")]
+level_config_path = "res://data/levels/level_01.json"
 enable_tile_generation = true
 
+[node name="TileBase" parent="NightScene" unique_id=1667938367 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(320, 240)
+sprite = ExtResource("8_3mp71")
+
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
-position = Vector2(853, 776)
+position = Vector2(981, 550)
 scale = Vector2(0.5, 0.5)
 
 [node name="GameScreen" parent="." unique_id=820772532 instance=ExtResource("3_game_ui")]

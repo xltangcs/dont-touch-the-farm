@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://c0th5u6hwb17h"]
 
 [ext_resource type="Script" uid="uid://cda0l81kmgg4f" path="res://scenes/env/night_scene.gd" id="1_v3bo1"]
-[ext_resource type="PackedScene" uid="uid://dyfa37jwoiwu2" path="res://scenes/env/night_background_scne.tscn" id="2_ooaba"]
 
 [node name="NightScene" type="Node2D" unique_id=1319284389]
 script = ExtResource("1_v3bo1")
-
-[node name="NightBackgroundScne" parent="." unique_id=518491627 instance=ExtResource("2_ooaba")]

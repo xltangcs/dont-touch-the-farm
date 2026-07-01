@@ -64,4 +64,5 @@ func _parse_config(id: int, data: Dictionary) -> TileMapConfigData:
 		config.disabled_action,
 		str(data.get("disabled_key_label", ""))
 	)
+	config.z_index = int(data.get("z_index", 0))
 	return config

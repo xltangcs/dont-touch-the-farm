@@ -36,6 +36,7 @@ config_id = "wood_shrine"
 [node name="Building" parent="Building2" unique_id=2046083631 instance=ExtResource("3_75hl3")]
 
 [node name="MainCharacter" parent="." unique_id=224717619 instance=ExtResource("2_main_char")]
+z_index = 3
 position = Vector2(1079, 598)
 speed = 1200.0
 

@@ -54,12 +54,14 @@ func _generate_from_level_json() -> void:
 
 
 func _clear_old_tiles() -> void:
-	var children := get_children()
-	for i in range(children.size() - 1, -1, -1):
-		var child := children[i]
-		if child.is_in_group(GENERATED_GROUP):
-			remove_child(child)
-			child.queue_free()
+	for child in get_children():
+		child.queue_free()
+	#var children := get_children()
+	#for i in range(children.size() - 1, -1, -1):
+		#var child := children[i]
+		#if child.is_in_group(GENERATED_GROUP):
+			#remove_child(child)
+			#child.queue_free()
 
 
 func _load_level_json() -> Dictionary:
@@ -110,6 +112,8 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 
 	var instance: Node2D = scene.instantiate()
 	instance.position = world_pos
+	instance.z_index = config.z_index
+	instance.y_sort_enabled = true
 	instance.add_to_group(GENERATED_GROUP)
 
 	if not config.texture_path.is_empty() and "sprite" in instance:
@@ -126,9 +130,12 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 
 
 func _apply_tile_collision(instance: Node2D, has_collision: bool) -> void:
-	if has_collision:
-		return
-
 	var body: StaticBody2D = instance.get_node_or_null("StaticBody2D")
-	if body:
-		body.free()
+	if not body:
+		return
+	if has_collision:
+		body.collision_layer = 1
+		body.collision_mask = 1
+	else:
+		body.collision_layer = 0
+		body.collision_mask = 0
