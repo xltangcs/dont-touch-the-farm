@@ -27,6 +27,8 @@ func _ready() -> void:
 
 
 func _generate_from_level_json() -> void:
+	TileMapConfigManager.load_configs()
+
 	if level_config_path.is_empty():
 		return
 
@@ -113,10 +115,17 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 	if not config.texture_path.is_empty():
 		instance.sprite = load(config.texture_path)
 
-	var body: StaticBody2D = instance.get_node_or_null("StaticBody2D")
-	if body:
-		body.set_deferred("disabled", not config.has_collision)
-
 	add_child(instance)
+	_apply_tile_collision(instance, config.has_collision)
+
 	if Engine.is_editor_hint():
 		instance.owner = get_tree().edited_scene_root
+
+
+func _apply_tile_collision(instance: Node2D, has_collision: bool) -> void:
+	if has_collision:
+		return
+
+	var body: StaticBody2D = instance.get_node_or_null("StaticBody2D")
+	if body:
+		body.free()

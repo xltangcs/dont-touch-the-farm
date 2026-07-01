@@ -8,19 +8,19 @@
   "1": {
 	"display_name": "草地",
 	"scene": "res://scenes/env/tile_base.tscn",
-	"texture": "res://assets/test/Tile01.png",
+	"texture": "res://assets/environment/tileset/grass.png",
 	"has_collision": true
   },
   "2": {
 	"display_name": "泥土",
 	"scene": "res://scenes/env/tile_base.tscn",
-	"texture": "res://assets/test/Tile02.png",
-	"has_collision": true
+	"texture": "res://assets/environment/tileset/ground.png",
+	"has_collision": false
   },
   "3": {
 	"display_name": "水",
 	"scene": "res://scenes/env/tile_base.tscn",
-	"texture": "",
+	"texture": "res://assets/environment/tileset/water.png",
 	"has_collision": false
   }
 }

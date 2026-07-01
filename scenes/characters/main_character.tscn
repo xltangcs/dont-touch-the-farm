@@ -19,7 +19,7 @@ stream_3/stream = ExtResource("6_2afpo")
 stream_4/stream = ExtResource("7_2mxrj")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g01af"]
-radius = 107.53
+radius = 67.08204
 
 [node name="MainCharacter" type="CharacterBody2D" unique_id=225226000 groups=["player"]]
 z_index = 1
@@ -31,16 +31,13 @@ script = ExtResource("1_g01af")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584400989]
 position = Vector2(4, -130)
 sprite_frames = ExtResource("1_g70jx")
-animation = &"mine_right"
+animation = &"idle_forward"
 autoplay = "idle_forward"
-frame = 3
-frame_progress = 1.0
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="AnimatedSprite2D" unique_id=1941347862]
 stream = SubResource("AudioStreamRandomizer_wr6f5")
 autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637574164]
-visible = false
-position = Vector2(0, -110)
+position = Vector2(4, -59)
 shape = SubResource("CircleShape2D_g01af")

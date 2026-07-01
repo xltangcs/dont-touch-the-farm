@@ -18,7 +18,7 @@
 	"block_texture": "res://assets/test_game/objects/basic_grass_biom_things.png",
 	"block_region": [48, 0, 32, 32],
 	"resource_id": "wood",
-	"resource_icon": "res://assets/test_game/objects/basic_tools_and_meterials_1.png",
+	"resource_icon": "res://assets/test_game/objects/basic_tools_and_meterials.png",
 	"resource_icon_region": [32, 16, 16, 16],
 	"resource_amount": 1,
 	"max_mine_count": 3,
