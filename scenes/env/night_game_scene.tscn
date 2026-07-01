@@ -10,7 +10,7 @@
 enable_tile_generation = true
 
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
-position = Vector2(128, 272)
+position = Vector2(679, 746)
 scale = Vector2(0.5, 0.5)
 
-[node name="GameScreen" parent="." instance=ExtResource("3_game_ui")]
+[node name="GameScreen" parent="." unique_id=820772532 instance=ExtResource("3_game_ui")]

@@ -32,8 +32,13 @@ func set_input_enabled(enabled: bool) -> void:
 		velocity = Vector2.ZERO
 
 
-func apply_disabled_key(action: StringName, _key_label: String = "") -> void:
+func apply_disabled_key(action: StringName, key_label: String = "") -> void:
 	_disabled_action = action
+	var label := DisabledKeyConfig.resolve_label(str(action), key_label)
+
+	var game_ui := get_tree().get_first_node_in_group("game_ui") as GameUi
+	if game_ui:
+		game_ui.set_disabled_key(label)
 
 
 func _physics_process(_delta: float) -> void:

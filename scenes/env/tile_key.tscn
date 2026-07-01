@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rf44p7ui4efm"]
 
 [ext_resource type="Script" uid="uid://bcjnrr2dvsnj0" path="res://scenes/env/tile_key.gd" id="1_ab4a3"]
-[ext_resource type="Texture2D" path="res://assets/environment/tileset/trap.png" id="2_trap"]
+[ext_resource type="Texture2D" path="res://assets/environment/tileset/trap_A.png" id="2_trap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0dmn"]
 size = Vector2(99, 99)

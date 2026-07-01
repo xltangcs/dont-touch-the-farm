@@ -26,9 +26,29 @@
   "4": {
 	"display_name": "禁用A键地块",
 	"scene": "res://scenes/env/tile_key.tscn",
-	"texture": "res://assets/environment/tileset/trap.png",
+	"texture": "res://assets/environment/tileset/trap_A.png",
 	"has_collision": false,
-	"disabled_action": "walk_left",
-	"disabled_key_label": "A"
+	"disabled_action": "walk_left"
+  },
+  "5": {
+	"display_name": "禁用S键地块",
+	"scene": "res://scenes/env/tile_key.tscn",
+	"texture": "res://assets/environment/tileset/trap_S.png",
+	"has_collision": false,
+	"disabled_action": "walk_down"
+  },
+  "6": {
+	"display_name": "禁用W键地块",
+	"scene": "res://scenes/env/tile_key.tscn",
+	"texture": "res://assets/environment/tileset/trap_W.png",
+	"has_collision": false,
+	"disabled_action": "walk_up"
+  },
+  "7": {
+	"display_name": "禁用D键地块",
+	"scene": "res://scenes/env/tile_key.tscn",
+	"texture": "res://assets/environment/tileset/trap_D.png",
+	"has_collision": false,
+	"disabled_action": "walk_right"
   }
 }

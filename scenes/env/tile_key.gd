@@ -21,9 +21,9 @@ func _ready() -> void:
 	_trigger_area.body_entered.connect(_on_body_entered)
 
 
-func setup_tile_effect(disabled_action: String, disabled_key_label: String) -> void:
+func setup_tile_effect(disabled_action: String, disabled_key_label: String = "") -> void:
 	_disabled_action = StringName(disabled_action)
-	_disabled_key_label = disabled_key_label
+	_disabled_key_label = DisabledKeyConfig.resolve_label(disabled_action, disabled_key_label)
 
 
 func _apply_sprite() -> void:
@@ -39,7 +39,3 @@ func _on_body_entered(body: Node2D) -> void:
 
 	if body.has_method("apply_disabled_key"):
 		body.apply_disabled_key(_disabled_action, _disabled_key_label)
-
-	var game_ui := get_tree().get_first_node_in_group("game_ui") as GameUi
-	if game_ui:
-		game_ui.set_disabled_key(_disabled_key_label)

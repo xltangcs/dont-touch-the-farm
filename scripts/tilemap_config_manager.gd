@@ -60,5 +60,8 @@ func _parse_config(id: int, data: Dictionary) -> TileMapConfigData:
 	config.texture_path = str(data.get("texture", ""))
 	config.has_collision = bool(data.get("has_collision", true))
 	config.disabled_action = str(data.get("disabled_action", ""))
-	config.disabled_key_label = str(data.get("disabled_key_label", ""))
+	config.disabled_key_label = DisabledKeyConfig.resolve_label(
+		config.disabled_action,
+		str(data.get("disabled_key_label", ""))
+	)
 	return config
