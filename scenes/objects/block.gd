@@ -73,33 +73,6 @@ func _on_interact_panel_action_pressed() -> void:
 	if _remaining_mine_count <= 0 or _nearby_player == null or _is_mining:
 		return
 
-	if requires_force_mining:
-		await _request_force_mine_confirmation()
-		return
-
-	_start_mining()
-
-
-func _request_force_mine_confirmation() -> void:
-	var game_ui := get_tree().get_first_node_in_group("game_ui")
-	if game_ui == null:
-		push_warning("GameScreen not found.")
-		return
-
-	_interact_panel.set_interactable(false)
-
-	var confirmed: bool = await game_ui.request_force_mine_confirmation(
-		resource_id,
-		resource_amount,
-		debuff_id
-	)
-
-	if _remaining_mine_count > 0:
-		_interact_panel.set_interactable(true)
-
-	if not confirmed:
-		return
-
 	_start_mining()
 
 

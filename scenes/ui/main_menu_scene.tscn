@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bjkn0kut0p3d2" path="res://scenes/ui/main_menu_control.tscn" id="1_menu"]
 
-[node name="MainMenuScene" type="Node"]
+[node name="MainMenuScene" type="Node" unique_id=1078316019]
 
-[node name="MainMenuControl" parent="." instance=ExtResource("1_menu")]
+[node name="MainMenuControl" parent="." unique_id=1053128404 instance=ExtResource("1_menu")]
