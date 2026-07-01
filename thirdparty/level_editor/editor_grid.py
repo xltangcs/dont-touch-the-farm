@@ -1,4 +1,5 @@
 ﻿import tkinter as tk
+from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
 
@@ -16,7 +17,9 @@ class TileGrid(tk.Frame):
     def __init__(self, parent, state):
         super().__init__(parent)
         self.state = state
+        self.settings_widget = None
         self._tile_cache: dict[int, ImageTk.PhotoImage] = {}
+        self._marker_cache: dict[str, ImageTk.PhotoImage] = {}
         self._cell_size = CELL_SIZE
         self._drag_painting = False
         self._last_painted_cell = (-1, -1)
@@ -97,12 +100,34 @@ class TileGrid(tk.Frame):
         if new_size != self._cell_size:
             self._cell_size = new_size
             self._tile_cache.clear()
+            self._marker_cache.clear()
             self.rebuild()
 
     def _paint_at(self, x, y):
         row, col = self._xy_to_cell(x, y)
         if row < 0 or col < 0:
             return
+
+        mode = self.state.current_mode
+        if mode == "set_start":
+            if not self.state.set_start_point(col, row):
+                messagebox.showwarning("起点设置失败", "起点不能放置在碰撞地块上! (has_collision=True)")
+                return
+            self._redraw_cell(row, col)
+            self.update_mode_hint()
+            if self.settings_widget:
+                self.settings_widget._refresh_controls()
+            return
+        elif mode == "set_end":
+            if not self.state.set_end_point(col, row):
+                messagebox.showwarning("终点设置失败", "终点不能放置在碰撞地块上! (has_collision=True)")
+                return
+            self._redraw_cell(row, col)
+            self.update_mode_hint()
+            if self.settings_widget:
+                self.settings_widget._refresh_controls()
+            return
+
         if (row, col) == self._last_painted_cell:
             return
         self._last_painted_cell = (row, col)
@@ -141,6 +166,8 @@ class TileGrid(tk.Frame):
             for c in range(cols):
                 self._draw_cell(r, c)
 
+        self._draw_markers()
+
     def _draw_cell(self, row, col):
         tid = self.state.get_cell(row, col)
         sz = self._cell_size
@@ -174,6 +201,11 @@ class TileGrid(tk.Frame):
             if img_tk:
                 self._canvas.create_image(x + 1, y + 1, anchor="nw", image=img_tk, tag=tag)
 
+        sp = self.state.start_point
+        ep = self.state.end_point
+        if (col == sp[0] and row == sp[1]) or (col == ep[0] and row == ep[1]):
+            self._draw_markers()
+
     def _get_tile_image(self, tid: int) -> ImageTk.PhotoImage | None:
         if tid in self._tile_cache:
             return self._tile_cache[tid]
@@ -198,3 +230,52 @@ class TileGrid(tk.Frame):
         except Exception:
             self._tile_cache[tid] = None
             return None
+
+    def _load_marker_image(self, key: str, rel_path: str) -> ImageTk.PhotoImage | None:
+        if key in self._marker_cache:
+            return self._marker_cache[key]
+
+        fs_path = os.path.normpath(os.path.join(self.state.project_root, rel_path.replace("/", os.sep)))
+        if not os.path.exists(fs_path):
+            self._marker_cache[key] = None
+            return None
+
+        try:
+            img = Image.open(fs_path).convert("RGBA")
+            size = max(8, self._cell_size - 8)
+            img = img.resize((size, size), Image.NEAREST)
+            photo = ImageTk.PhotoImage(img)
+            self._marker_cache[key] = photo
+            return photo
+        except Exception:
+            self._marker_cache[key] = None
+            return None
+
+    def _draw_markers(self):
+        self._canvas.delete("marker_start")
+        self._canvas.delete("marker_end")
+
+        sz = self._cell_size
+        sp = self.state.start_point
+        ep = self.state.end_point
+
+        start_img = self._load_marker_image("start", "assets/animation/walk/wf_2.PNG")
+        if start_img:
+            x = sp[0] * sz + 4
+            y = sp[1] * sz + 4
+            self._canvas.create_image(x, y, anchor="nw", image=start_img, tag="marker_start")
+
+        end_img = self._load_marker_image("end", "assets/scene/props/33.png")
+        if end_img:
+            x = ep[0] * sz + 4
+            y = ep[1] * sz + 4
+            self._canvas.create_image(x, y, anchor="nw", image=end_img, tag="marker_end")
+
+    def update_mode_hint(self):
+        mode = self.state.current_mode
+        if mode == "set_start":
+            self._hint_label.config(text="设置起点模式 - 点击格子设置起点")
+        elif mode == "set_end":
+            self._hint_label.config(text="设置终点模式 - 点击格子设置终点")
+        else:
+            self._hint_label.config(text="Scroll: Zoom  |  Space+Drag: Pan")

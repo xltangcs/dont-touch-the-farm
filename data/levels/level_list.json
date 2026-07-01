@@ -11,6 +11,10 @@
 	{
 	  "path": "res://data/levels/level_02.json",
 	  "name": "第二关"
+	},
+	{
+	  "path": "res://data/levels/level_03.json",
+	  "name": "柳暗花明又一村"
 	}
   ]
 }

@@ -13,6 +13,9 @@ class EditorState:
         self.tile_size: int = 100
         self.origin_x: int = 320
         self.origin_y: int = 240
+        self.start_point: list[int] = [0, 0]
+        self.end_point: list[int] = [0, 0]
+        self.current_mode: str = "paint"
         self._current_file: str = ""
         self._modified: bool = False
 
@@ -54,6 +57,9 @@ class EditorState:
         self.tile_size = 100
         self.origin_x = max(width * self.tile_size // 2, 100)
         self.origin_y = max(height * self.tile_size // 2, 100)
+        self.start_point = [0, 0]
+        self.end_point = [0, 0]
+        self.current_mode = "paint"
         self._current_file = ""
         self._modified = True
 
@@ -67,6 +73,20 @@ class EditorState:
         origin = data.get("origin", [0, 0])
         self.origin_x = origin[0] if len(origin) >= 1 else 0
         self.origin_y = origin[1] if len(origin) >= 2 else 0
+
+        sp = data.get("start_point", None)
+        if sp and len(sp) >= 2:
+            self.start_point = [int(sp[0]), int(sp[1])]
+        else:
+            self.start_point = [0, 0]
+
+        ep = data.get("end_point", None)
+        if ep and len(ep) >= 2:
+            self.end_point = [int(ep[0]), int(ep[1])]
+        else:
+            self.end_point = [0, 0]
+
+        self.current_mode = "paint"
 
         raw_grid = data.get("grid", [])
         if not raw_grid or not isinstance(raw_grid, list):
@@ -88,6 +108,8 @@ class EditorState:
         data = {
             "tile_size": self.tile_size,
             "origin": [self.origin_x, self.origin_y],
+            "start_point": self.start_point,
+            "end_point": self.end_point,
             "grid": self.grid,
         }
 
@@ -176,3 +198,29 @@ class EditorState:
                 new_grid.append(new_row)
         self.grid = new_grid
         self._modified = True
+
+    def has_collision(self, tile_id: int) -> bool:
+        cfg = self.tile_configs.get(tile_id, {})
+        return bool(cfg.get("has_collision", False))
+
+    def set_start_point(self, col: int, row: int) -> bool:
+        if row < 0 or row >= self.rows or col < 0 or col >= self.cols:
+            return False
+        tile_id = self.grid[row][col]
+        if self.has_collision(tile_id):
+            return False
+        self.start_point = [col, row]
+        self.current_mode = "paint"
+        self._modified = True
+        return True
+
+    def set_end_point(self, col: int, row: int) -> bool:
+        if row < 0 or row >= self.rows or col < 0 or col >= self.cols:
+            return False
+        tile_id = self.grid[row][col]
+        if self.has_collision(tile_id):
+            return False
+        self.end_point = [col, row]
+        self.current_mode = "paint"
+        self._modified = True
+        return True

@@ -11,6 +11,7 @@ class EditorToolbar(ttk.Frame):
         self.grid_widget = grid_widget
         self._on_modified = on_modified_callback
         self.settings_widget = None
+        self.panel_widget = None
 
         ttk.Button(self, text="New", command=self._on_new).pack(side="left", padx=2)
         ttk.Button(self, text="Open", command=self._on_open).pack(side="left", padx=2)
@@ -38,6 +39,8 @@ class EditorToolbar(ttk.Frame):
         self._map_name_var.set("")
         if self.settings_widget:
             self.settings_widget._refresh_controls()
+        if self.panel_widget:
+            self.panel_widget.refresh_highlight()
         self.grid_widget.rebuild()
         self._fire_modified()
 
@@ -58,6 +61,8 @@ class EditorToolbar(ttk.Frame):
         self._map_name_var.set("")
         if self.settings_widget:
             self.settings_widget._refresh_controls()
+        if self.panel_widget:
+            self.panel_widget.refresh_highlight()
         self.grid_widget.rebuild()
         self._fire_modified()
 

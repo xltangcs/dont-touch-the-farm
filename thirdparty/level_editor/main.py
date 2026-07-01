@@ -63,6 +63,9 @@ class LevelEditorApp:
 
         self._toolbar.grid_widget = self._grid
         self._toolbar.settings_widget = self._settings
+        self._toolbar.panel_widget = self._panel
+        self._grid.settings_widget = self._settings
+        self._panel.grid_widget = self._grid
 
     def _bind_shortcuts(self):
         self.root.bind("<Control-n>", lambda e: self._toolbar._on_new())

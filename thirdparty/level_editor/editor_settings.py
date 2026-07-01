@@ -56,6 +56,21 @@ class EditorSettings(ttk.Frame):
         ttk.Button(btns, text="Clear", command=self._on_clear).pack(side="left", padx=2)
         ttk.Button(btns, text="Fill", command=self._on_fill).pack(side="left", padx=2)
 
+        # ---- Start / End point display ----
+        ttk.Separator(self, orient="horizontal").pack(fill="x", pady=(2, 6))
+
+        row_sp = ttk.Frame(self)
+        row_sp.pack(fill="x", padx=6, pady=1)
+        ttk.Label(row_sp, text="起点 [col, row]:").pack(side="left")
+        self._start_label = ttk.Label(row_sp, text="[0, 0]")
+        self._start_label.pack(side="right")
+
+        row_ep = ttk.Frame(self)
+        row_ep.pack(fill="x", padx=6, pady=1)
+        ttk.Label(row_ep, text="终点 [col, row]:").pack(side="left")
+        self._end_label = ttk.Label(row_ep, text="[0, 0]")
+        self._end_label.pack(side="right")
+
     def _on_tile_size_changed(self):
         try:
             val = int(self._tile_size_var.get())
@@ -112,6 +127,10 @@ class EditorSettings(ttk.Frame):
         self._origin_y_var.set(str(self.state.origin_y))
         self._grid_w_var.set(str(self.state.cols))
         self._grid_h_var.set(str(self.state.rows))
+        sp = self.state.start_point
+        ep = self.state.end_point
+        self._start_label.config(text=f"[{sp[0]}, {sp[1]}]")
+        self._end_label.config(text=f"[{ep[0]}, {ep[1]}]")
 
     def _fire_modified(self):
         if self._on_modified:
