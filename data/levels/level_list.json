@@ -1,0 +1,6 @@
+{
+  "levels": [
+	"res://data/levels/level_test.json",
+	"res://data/levels/level_01.json"
+  ]
+}

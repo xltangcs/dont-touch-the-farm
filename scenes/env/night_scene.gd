@@ -4,7 +4,7 @@ extends Node2D
 const DEFAULT_SCENE_PATH := "res://scenes/env/tile_base.tscn"
 const GENERATED_GROUP := "generated_tile"
 
-@export var level_config_path: String = "res://data/levels/night_level.json"
+@export var level_config_path: String = "res://data/levels/level_01.json"
 @export var enable_tile_generation: bool = false
 @export var default_tile_size: float = 66.0
 
@@ -21,6 +21,11 @@ func editor_generate() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+
+	var manager_path := LevelManager.get_current_level_path()
+	if not manager_path.is_empty():
+		level_config_path = manager_path
+
 	if enable_tile_generation:
 		_clear_old_tiles()
 		_generate_from_level_json()

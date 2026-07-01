@@ -15,7 +15,6 @@ z_index = 2
 [node name="BackgroundScene" parent="." unique_id=518491627 instance=ExtResource("1_7rmwi")]
 
 [node name="NightScene" parent="." unique_id=1319284389 instance=ExtResource("1_pd2i6")]
-level_config_path = "res://data/levels/level_01.json"
 enable_tile_generation = true
 
 [node name="TileBase" parent="NightScene" unique_id=1667938367 instance=ExtResource("2_5lmwq")]

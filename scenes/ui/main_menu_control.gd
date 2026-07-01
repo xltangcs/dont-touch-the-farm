@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
+	LevelManager.start_level(0)
 	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
 
 
