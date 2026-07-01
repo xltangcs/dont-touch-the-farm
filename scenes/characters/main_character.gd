@@ -5,6 +5,7 @@ extends CharacterBody2D
 var _is_mining: bool = false
 var _input_enabled: bool = true
 var _facing: String = "forward"
+var _disabled_action: StringName = &""
 
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -31,6 +32,10 @@ func set_input_enabled(enabled: bool) -> void:
 		velocity = Vector2.ZERO
 
 
+func apply_disabled_key(action: StringName, _key_label: String = "") -> void:
+	_disabled_action = action
+
+
 func _physics_process(_delta: float) -> void:
 	if not _input_enabled or _is_mining or _is_in_dialogue():
 		velocity = Vector2.ZERO
@@ -39,14 +44,10 @@ func _physics_process(_delta: float) -> void:
 
 	var direction := Vector2.ZERO
 
-	if Input.is_action_pressed("walk_right"):
-		direction.x += 1
-	if Input.is_action_pressed("walk_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("walk_down"):
-		direction.y += 1
-	if Input.is_action_pressed("walk_up"):
-		direction.y -= 1
+	direction = _apply_walk_input(&"walk_right", Vector2.RIGHT, direction)
+	direction = _apply_walk_input(&"walk_left", Vector2.LEFT, direction)
+	direction = _apply_walk_input(&"walk_down", Vector2.DOWN, direction)
+	direction = _apply_walk_input(&"walk_up", Vector2.UP, direction)
 
 	velocity = direction.normalized() * speed
 
@@ -99,3 +100,11 @@ func _get_mine_animation(facing: String) -> String:
 
 func _play_facing_idle() -> void:
 	_anim.play(_get_idle_animation(_facing))
+
+
+func _apply_walk_input(action: StringName, delta: Vector2, direction: Vector2) -> Vector2:
+	if action == _disabled_action:
+		return direction
+	if Input.is_action_pressed(action):
+		return direction + delta
+	return direction

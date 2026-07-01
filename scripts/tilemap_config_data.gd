@@ -6,3 +6,5 @@ var display_name: String = ""
 var scene_path: String = ""
 var texture_path: String = ""
 var has_collision: bool = true
+var disabled_action: String = ""
+var disabled_key_label: String = ""

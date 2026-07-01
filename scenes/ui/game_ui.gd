@@ -7,12 +7,24 @@ signal building_production_opened
 @onready var _force_mine_panel: ForceMinePanel = $CenterContainer/ForceMinePanel
 @onready var _building_production_panel: BuildingProductionPanel = $CenterContainer/BuildingProductionPanel
 @onready var _bag_ui: Control = $BagUi
+@onready var _disabled_key_panel: PanelContainer = $DisabledKeyPanel
+@onready var _disabled_key_label: Label = $DisabledKeyPanel/MarginContainer/Label
 
 
 func _ready() -> void:
 	add_to_group("game_ui")
 	_building_production_panel.closed.connect(_on_building_production_closed)
 	_bag_ui.inventory_slot_clicked.connect(_on_bag_inventory_slot_clicked)
+	_disabled_key_panel.visible = false
+
+
+func set_disabled_key(key_label: String) -> void:
+	if key_label.is_empty():
+		_disabled_key_panel.visible = false
+		return
+
+	_disabled_key_label.text = "禁用按键：%s" % key_label
+	_disabled_key_panel.visible = true
 
 
 func request_force_mine_confirmation(

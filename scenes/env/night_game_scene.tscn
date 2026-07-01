@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0th5u6hwb17h" path="res://scenes/env/night_scene.tscn" id="1_pd2i6"]
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="2_omf7m"]
+[ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="3_game_ui"]
 
 [node name="NightGameScene" type="Node2D" unique_id=451639201]
 
@@ -11,3 +12,5 @@ enable_tile_generation = true
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
 position = Vector2(128, 272)
 scale = Vector2(0.5, 0.5)
+
+[node name="GameScreen" parent="." instance=ExtResource("3_game_ui")]

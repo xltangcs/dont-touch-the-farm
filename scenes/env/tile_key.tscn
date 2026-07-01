@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://rf44p7ui4efm"]
+
+[ext_resource type="Script" uid="uid://bcjnrr2dvsnj0" path="res://scenes/env/tile_key.gd" id="1_ab4a3"]
+[ext_resource type="Texture2D" path="res://assets/environment/tileset/trap.png" id="2_trap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0dmn"]
+size = Vector2(99, 99)
+
+[node name="TileKey" type="Node2D" unique_id=1667938367]
+script = ExtResource("1_ab4a3")
+
+[node name="TileSprite2D" type="Sprite2D" parent="." unique_id=1773426696]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_trap")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=261618253]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=941749599]
+shape = SubResource("RectangleShape2D_i0dmn")

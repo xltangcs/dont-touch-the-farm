@@ -112,8 +112,11 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 	instance.position = world_pos
 	instance.add_to_group(GENERATED_GROUP)
 
-	if not config.texture_path.is_empty():
+	if not config.texture_path.is_empty() and "sprite" in instance:
 		instance.sprite = load(config.texture_path)
+
+	if instance.has_method("setup_tile_effect") and not config.disabled_action.is_empty():
+		instance.setup_tile_effect(config.disabled_action, config.disabled_key_label)
 
 	add_child(instance)
 	_apply_tile_collision(instance, config.has_collision)

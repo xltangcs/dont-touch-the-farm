@@ -22,5 +22,13 @@
 	"scene": "res://scenes/env/tile_base.tscn",
 	"texture": "res://assets/environment/tileset/water.png",
 	"has_collision": false
+  },
+  "4": {
+	"display_name": "禁用A键地块",
+	"scene": "res://scenes/env/tile_key.tscn",
+	"texture": "res://assets/environment/tileset/trap.png",
+	"has_collision": false,
+	"disabled_action": "walk_left",
+	"disabled_key_label": "A"
   }
 }
