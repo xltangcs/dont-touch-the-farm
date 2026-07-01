@@ -6,8 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="2_omf7m"]
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="3_game_ui"]
 [ext_resource type="AudioStream" uid="uid://b22rpno2nqgbt" path="res://audio/Ambience/Field.wav" id="4_0p5sh"]
+[ext_resource type="Script" uid="uid://bdsduxfmcb21j" path="res://scenes/env/tile_base.gd" id="4_mf2lh"]
 [ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_ejooh"]
+[ext_resource type="Texture2D" uid="uid://thdpa5qhwaqj" path="res://assets/environment/tileset/grass.png" id="5_hwqq0"]
+[ext_resource type="PackedScene" uid="uid://rf44p7ui4efm" path="res://scenes/env/tile_key.tscn" id="6_ex1v5"]
+[ext_resource type="Script" uid="uid://bcjnrr2dvsnj0" path="res://scenes/env/tile_key.gd" id="7_axqra"]
 [ext_resource type="Texture2D" uid="uid://btni51i0d52df" path="res://assets/environment/tileset/ground.png" id="8_3mp71"]
+[ext_resource type="Texture2D" uid="uid://catiswtdrumt4" path="res://assets/environment/tileset/trap_A.png" id="8_kt03o"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_complete_panel.tscn" id="9_complete"]
+[ext_resource type="Texture2D" uid="uid://cl7tss7t5k26i" path="res://assets/environment/tileset/trap_W.png" id="10_sw0ss"]
+[ext_resource type="Texture2D" uid="uid://b1xt6tn4d5ugs" path="res://assets/environment/tileset/trap_D.png" id="11_x3g73"]
+[ext_resource type="Texture2D" uid="uid://bgu0wanwdesj8" path="res://assets/environment/tileset/trap_S.png" id="12_3ogvb"]
 
 [node name="NightGameScene" type="Node2D" unique_id=451639201]
 z_index = 2
@@ -17,15 +26,216 @@ z_index = 2
 [node name="NightScene" parent="." unique_id=1319284389 instance=ExtResource("1_pd2i6")]
 enable_tile_generation = true
 
-[node name="TileBase" parent="NightScene" unique_id=1667938367 instance=ExtResource("2_5lmwq")]
-z_index = 1
+[node name="TileBase" type="Node2D" parent="NightScene" unique_id=1667938367 instance=ExtResource("2_5lmwq")]
+z_index = 2
 y_sort_enabled = true
 position = Vector2(320, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30272" type="Node2D" parent="NightScene" unique_id=95188177 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(420, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30273" type="Node2D" parent="NightScene" unique_id=1985416782 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(520, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30274" type="Node2D" parent="NightScene" unique_id=1366956318 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(620, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30275" type="Node2D" parent="NightScene" unique_id=333826578 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(720, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30276" type="Node2D" parent="NightScene" unique_id=1118800103 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(820, 240)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30277" type="Node2D" parent="NightScene" unique_id=1854166591 instance=ExtResource("6_ex1v5")]
+y_sort_enabled = true
+position = Vector2(320, 340)
+script = ExtResource("7_axqra")
+sprite = ExtResource("8_kt03o")
+
+[node name="@Node2D@30278" type="Node2D" parent="NightScene" unique_id=1983446135 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(420, 340)
+script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
 
+[node name="@Node2D@30279" type="Node2D" parent="NightScene" unique_id=870298893 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(520, 340)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30280" type="Node2D" parent="NightScene" unique_id=188843649 instance=ExtResource("6_ex1v5")]
+y_sort_enabled = true
+position = Vector2(620, 340)
+script = ExtResource("7_axqra")
+sprite = ExtResource("10_sw0ss")
+
+[node name="@Node2D@30281" type="Node2D" parent="NightScene" unique_id=1415517989 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(720, 340)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30282" type="Node2D" parent="NightScene" unique_id=1001490398 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(820, 340)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30283" type="Node2D" parent="NightScene" unique_id=396043625 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(320, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30284" type="Node2D" parent="NightScene" unique_id=105663055 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(420, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30285" type="Node2D" parent="NightScene" unique_id=1038612052 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(520, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30286" type="Node2D" parent="NightScene" unique_id=869814825 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(620, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30287" type="Node2D" parent="NightScene" unique_id=667696644 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(720, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30288" type="Node2D" parent="NightScene" unique_id=485778801 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(820, 440)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30289" type="Node2D" parent="NightScene" unique_id=386541957 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(320, 540)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30290" type="Node2D" parent="NightScene" unique_id=1781654381 instance=ExtResource("6_ex1v5")]
+y_sort_enabled = true
+position = Vector2(420, 540)
+script = ExtResource("7_axqra")
+sprite = ExtResource("11_x3g73")
+
+[node name="@Node2D@30291" type="Node2D" parent="NightScene" unique_id=1309636867 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(520, 540)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30292" type="Node2D" parent="NightScene" unique_id=827081728 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(620, 540)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30293" type="Node2D" parent="NightScene" unique_id=49812034 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(720, 540)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30294" type="Node2D" parent="NightScene" unique_id=1672703631 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(820, 540)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30295" type="Node2D" parent="NightScene" unique_id=1539407781 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(320, 640)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30296" type="Node2D" parent="NightScene" unique_id=220586045 instance=ExtResource("2_5lmwq")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(420, 640)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("8_3mp71")
+
+[node name="@Node2D@30297" type="Node2D" parent="NightScene" unique_id=2119766006 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(520, 640)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30298" type="Node2D" parent="NightScene" unique_id=25031611 instance=ExtResource("6_ex1v5")]
+y_sort_enabled = true
+position = Vector2(620, 640)
+script = ExtResource("7_axqra")
+sprite = ExtResource("12_3ogvb")
+
+[node name="@Node2D@30299" type="Node2D" parent="NightScene" unique_id=1729731839 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(720, 640)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
+[node name="@Node2D@30300" type="Node2D" parent="NightScene" unique_id=1751850838 instance=ExtResource("2_5lmwq")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(820, 640)
+script = ExtResource("4_mf2lh")
+sprite = ExtResource("5_hwqq0")
+
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
-position = Vector2(981, 550)
 scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter" unique_id=65704179]
 
 [node name="GameScreen" parent="." unique_id=820772532 instance=ExtResource("3_game_ui")]
 
@@ -37,3 +247,6 @@ autoplay = true
 stream = ExtResource("5_ejooh")
 volume_db = -13.85
 autoplay = true
+
+[node name="LevelCompletePanel" parent="." unique_id=171199025 instance=ExtResource("9_complete")]
+visible = false

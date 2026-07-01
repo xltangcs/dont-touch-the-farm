@@ -1,6 +1,16 @@
 {
   "levels": [
-	{ "path": "res://data/levels/level_test.json", "name": "测试关卡" },
-	{ "path": "res://data/levels/level_01.json", "name": "第一关" }
+	{
+	  "path": "res://data/levels/level_test.json",
+	  "name": "测试关卡"
+	},
+	{
+	  "path": "res://data/levels/level_01.json",
+	  "name": "第一关"
+	},
+	{
+	  "path": "res://data/levels/level_02.json",
+	  "name": "第二关"
+	}
   ]
 }

@@ -2,6 +2,7 @@
 extends Node2D
 
 const DEFAULT_SCENE_PATH := "res://scenes/env/tile_base.tscn"
+const END_POINT_SCENE_PATH := "res://scenes/env/end_point.tscn"
 const GENERATED_GROUP := "generated_tile"
 
 @export var level_config_path: String = "res://data/levels/level_01.json"
@@ -56,6 +57,8 @@ func _generate_from_level_json() -> void:
 			if tile_id == 0:
 				continue
 			_spawn_tile(tile_id, origin + Vector2(col * tile_size, row * tile_size))
+
+	_handle_level_points(level_data, tile_size, origin)
 
 
 func _clear_old_tiles() -> void:
@@ -144,3 +147,66 @@ func _apply_tile_collision(instance: Node2D, has_collision: bool) -> void:
 	else:
 		body.collision_layer = 0
 		body.collision_mask = 0
+
+
+func _handle_level_points(level_data: Dictionary, tile_size: float, origin: Vector2) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	var grid: Array = level_data.get("grid", [])
+
+	var start_point: Array = level_data.get("start_point", [])
+	if start_point.size() >= 2:
+		var start_col: int = int(start_point[0])
+		var start_row: int = int(start_point[1])
+		_check_start_collision(grid, start_col, start_row)
+		var start_world_pos := origin + Vector2(start_col * tile_size, start_row * tile_size)
+		var player := get_node_or_null("../MainCharacter")
+		if player:
+			player.position = start_world_pos
+		else:
+			push_error("MainCharacter not found - cannot place player at start point.")
+	else:
+		push_warning("Level missing start_point.")
+
+	var end_point: Array = level_data.get("end_point", [])
+	if end_point.size() >= 2:
+		var end_col: int = int(end_point[0])
+		var end_row: int = int(end_point[1])
+		var end_world_pos := origin + Vector2(end_col * tile_size, end_row * tile_size)
+		_spawn_end_point(end_world_pos)
+	else:
+		push_warning("Level missing end_point.")
+
+
+func _check_start_collision(grid: Array, col: int, row: int) -> void:
+	if row < 0 or row >= grid.size():
+		push_warning("Start point row %d out of grid bounds." % row)
+		return
+	var cols = grid[row]
+	if typeof(cols) != TYPE_ARRAY or col < 0 or col >= cols.size():
+		push_warning("Start point col %d out of grid bounds." % col)
+		return
+	var tile_id: int = int(cols[col])
+	var config := TileMapConfigManager.get_config(tile_id)
+	if config and config.has_collision:
+		push_warning("Start point at [%d, %d] has collision (tile: %s, id: %d)." % [col, row, config.display_name, tile_id])
+
+
+func _spawn_end_point(world_pos: Vector2) -> void:
+	var scene: PackedScene = load(END_POINT_SCENE_PATH)
+	if scene == null:
+		push_error("Failed to load end point scene: %s" % END_POINT_SCENE_PATH)
+		return
+
+	var instance := scene.instantiate()
+	instance.position = world_pos
+	instance.level_reached.connect(_on_level_reached)
+	instance.add_to_group(GENERATED_GROUP)
+	add_child(instance)
+
+
+func _on_level_reached() -> void:
+	var panel := get_node_or_null("../LevelCompletePanel")
+	if panel and panel.has_method("show_panel"):
+		panel.show_panel()
