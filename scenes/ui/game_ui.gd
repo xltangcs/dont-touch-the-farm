@@ -6,15 +6,13 @@ signal building_production_opened
 
 @onready var _force_mine_panel: ForceMinePanel = $CenterContainer/ForceMinePanel
 @onready var _building_production_panel: BuildingProductionPanel = $CenterContainer/BuildingProductionPanel
-@onready var _bag_ui: Control = $BagUi
-@onready var _disabled_key_panel: PanelContainer = $DisabledKeyPanel
-@onready var _disabled_key_label: Label = $DisabledKeyPanel/MarginContainer/Label
+@onready var _disabled_key_panel: PanelContainer = $DisableKeyControl/DisabledKeyPanel
+@onready var _disabled_key_label: Label = $DisableKeyControl/DisabledKeyPanel/MarginContainer/Label
 
 
 func _ready() -> void:
 	add_to_group("game_ui")
 	_building_production_panel.closed.connect(_on_building_production_closed)
-	_bag_ui.inventory_slot_clicked.connect(_on_bag_inventory_slot_clicked)
 	_disabled_key_panel.visible = false
 
 
@@ -48,21 +46,6 @@ func close_building_production() -> void:
 
 func is_building_production_open() -> bool:
 	return _building_production_panel.is_open()
-
-
-func _on_bag_inventory_slot_clicked(inventory_index: int) -> void:
-	if not _building_production_panel.is_open():
-		return
-
-	var slot := InventoryManager.get_slot(inventory_index)
-	if slot == null or slot.item == null:
-		return
-
-	var item_id := slot.item.item_id
-	if item_id.is_empty():
-		return
-
-	_building_production_panel.try_take_from_inventory(item_id, 1)
 
 
 func _on_building_production_closed() -> void:

@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c0th5u6hwb17h" path="res://scenes/env/night_scene.tscn" id="1_pd2i6"]
 [ext_resource type="PackedScene" uid="uid://bowj6e1p1o03s" path="res://scenes/characters/main_character.tscn" id="2_omf7m"]
 [ext_resource type="PackedScene" uid="uid://5nglwiyystwf" path="res://scenes/ui/game_ui.tscn" id="3_game_ui"]
+[ext_resource type="AudioStream" uid="uid://b22rpno2nqgbt" path="res://audio/Ambience/Field.wav" id="4_0p5sh"]
+[ext_resource type="AudioStream" uid="uid://d0pag5e2sp2j1" path="res://assets/audio/哨笛.mp3" id="5_ejooh"]
 
 [node name="NightGameScene" type="Node2D" unique_id=451639201]
 
@@ -10,7 +12,16 @@
 enable_tile_generation = true
 
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
-position = Vector2(679, 746)
+position = Vector2(853, 776)
 scale = Vector2(0.5, 0.5)
 
 [node name="GameScreen" parent="." unique_id=820772532 instance=ExtResource("3_game_ui")]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=585954153]
+stream = ExtResource("4_0p5sh")
+autoplay = true
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=1061186974]
+stream = ExtResource("5_ejooh")
+volume_db = -13.85
+autoplay = true

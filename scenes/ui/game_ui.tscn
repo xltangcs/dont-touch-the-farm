@@ -1,61 +1,15 @@
 [gd_scene format=3 uid="uid://5nglwiyystwf"]
 
 [ext_resource type="Script" uid="uid://bqm7x8k2n4p1w" path="res://scenes/ui/game_ui.gd" id="1_game_ui"]
-[ext_resource type="PackedScene" uid="uid://jwtwhse2qhod" path="res://scenes/ui/force_mine_panel.tscn" id="1_gwk6t"]
-[ext_resource type="PackedScene" uid="uid://cbk0hsxjpqrlu" path="res://scenes/ui/bag_ui.tscn" id="2_bag_ui"]
 [ext_resource type="PackedScene" uid="uid://bomfr73abwl8s" path="res://scenes/ui/dialogue_ui.tscn" id="3_dialogue_ui"]
-[ext_resource type="PackedScene" uid="uid://bve24xqdmcgdf" path="res://scenes/ui/building_production_panel.tscn" id="3_v1bdg"]
+[ext_resource type="PackedScene" uid="uid://dt60ckxwca2gk" path="res://scenes/ui/disable_key_control.tscn" id="4_xjfbv"]
 [ext_resource type="Texture2D" uid="uid://jbny0cqkoytd" path="res://assets/scene/props/6 人比.png" id="5_ru5ln"]
 
 [node name="GameScreen" type="CanvasLayer" unique_id=811351460]
 script = ExtResource("1_game_ui")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=591564497]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ForceMinePanel" parent="CenterContainer" unique_id=1266606709 instance=ExtResource("1_gwk6t")]
-visible = false
-layout_mode = 2
-
-[node name="BuildingProductionPanel" parent="CenterContainer" unique_id=600835497 instance=ExtResource("3_v1bdg")]
-visible = false
-layout_mode = 2
-
-[node name="BagUi" parent="." unique_id=362606343 instance=ExtResource("2_bag_ui")]
-visible = false
-
-[node name="DialogueUi" parent="." unique_id=1122334455 instance=ExtResource("3_dialogue_ui")]
+[node name="DialogueUi" parent="." unique_id=1522823573 instance=ExtResource("3_dialogue_ui")]
 visible = false
 player_portrait = ExtResource("5_ru5ln")
 
-[node name="DisabledKeyPanel" type="PanelContainer" parent="." unique_id=1915559036]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -100.0
-offset_right = -24.0
-offset_bottom = -24.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="DisabledKeyPanel" unique_id=595516037]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="Label" parent="DisabledKeyPanel/MarginContainer" unique_id=303270419]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "禁用按键：A"
+[node name="DisableKeyControl" parent="." unique_id=896315529 instance=ExtResource("4_xjfbv")]

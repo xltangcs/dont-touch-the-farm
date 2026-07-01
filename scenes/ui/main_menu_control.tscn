@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bjkn0kut0p3d2"]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu_control.gd" id="1_menu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_normal"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.95, 0.95, 0.95, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
+bg_color = Color(0.88, 0.88, 0.88, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="MainMenuControl" type="Control" unique_id=71791841]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="MenuPanel" type="Control" parent="." unique_id=71791842]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MenuPanel" unique_id=71791843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/CenterContainer" unique_id=71791844]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="StartButton" type="Button" parent="MenuPanel/CenterContainer/VBoxContainer" unique_id=71791845]
+custom_minimum_size = Vector2(320, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+text = "开始游戏"
+
+[node name="ExitButton" type="Button" parent="MenuPanel/CenterContainer/VBoxContainer" unique_id=71791846]
+custom_minimum_size = Vector2(320, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+text = "退出游戏"
+
+[node name="CreditsButton" type="Button" parent="MenuPanel/CenterContainer/VBoxContainer" unique_id=71791847]
+custom_minimum_size = Vector2(320, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+text = "制作名单"
+
+[node name="CreditsPanel" type="Control" parent="." unique_id=71791848]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CreditsPanel" unique_id=71791849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/CenterContainer" unique_id=71791850]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="CreditsPanel/CenterContainer/VBoxContainer" unique_id=71791851]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "制作名单"
+horizontal_alignment = 1
+
+[node name="CreditsLabel" type="Label" parent="CreditsPanel/CenterContainer/VBoxContainer" unique_id=71791852]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Dont Touch The Farm
+
+程序 / 设计
+（在此填写你的名字）
+
+美术
+（在此填写贡献者）
+
+音乐
+（在此填写贡献者）"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CreditsPanel/CenterContainer/VBoxContainer" unique_id=71791853]
+custom_minimum_size = Vector2(320, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+text = "返回"
