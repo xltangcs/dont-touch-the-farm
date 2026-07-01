@@ -5,6 +5,7 @@ signal level_started(level_index: int, level_path: String)
 const LEVEL_LIST_PATH := "res://data/levels/level_list.json"
 
 var _levels: Array[String] = []
+var _level_names: Array[String] = []
 var _current_level_index: int = -1
 
 
@@ -36,9 +37,20 @@ func _load_level_list() -> void:
 		return
 
 	_levels.clear()
-	for entry in raw_levels:
+	_level_names.clear()
+	for i in range(raw_levels.size()):
+		var entry = raw_levels[i]
 		if typeof(entry) == TYPE_STRING:
 			_levels.append(entry)
+			_level_names.append("关卡 %d" % (i + 1))
+		elif typeof(entry) == TYPE_DICTIONARY:
+			var path: String = entry.get("path", "")
+			var name: String = entry.get("name", "关卡 %d" % (i + 1))
+			if path.is_empty():
+				push_error("Level entry %d in level_list.json is missing 'path' key." % i)
+				continue
+			_levels.append(path)
+			_level_names.append(name)
 
 
 func start_level(index: int) -> bool:
@@ -78,6 +90,12 @@ func restart_current_level() -> bool:
 		return false
 	level_started.emit(_current_level_index, _levels[_current_level_index])
 	return true
+
+
+func get_level_name(index: int) -> String:
+	if index < 0 or index >= _level_names.size():
+		return ""
+	return _level_names[index]
 
 
 func get_total_levels() -> int:

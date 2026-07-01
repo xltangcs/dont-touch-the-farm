@@ -1,10 +1,12 @@
 extends Control
 
 const MAIN_SCENE_PATH := "res://scenes/env/night_game_scene.tscn"
+const LEVEL_SELECT_SCENE_PATH := "res://scenes/ui/level_select_control.tscn"
 
 @onready var _menu_panel: Control = $MenuPanel
 @onready var _credits_panel: Control = $CreditsPanel
 @onready var _start_button: Button = $MenuPanel/CenterContainer/VBoxContainer/StartButton
+@onready var _select_level_button: Button = $MenuPanel/CenterContainer/VBoxContainer/SelectLevelButton
 @onready var _exit_button: Button = $MenuPanel/CenterContainer/VBoxContainer/ExitButton
 @onready var _credits_button: Button = $MenuPanel/CenterContainer/VBoxContainer/CreditsButton
 @onready var _credits_back_button: Button = $CreditsPanel/CenterContainer/VBoxContainer/BackButton
@@ -13,6 +15,7 @@ const MAIN_SCENE_PATH := "res://scenes/env/night_game_scene.tscn"
 func _ready() -> void:
 	_credits_panel.visible = false
 	_start_button.pressed.connect(_on_start_pressed)
+	_select_level_button.pressed.connect(_on_select_level_pressed)
 	_exit_button.pressed.connect(_on_exit_pressed)
 	_credits_button.pressed.connect(_on_credits_pressed)
 	_credits_back_button.pressed.connect(_on_credits_back_pressed)
@@ -21,6 +24,10 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	LevelManager.start_level(0)
 	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+
+
+func _on_select_level_pressed() -> void:
+	get_tree().change_scene_to_file(LEVEL_SELECT_SCENE_PATH)
 
 
 func _on_exit_pressed() -> void:
