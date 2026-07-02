@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d4rainzonescn"]
+
+[ext_resource type="Script" uid="uid://d8rainzone001" path="res://scenes/env/rain_zone.gd" id="1_zone"]
+
+[node name="RainZone" type="Node2D"]
+script = ExtResource("1_zone")

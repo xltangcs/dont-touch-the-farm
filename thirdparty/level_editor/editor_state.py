@@ -1,5 +1,7 @@
-﻿import json
+import json
 import os
+
+RAIN_BUTTON_TILE_ID = 10
 
 
 class EditorState:
@@ -15,6 +17,8 @@ class EditorState:
         self.origin_y: int = 240
         self.start_point: list[int] = [0, 0]
         self.end_point: list[int] = [0, 0]
+        self.rain_zones: dict = {}
+        self.active_rain_zone_id: str = "rain_01"
         self.current_mode: str = "paint"
         self._current_file: str = ""
         self._modified: bool = False
@@ -59,6 +63,8 @@ class EditorState:
         self.origin_y = max(height * self.tile_size // 2, 100)
         self.start_point = [0, 0]
         self.end_point = [0, 0]
+        self.rain_zones = {}
+        self.active_rain_zone_id = "rain_01"
         self.current_mode = "paint"
         self._current_file = ""
         self._modified = True
@@ -100,17 +106,72 @@ class EditorState:
             else:
                 self.grid.append([int(row)])
 
+        self.rain_zones = {}
+        for zone in data.get("rain_zones", []):
+            if not isinstance(zone, dict):
+                continue
+            zone_id = str(zone.get("id", ""))
+            if not zone_id:
+                continue
+            cells = zone.get("cells", [])
+            normalized_cells = []
+            for cell in cells:
+                if isinstance(cell, list) and len(cell) >= 2:
+                    normalized_cells.append([int(cell[0]), int(cell[1])])
+            self.rain_zones[zone_id] = {
+                "cells": normalized_cells,
+                "active": bool(zone.get("active", True)),
+            }
+            btn = zone.get("button", None)
+            if isinstance(btn, list) and len(btn) >= 2:
+                btn_col = int(btn[0])
+                btn_row = int(btn[1])
+                self.rain_zones[zone_id]["button"] = [btn_col, btn_row]
+                if 0 <= btn_row < self.rows and 0 <= btn_col < self.cols:
+                    self.grid[btn_row][btn_col] = RAIN_BUTTON_TILE_ID
+
+        for button in data.get("rain_buttons", []):
+            if not isinstance(button, dict):
+                continue
+            if "col" not in button or "row" not in button:
+                continue
+            target_id = str(button.get("target_rain_id", ""))
+            if not target_id:
+                continue
+            col = int(button["col"])
+            row = int(button["row"])
+            self.ensure_rain_zone(target_id)
+            self.rain_zones[target_id]["button"] = [col, row]
+            if 0 <= row < self.rows and 0 <= col < self.cols:
+                self.grid[row][col] = RAIN_BUTTON_TILE_ID
+
         self._current_file = filepath
         self._modified = False
         return True
 
     def save_level(self, filepath: str) -> bool:
+        rain_zones = []
+        for zone_id, zone_data in self.rain_zones.items():
+            cells = zone_data.get("cells", [])
+            button = zone_data.get("button")
+            if not cells and not button:
+                continue
+            entry = {
+                "id": zone_id,
+                "cells": cells,
+                "active": bool(zone_data.get("active", True)),
+            }
+            if isinstance(button, list) and len(button) >= 2:
+                entry["button"] = [int(button[0]), int(button[1])]
+            rain_zones.append(entry)
+
         data = {
             "tile_size": self.tile_size,
             "origin": [self.origin_x, self.origin_y],
             "start_point": self.start_point,
             "end_point": self.end_point,
             "grid": self.grid,
+            "rain_zones": rain_zones,
         }
 
         dirpath = os.path.dirname(filepath)
@@ -224,3 +285,56 @@ class EditorState:
         self.current_mode = "paint"
         self._modified = True
         return True
+
+    def ensure_rain_zone(self, zone_id=None) -> None:
+        zid = zone_id or self.active_rain_zone_id
+        if zid not in self.rain_zones:
+            self.rain_zones[zid] = {"cells": [], "active": True}
+
+    def toggle_rain_cell(self, col: int, row: int) -> None:
+        self.ensure_rain_zone()
+        cells = self.rain_zones[self.active_rain_zone_id]["cells"]
+        key = [col, row]
+        if key in cells:
+            cells.remove(key)
+        else:
+            cells.append(key)
+        self._modified = True
+
+    def remove_rain_cell(self, col: int, row: int) -> None:
+        key = [col, row]
+        changed = False
+        for zone_data in self.rain_zones.values():
+            cells = zone_data.get("cells", [])
+            if key in cells:
+                cells.remove(key)
+                changed = True
+        if changed:
+            self._modified = True
+
+    def set_rain_button(self, col: int, row: int) -> None:
+        self.ensure_rain_zone()
+        zone_id = self.active_rain_zone_id
+        zone_data = self.rain_zones[zone_id]
+
+        old_button = zone_data.get("button")
+        if isinstance(old_button, list) and len(old_button) >= 2:
+            old_col = int(old_button[0])
+            old_row = int(old_button[1])
+            if 0 <= old_row < self.rows and 0 <= old_col < self.cols:
+                if self.grid[old_row][old_col] == RAIN_BUTTON_TILE_ID:
+                    self.grid[old_row][old_col] = 0
+
+        if 0 <= row < self.rows and 0 <= col < self.cols:
+            self.grid[row][col] = RAIN_BUTTON_TILE_ID
+        zone_data["button"] = [col, row]
+        self.current_mode = "paint"
+        self._modified = True
+
+    def get_all_rain_cells(self) -> set[tuple[int, int]]:
+        cells: set[tuple[int, int]] = set()
+        for zone_data in self.rain_zones.values():
+            for cell in zone_data.get("cells", []):
+                if isinstance(cell, list) and len(cell) >= 2:
+                    cells.add((int(cell[0]), int(cell[1])))
+        return cells

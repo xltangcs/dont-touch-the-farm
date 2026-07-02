@@ -66,4 +66,5 @@ func _parse_config(id: int, data: Dictionary) -> TileMapConfigData:
 	)
 	config.z_index = int(data.get("z_index", 0))
 	config.initial_lit = bool(data.get("initial_lit", false))
+	config.rain_target_id = str(data.get("rain_target_id", ""))
 	return config

@@ -1,4 +1,4 @@
-﻿import tkinter as tk
+import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
@@ -90,6 +90,10 @@ class TileGrid(tk.Frame):
         row, col = self._xy_to_cell(x, y)
         if row < 0 or col < 0:
             return
+        if self.state.current_mode == "paint_rain":
+            self.state.remove_rain_cell(col, row)
+            self._draw_rain_overlays()
+            return
         self.state.set_cell(row, col, 0)
         self._redraw_cell(row, col)
 
@@ -122,6 +126,17 @@ class TileGrid(tk.Frame):
             if not self.state.set_end_point(col, row):
                 messagebox.showwarning("终点设置失败", "终点不能放置在碰撞地块上! (has_collision=True)")
                 return
+            self._redraw_cell(row, col)
+            self.update_mode_hint()
+            if self.settings_widget:
+                self.settings_widget._refresh_controls()
+            return
+        elif mode == "paint_rain":
+            self.state.toggle_rain_cell(col, row)
+            self._draw_rain_overlays()
+            return
+        elif mode == "set_rain_button":
+            self.state.set_rain_button(col, row)
             self._redraw_cell(row, col)
             self.update_mode_hint()
             if self.settings_widget:
@@ -167,6 +182,7 @@ class TileGrid(tk.Frame):
                 self._draw_cell(r, c)
 
         self._draw_markers()
+        self._draw_rain_overlays()
 
     def _draw_cell(self, row, col):
         tid = self.state.get_cell(row, col)
@@ -271,11 +287,30 @@ class TileGrid(tk.Frame):
             y = ep[1] * sz + 4
             self._canvas.create_image(x, y, anchor="nw", image=end_img, tag="marker_end")
 
+    def _get_rain_image(self) -> ImageTk.PhotoImage | None:
+        return self._load_marker_image("rain", "assets/environment/tileset/rain.png")
+
+    def _draw_rain_overlays(self) -> None:
+        self._canvas.delete("rain_overlay")
+        rain_img = self._get_rain_image()
+        if not rain_img:
+            return
+
+        sz = self._cell_size
+        for col, row in self.state.get_all_rain_cells():
+            x = col * sz + 2
+            y = row * sz + 2
+            self._canvas.create_image(x, y, anchor="nw", image=rain_img, tag="rain_overlay")
+
     def update_mode_hint(self):
         mode = self.state.current_mode
         if mode == "set_start":
             self._hint_label.config(text="设置起点模式 - 点击格子设置起点")
         elif mode == "set_end":
             self._hint_label.config(text="设置终点模式 - 点击格子设置终点")
+        elif mode == "paint_rain":
+            self._hint_label.config(text="雨区模式 - 左键绘制/切换，右键擦除")
+        elif mode == "set_rain_button":
+            self._hint_label.config(text="停雨按钮 - 点击格子放置地块(与禁用键同级)")
         else:
             self._hint_label.config(text="Scroll: Zoom  |  Space+Drag: Pan")

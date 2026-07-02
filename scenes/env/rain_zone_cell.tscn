@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c3raincellscn"]
+
+[ext_resource type="Script" uid="uid://b9raincell001" path="res://scenes/env/rain_zone_cell.gd" id="1_cell"]
+[ext_resource type="Texture2D" uid="uid://v75rfc8dnaud" path="res://assets/environment/tileset/rain.png" id="2_rain"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(99, 99)
+
+[node name="RainZoneCell" type="Node2D"]
+z_index = 10
+script = ExtResource("1_cell")
+
+[node name="TileSprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rain")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_area")

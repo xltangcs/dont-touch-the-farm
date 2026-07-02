@@ -10,3 +10,4 @@ var disabled_action: String = ""
 var disabled_key_label: String = ""
 var z_index: int = 0
 var initial_lit: bool = false
+var rain_target_id: String = ""

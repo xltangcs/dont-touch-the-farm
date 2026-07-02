@@ -3,6 +3,7 @@ extends Node2D
 
 const DEFAULT_SCENE_PATH := "res://scenes/env/tile_base.tscn"
 const END_POINT_SCENE_PATH := "res://scenes/env/end_point.tscn"
+const RAIN_ZONE_SCENE_PATH := "res://scenes/env/rain_zone.tscn"
 const GENERATED_GROUP := "generated_tile"
 
 @export var level_config_path: String = "res://data/levels/level_01.json"
@@ -56,8 +57,9 @@ func _generate_from_level_json() -> void:
 			var tile_id: int = cols[col]
 			if tile_id == 0:
 				continue
-			_spawn_tile(tile_id, origin + Vector2(col * tile_size, row * tile_size))
+			_spawn_tile(tile_id, origin + Vector2(col * tile_size, row * tile_size), col, row, level_data)
 
+	_spawn_rain_system(level_data, tile_size, origin)
 	_handle_level_points(level_data, tile_size, origin)
 
 
@@ -103,7 +105,7 @@ func _parse_origin(data) -> Vector2:
 	return Vector2.ZERO
 
 
-func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
+func _spawn_tile(tile_id: int, world_pos: Vector2, col: int, row: int, level_data: Dictionary) -> void:
 	var config: TileMapConfigData = TileMapConfigManager.get_config(tile_id)
 	if config == null:
 		push_warning("No tile config found for id: %d" % tile_id)
@@ -123,6 +125,8 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 	instance.z_index = config.z_index
 	instance.y_sort_enabled = true
 	instance.add_to_group(GENERATED_GROUP)
+	instance.set_meta("grid_col", col)
+	instance.set_meta("grid_row", row)
 
 	if "initial_lit" in instance:
 		instance.initial_lit = config.initial_lit
@@ -130,12 +134,76 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 	if not config.texture_path.is_empty() and "sprite" in instance:
 		instance.sprite = load(config.texture_path)
 
-	if instance.has_method("setup_tile_effect") and not config.disabled_action.is_empty():
-		instance.setup_tile_effect(config.disabled_action, config.disabled_key_label)
+	if "rain_target_id" in instance:
+		var target_id := config.rain_target_id
+		if target_id.is_empty():
+			target_id = _resolve_rain_target_for_button(col, row, level_data)
+		instance.rain_target_id = target_id
 
 	add_child(instance)
 	_apply_tile_collision(instance, config.has_collision)
 
+	if instance.has_method("setup_tile_effect") and not config.disabled_action.is_empty():
+		instance.setup_tile_effect(config.disabled_action, config.disabled_key_label)
+
+	if Engine.is_editor_hint():
+		instance.owner = get_tree().edited_scene_root
+
+
+func _spawn_rain_system(level_data: Dictionary, tile_size: float, origin: Vector2) -> void:
+	var rain_zones: Array = level_data.get("rain_zones", [])
+	for zone_data in rain_zones:
+		if typeof(zone_data) != TYPE_DICTIONARY:
+			continue
+		_spawn_rain_zone(zone_data, tile_size, origin)
+
+
+func _resolve_rain_target_for_button(col: int, row: int, level_data: Dictionary) -> String:
+	for zone_data in level_data.get("rain_zones", []):
+		if typeof(zone_data) != TYPE_DICTIONARY:
+			continue
+		var btn = zone_data.get("button", [])
+		if typeof(btn) != TYPE_ARRAY or btn.size() < 2:
+			continue
+		if int(btn[0]) == col and int(btn[1]) == row:
+			return str(zone_data.get("id", ""))
+
+	for button_data in level_data.get("rain_buttons", []):
+		if typeof(button_data) != TYPE_DICTIONARY:
+			continue
+		if int(button_data.get("col", -1)) == col and int(button_data.get("row", -1)) == row:
+			return str(button_data.get("target_rain_id", ""))
+
+	return "rain_01"
+
+
+func _spawn_rain_zone(zone_data: Dictionary, tile_size: float, origin: Vector2) -> void:
+	var zone_id := str(zone_data.get("id", ""))
+	if zone_id.is_empty():
+		push_warning("Rain zone missing id, skipped.")
+		return
+
+	var cells: Array = zone_data.get("cells", [])
+	if cells.is_empty():
+		push_warning("Rain zone '%s' has no cells, skipped." % zone_id)
+		return
+
+	var scene: PackedScene = load(RAIN_ZONE_SCENE_PATH)
+	if scene == null:
+		push_error("Failed to load rain zone scene: %s" % RAIN_ZONE_SCENE_PATH)
+		return
+
+	var active: bool = bool(zone_data.get("active", true))
+	var instance := scene.instantiate()
+	instance.set_meta("rain_zone_setup", {
+		"id": zone_id,
+		"cells": cells,
+		"tile_size": tile_size,
+		"origin": origin,
+		"active": active,
+	})
+	add_child(instance)
+	instance.add_to_group(GENERATED_GROUP)
 	if Engine.is_editor_hint():
 		instance.owner = get_tree().edited_scene_root
 

@@ -71,6 +71,23 @@ class EditorSettings(ttk.Frame):
         self._end_label = ttk.Label(row_ep, text="[0, 0]")
         self._end_label.pack(side="right")
 
+        ttk.Separator(self, orient="horizontal").pack(fill="x", pady=(2, 6))
+
+        row_rain = ttk.Frame(self)
+        row_rain.pack(fill="x", padx=6, pady=1)
+        ttk.Label(row_rain, text="雨区 ID:").pack(side="left")
+        self._rain_zone_id_var = tk.StringVar(value=self.state.active_rain_zone_id)
+        ttk.Entry(row_rain, textvariable=self._rain_zone_id_var, width=10).pack(side="right")
+        self._rain_zone_id_var.trace_add("write", lambda *a: self._on_rain_zone_id_changed())
+
+    def _on_rain_zone_id_changed(self):
+        zone_id = self._rain_zone_id_var.get().strip()
+        if not zone_id:
+            return
+        self.state.active_rain_zone_id = zone_id
+        self.state.ensure_rain_zone(zone_id)
+        self._fire_modified()
+
     def _on_tile_size_changed(self):
         try:
             val = int(self._tile_size_var.get())
@@ -131,6 +148,7 @@ class EditorSettings(ttk.Frame):
         ep = self.state.end_point
         self._start_label.config(text=f"[{sp[0]}, {sp[1]}]")
         self._end_label.config(text=f"[{ep[0]}, {ep[1]}]")
+        self._rain_zone_id_var.set(self.state.active_rain_zone_id)
 
     def _fire_modified(self):
         if self._on_modified:

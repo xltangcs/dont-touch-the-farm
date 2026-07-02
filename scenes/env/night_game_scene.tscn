@@ -16,8 +16,13 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/level_complete_panel.tscn" id="9_complete"]
 [ext_resource type="Texture2D" uid="uid://bflcv2uncbuce" path="res://assets/environment/tileset/fire_on.png" id="9_hwqq0"]
 [ext_resource type="PackedScene" uid="uid://b7k3campf1r3" path="res://scenes/env/campfire_tile.tscn" id="10_mf2lh"]
+[ext_resource type="PackedScene" uid="uid://f6rainbtnscn" path="res://scenes/env/rain_button.tscn" id="10_sw0ss"]
 [ext_resource type="Script" uid="uid://d5613e02ika0" path="res://scenes/env/campfire_tile.gd" id="11_hwqq0"]
+[ext_resource type="Script" uid="uid://e5rainbtn001" path="res://scenes/env/rain_button.gd" id="11_x3g73"]
+[ext_resource type="Texture2D" uid="uid://c8rainkey001" path="res://assets/environment/tileset/rain_key.png" id="12_3ogvb"]
 [ext_resource type="Texture2D" uid="uid://gt7nb6jnakd7" path="res://assets/environment/tileset/fire_off.png" id="12_ex1v5"]
+[ext_resource type="PackedScene" uid="uid://dewl3f26wkv" path="res://scenes/env/rain_zone.tscn" id="17_m26lp"]
+[ext_resource type="Script" uid="uid://edewl3f265aa" path="res://scenes/env/rain_zone.gd" id="18_hw7op"]
 
 [node name="NightGameScene" type="Node2D" unique_id=451639201]
 z_index = 2
@@ -34,697 +39,917 @@ y_sort_enabled = true
 position = Vector2(50, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 0
 
-[node name="@Node2D@106102" type="Node2D" parent="NightScene" unique_id=2072346733 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110598" type="Node2D" parent="NightScene" unique_id=1038642207 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 0
 
-[node name="@Node2D@106103" type="Node2D" parent="NightScene" unique_id=1304213483 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110599" type="Node2D" parent="NightScene" unique_id=1823996996 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(250, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 2
+metadata/grid_row = 0
 
-[node name="@Node2D@106104" type="Node2D" parent="NightScene" unique_id=1711808922 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110600" type="Node2D" parent="NightScene" unique_id=1746635323 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 0
 
-[node name="@Node2D@106105" type="Node2D" parent="NightScene" unique_id=2070367118 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110601" type="Node2D" parent="NightScene" unique_id=486450795 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(450, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 4
+metadata/grid_row = 0
 
-[node name="@Node2D@106106" type="Node2D" parent="NightScene" unique_id=1985018108 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110602" type="Node2D" parent="NightScene" unique_id=801289741 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 0
 
-[node name="@Node2D@106107" type="Node2D" parent="NightScene" unique_id=439547264 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110603" type="Node2D" parent="NightScene" unique_id=2043446290 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(650, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 6
+metadata/grid_row = 0
 
-[node name="@Node2D@106108" type="Node2D" parent="NightScene" unique_id=1856016640 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110604" type="Node2D" parent="NightScene" unique_id=23010480 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 0
 
-[node name="@Node2D@106109" type="Node2D" parent="NightScene" unique_id=579148004 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110605" type="Node2D" parent="NightScene" unique_id=87732462 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 0
 
-[node name="@Node2D@106110" type="Node2D" parent="NightScene" unique_id=1233176794 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110606" type="Node2D" parent="NightScene" unique_id=1188306564 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 240)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 0
 
-[node name="@Node2D@106111" type="Node2D" parent="NightScene" unique_id=2087294430 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110607" type="Node2D" parent="NightScene" unique_id=320691305 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 1
 
-[node name="@Node2D@106112" type="Node2D" parent="NightScene" unique_id=319460016 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110608" type="Node2D" parent="NightScene" unique_id=1577668421 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 1
 
-[node name="@Node2D@106113" type="Node2D" parent="NightScene" unique_id=946236628 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110609" type="Node2D" parent="NightScene" unique_id=2031960650 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(250, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 2
+metadata/grid_row = 1
 
-[node name="@Node2D@106114" type="Node2D" parent="NightScene" unique_id=113246899 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110610" type="Node2D" parent="NightScene" unique_id=966838990 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 1
 
-[node name="@Node2D@106115" type="Node2D" parent="NightScene" unique_id=1795241750 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110611" type="Node2D" parent="NightScene" unique_id=788201105 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(450, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 4
+metadata/grid_row = 1
 
-[node name="@Node2D@106116" type="Node2D" parent="NightScene" unique_id=474933877 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110612" type="Node2D" parent="NightScene" unique_id=413738404 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(550, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 5
+metadata/grid_row = 1
 
-[node name="@Node2D@106117" type="Node2D" parent="NightScene" unique_id=1410727563 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110613" type="Node2D" parent="NightScene" unique_id=658676205 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(650, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 6
+metadata/grid_row = 1
 
-[node name="@Node2D@106118" type="Node2D" parent="NightScene" unique_id=1519879298 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110614" type="Node2D" parent="NightScene" unique_id=1494285402 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(750, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 7
+metadata/grid_row = 1
 
-[node name="@Node2D@106119" type="Node2D" parent="NightScene" unique_id=262544125 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110615" type="Node2D" parent="NightScene" unique_id=80365382 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 1
 
-[node name="@Node2D@106120" type="Node2D" parent="NightScene" unique_id=1338760398 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110616" type="Node2D" parent="NightScene" unique_id=373580797 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 340)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 1
 
-[node name="@Node2D@106121" type="Node2D" parent="NightScene" unique_id=29434183 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110617" type="Node2D" parent="NightScene" unique_id=1980205582 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 2
 
-[node name="@Node2D@106122" type="Node2D" parent="NightScene" unique_id=1383021609 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110618" type="Node2D" parent="NightScene" unique_id=411401672 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(150, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 1
+metadata/grid_row = 2
 
-[node name="@Node2D@106123" type="Node2D" parent="NightScene" unique_id=95984566 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110619" type="Node2D" parent="NightScene" unique_id=1358291921 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(250, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 2
+metadata/grid_row = 2
 
-[node name="@Node2D@106124" type="Node2D" parent="NightScene" unique_id=1713088790 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110620" type="Node2D" parent="NightScene" unique_id=1203321105 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 2
 
-[node name="@Node2D@106125" type="Node2D" parent="NightScene" unique_id=85501896 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110621" type="Node2D" parent="NightScene" unique_id=1830411890 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(450, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 4
+metadata/grid_row = 2
 
-[node name="@Node2D@106126" type="Node2D" parent="NightScene" unique_id=1918110051 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110622" type="Node2D" parent="NightScene" unique_id=468207503 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 2
 
-[node name="@Node2D@106127" type="Node2D" parent="NightScene" unique_id=1293875898 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110623" type="Node2D" parent="NightScene" unique_id=263826588 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(650, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 6
+metadata/grid_row = 2
 
-[node name="@Node2D@106128" type="Node2D" parent="NightScene" unique_id=1875929252 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110624" type="Node2D" parent="NightScene" unique_id=164622928 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(750, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 7
+metadata/grid_row = 2
 
-[node name="@Node2D@106129" type="Node2D" parent="NightScene" unique_id=69260491 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110625" type="Node2D" parent="NightScene" unique_id=618108437 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 2
 
-[node name="@Node2D@106130" type="Node2D" parent="NightScene" unique_id=630010748 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110626" type="Node2D" parent="NightScene" unique_id=1348914545 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 440)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 2
 
-[node name="@Node2D@106131" type="Node2D" parent="NightScene" unique_id=1589511765 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110627" type="Node2D" parent="NightScene" unique_id=1699732602 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 3
 
-[node name="@Node2D@106132" type="Node2D" parent="NightScene" unique_id=851020374 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110628" type="Node2D" parent="NightScene" unique_id=2090617631 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(150, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 1
+metadata/grid_row = 3
 
-[node name="@Node2D@106133" type="Node2D" parent="NightScene" unique_id=1409933192 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110629" type="Node2D" parent="NightScene" unique_id=1098562172 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(250, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 2
+metadata/grid_row = 3
 
-[node name="@Node2D@106134" type="Node2D" parent="NightScene" unique_id=923552054 instance=ExtResource("10_mf2lh")]
+[node name="@Node2D@110630" type="Node2D" parent="NightScene" unique_id=923552054 instance=ExtResource("10_mf2lh")]
 z_index = 3
 y_sort_enabled = true
 position = Vector2(350, 540)
 script = ExtResource("11_hwqq0")
 sprite = ExtResource("9_hwqq0")
 initial_lit = true
+metadata/grid_col = 3
+metadata/grid_row = 3
 
-[node name="@Node2D@106135" type="Node2D" parent="NightScene" unique_id=1958743709 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110631" type="Node2D" parent="NightScene" unique_id=396230466 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(450, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 4
+metadata/grid_row = 3
 
-[node name="@Node2D@106136" type="Node2D" parent="NightScene" unique_id=1494109102 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110632" type="Node2D" parent="NightScene" unique_id=864627288 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 3
 
-[node name="@Node2D@106137" type="Node2D" parent="NightScene" unique_id=1996785654 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110633" type="Node2D" parent="NightScene" unique_id=790759946 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(650, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 6
+metadata/grid_row = 3
 
-[node name="@Node2D@106138" type="Node2D" parent="NightScene" unique_id=1285067962 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110634" type="Node2D" parent="NightScene" unique_id=9122870 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 3
 
-[node name="@Node2D@106139" type="Node2D" parent="NightScene" unique_id=1392006441 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110635" type="Node2D" parent="NightScene" unique_id=1380779041 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 3
 
-[node name="@Node2D@106140" type="Node2D" parent="NightScene" unique_id=492413603 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110636" type="Node2D" parent="NightScene" unique_id=282550802 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 540)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 3
 
-[node name="@Node2D@106141" type="Node2D" parent="NightScene" unique_id=928632284 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110637" type="Node2D" parent="NightScene" unique_id=1526172980 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 4
 
-[node name="@Node2D@106142" type="Node2D" parent="NightScene" unique_id=1638694311 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110638" type="Node2D" parent="NightScene" unique_id=1643881178 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(150, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 1
+metadata/grid_row = 4
 
-[node name="@Node2D@106143" type="Node2D" parent="NightScene" unique_id=1954853191 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110639" type="Node2D" parent="NightScene" unique_id=1481580656 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(250, 640)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 2
+metadata/grid_row = 4
 
-[node name="@Node2D@106144" type="Node2D" parent="NightScene" unique_id=597913823 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110640" type="Node2D" parent="NightScene" unique_id=1783066709 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 4
 
-[node name="@Node2D@106145" type="Node2D" parent="NightScene" unique_id=901298720 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110641" type="Node2D" parent="NightScene" unique_id=2102683893 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(450, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 4
+metadata/grid_row = 4
 
-[node name="@Node2D@106146" type="Node2D" parent="NightScene" unique_id=1660627973 instance=ExtResource("2_5lmwq")]
-z_index = 1
+[node name="RainButton" type="Node2D" parent="NightScene" unique_id=1732547375 instance=ExtResource("10_sw0ss")]
 y_sort_enabled = true
 position = Vector2(550, 640)
-script = ExtResource("4_mf2lh")
-sprite = ExtResource("8_3mp71")
+script = ExtResource("11_x3g73")
+sprite = ExtResource("12_3ogvb")
+rain_target_id = "rain_02"
+metadata/grid_col = 5
+metadata/grid_row = 4
 
-[node name="@Node2D@106147" type="Node2D" parent="NightScene" unique_id=638504043 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110642" type="Node2D" parent="NightScene" unique_id=154566987 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(650, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 6
+metadata/grid_row = 4
 
-[node name="@Node2D@106148" type="Node2D" parent="NightScene" unique_id=1164320487 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110643" type="Node2D" parent="NightScene" unique_id=1470629573 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(750, 640)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 7
+metadata/grid_row = 4
 
-[node name="@Node2D@106149" type="Node2D" parent="NightScene" unique_id=927657686 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110644" type="Node2D" parent="NightScene" unique_id=732939203 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 4
 
-[node name="@Node2D@106150" type="Node2D" parent="NightScene" unique_id=20838653 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110645" type="Node2D" parent="NightScene" unique_id=797255192 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 640)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 4
 
-[node name="@Node2D@106151" type="Node2D" parent="NightScene" unique_id=1753519109 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110646" type="Node2D" parent="NightScene" unique_id=239976263 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 5
 
-[node name="@Node2D@106152" type="Node2D" parent="NightScene" unique_id=211337712 instance=ExtResource("6_ex1v5")]
+[node name="@Node2D@110647" type="Node2D" parent="NightScene" unique_id=1270003420 instance=ExtResource("6_ex1v5")]
 y_sort_enabled = true
 position = Vector2(150, 740)
 script = ExtResource("7_axqra")
 sprite = ExtResource("8_kt03o")
+metadata/grid_col = 1
+metadata/grid_row = 5
 
-[node name="@Node2D@106153" type="Node2D" parent="NightScene" unique_id=800116598 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110648" type="Node2D" parent="NightScene" unique_id=226849258 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(250, 740)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 2
+metadata/grid_row = 5
 
-[node name="@Node2D@106154" type="Node2D" parent="NightScene" unique_id=582647151 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110649" type="Node2D" parent="NightScene" unique_id=955955807 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 5
 
-[node name="@Node2D@106155" type="Node2D" parent="NightScene" unique_id=867268595 instance=ExtResource("10_mf2lh")]
+[node name="@Node2D@110650" type="Node2D" parent="NightScene" unique_id=1641486476 instance=ExtResource("10_mf2lh")]
 z_index = 3
 y_sort_enabled = true
 position = Vector2(450, 740)
 script = ExtResource("11_hwqq0")
 sprite = ExtResource("12_ex1v5")
+metadata/grid_col = 4
+metadata/grid_row = 5
 
-[node name="@Node2D@106156" type="Node2D" parent="NightScene" unique_id=2035945183 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110651" type="Node2D" parent="NightScene" unique_id=1056672745 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 5
 
-[node name="@Node2D@106157" type="Node2D" parent="NightScene" unique_id=833252660 instance=ExtResource("6_ex1v5")]
+[node name="@Node2D@110652" type="Node2D" parent="NightScene" unique_id=753056846 instance=ExtResource("6_ex1v5")]
 y_sort_enabled = true
 position = Vector2(650, 740)
 script = ExtResource("7_axqra")
 sprite = ExtResource("8_kt03o")
+metadata/grid_col = 6
+metadata/grid_row = 5
 
-[node name="@Node2D@106158" type="Node2D" parent="NightScene" unique_id=2010343325 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110653" type="Node2D" parent="NightScene" unique_id=240765872 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 5
 
-[node name="@Node2D@106159" type="Node2D" parent="NightScene" unique_id=1977872232 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110654" type="Node2D" parent="NightScene" unique_id=1537379511 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 5
 
-[node name="@Node2D@106160" type="Node2D" parent="NightScene" unique_id=746094320 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110655" type="Node2D" parent="NightScene" unique_id=578887984 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 740)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 5
 
-[node name="@Node2D@106161" type="Node2D" parent="NightScene" unique_id=780348801 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110656" type="Node2D" parent="NightScene" unique_id=1835316518 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 6
 
-[node name="@Node2D@106162" type="Node2D" parent="NightScene" unique_id=32061338 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110657" type="Node2D" parent="NightScene" unique_id=640625217 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 6
 
-[node name="@Node2D@106163" type="Node2D" parent="NightScene" unique_id=1207366472 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110658" type="Node2D" parent="NightScene" unique_id=954640054 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(250, 840)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 2
+metadata/grid_row = 6
 
-[node name="@Node2D@106164" type="Node2D" parent="NightScene" unique_id=322329289 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110659" type="Node2D" parent="NightScene" unique_id=510988061 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 6
 
-[node name="@Node2D@106165" type="Node2D" parent="NightScene" unique_id=971422865 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110660" type="Node2D" parent="NightScene" unique_id=1233115111 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(450, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 4
+metadata/grid_row = 6
 
-[node name="@Node2D@106166" type="Node2D" parent="NightScene" unique_id=582011927 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110661" type="Node2D" parent="NightScene" unique_id=410634361 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 6
 
-[node name="@Node2D@106167" type="Node2D" parent="NightScene" unique_id=493623816 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110662" type="Node2D" parent="NightScene" unique_id=1024003385 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(650, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 6
+metadata/grid_row = 6
 
-[node name="@Node2D@106168" type="Node2D" parent="NightScene" unique_id=720218377 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110663" type="Node2D" parent="NightScene" unique_id=93934367 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 6
 
-[node name="@Node2D@106169" type="Node2D" parent="NightScene" unique_id=1268585954 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110664" type="Node2D" parent="NightScene" unique_id=1902062281 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(850, 840)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 8
+metadata/grid_row = 6
 
-[node name="@Node2D@106170" type="Node2D" parent="NightScene" unique_id=1105188742 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110665" type="Node2D" parent="NightScene" unique_id=1153137292 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 840)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 6
 
-[node name="@Node2D@106171" type="Node2D" parent="NightScene" unique_id=889101522 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110666" type="Node2D" parent="NightScene" unique_id=1886995402 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 7
 
-[node name="@Node2D@106172" type="Node2D" parent="NightScene" unique_id=1192181701 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110667" type="Node2D" parent="NightScene" unique_id=551734219 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 7
 
-[node name="@Node2D@106173" type="Node2D" parent="NightScene" unique_id=1408522974 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110668" type="Node2D" parent="NightScene" unique_id=1905712936 instance=ExtResource("10_mf2lh")]
+z_index = 3
 y_sort_enabled = true
 position = Vector2(250, 940)
-script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+script = ExtResource("11_hwqq0")
+sprite = ExtResource("12_ex1v5")
+metadata/grid_col = 2
+metadata/grid_row = 7
 
-[node name="@Node2D@106174" type="Node2D" parent="NightScene" unique_id=1207771847 instance=ExtResource("2_5lmwq")]
-z_index = 2
+[node name="@Node2D@110669" type="Node2D" parent="NightScene" unique_id=1912143856 instance=ExtResource("2_5lmwq")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(350, 940)
 script = ExtResource("4_mf2lh")
-sprite = ExtResource("5_hwqq0")
+sprite = ExtResource("8_3mp71")
+metadata/grid_col = 3
+metadata/grid_row = 7
 
-[node name="@Node2D@106175" type="Node2D" parent="NightScene" unique_id=1739007963 instance=ExtResource("2_5lmwq")]
-z_index = 1
+[node name="@Node2D@110670" type="Node2D" parent="NightScene" unique_id=581520052 instance=ExtResource("10_sw0ss")]
 y_sort_enabled = true
 position = Vector2(450, 940)
-script = ExtResource("4_mf2lh")
-sprite = ExtResource("8_3mp71")
+script = ExtResource("11_x3g73")
+sprite = ExtResource("12_3ogvb")
+rain_target_id = "rain_01"
+metadata/grid_col = 4
+metadata/grid_row = 7
 
-[node name="@Node2D@106176" type="Node2D" parent="NightScene" unique_id=1982817954 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110671" type="Node2D" parent="NightScene" unique_id=1528987320 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 7
 
-[node name="@Node2D@106177" type="Node2D" parent="NightScene" unique_id=924288662 instance=ExtResource("6_ex1v5")]
+[node name="@Node2D@110672" type="Node2D" parent="NightScene" unique_id=1523500376 instance=ExtResource("6_ex1v5")]
 y_sort_enabled = true
 position = Vector2(650, 940)
 script = ExtResource("7_axqra")
 sprite = ExtResource("8_kt03o")
+metadata/grid_col = 6
+metadata/grid_row = 7
 
-[node name="@Node2D@106178" type="Node2D" parent="NightScene" unique_id=624353600 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110673" type="Node2D" parent="NightScene" unique_id=15456684 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 7
 
-[node name="@Node2D@106179" type="Node2D" parent="NightScene" unique_id=2140463532 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110674" type="Node2D" parent="NightScene" unique_id=331536269 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 7
 
-[node name="@Node2D@106180" type="Node2D" parent="NightScene" unique_id=904639702 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110675" type="Node2D" parent="NightScene" unique_id=863569581 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 940)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 7
 
-[node name="@Node2D@106181" type="Node2D" parent="NightScene" unique_id=1487069253 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110676" type="Node2D" parent="NightScene" unique_id=1872641735 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 8
 
-[node name="@Node2D@106182" type="Node2D" parent="NightScene" unique_id=152885995 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110677" type="Node2D" parent="NightScene" unique_id=1064166077 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 8
 
-[node name="@Node2D@106183" type="Node2D" parent="NightScene" unique_id=1989887492 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110678" type="Node2D" parent="NightScene" unique_id=170887547 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(250, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 2
+metadata/grid_row = 8
 
-[node name="@Node2D@106184" type="Node2D" parent="NightScene" unique_id=842121760 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110679" type="Node2D" parent="NightScene" unique_id=2126784101 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 8
 
-[node name="@Node2D@106185" type="Node2D" parent="NightScene" unique_id=111284753 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110680" type="Node2D" parent="NightScene" unique_id=1968517949 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(450, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 4
+metadata/grid_row = 8
 
-[node name="@Node2D@106186" type="Node2D" parent="NightScene" unique_id=1412575692 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110681" type="Node2D" parent="NightScene" unique_id=79483261 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(550, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 5
+metadata/grid_row = 8
 
-[node name="@Node2D@106187" type="Node2D" parent="NightScene" unique_id=766744117 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110682" type="Node2D" parent="NightScene" unique_id=1499534921 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(650, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 6
+metadata/grid_row = 8
 
-[node name="@Node2D@106188" type="Node2D" parent="NightScene" unique_id=1487509291 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110683" type="Node2D" parent="NightScene" unique_id=422190055 instance=ExtResource("2_5lmwq")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(750, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("8_3mp71")
+metadata/grid_col = 7
+metadata/grid_row = 8
 
-[node name="@Node2D@106189" type="Node2D" parent="NightScene" unique_id=532890184 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110684" type="Node2D" parent="NightScene" unique_id=1433565023 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 8
 
-[node name="@Node2D@106190" type="Node2D" parent="NightScene" unique_id=435116862 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110685" type="Node2D" parent="NightScene" unique_id=878541621 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 1040)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 8
 
-[node name="@Node2D@106191" type="Node2D" parent="NightScene" unique_id=1691155016 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110686" type="Node2D" parent="NightScene" unique_id=1909081171 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(50, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 0
+metadata/grid_row = 9
 
-[node name="@Node2D@106192" type="Node2D" parent="NightScene" unique_id=1637521386 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110687" type="Node2D" parent="NightScene" unique_id=504017700 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(150, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 1
+metadata/grid_row = 9
 
-[node name="@Node2D@106193" type="Node2D" parent="NightScene" unique_id=125153523 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110688" type="Node2D" parent="NightScene" unique_id=200576460 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(250, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 2
+metadata/grid_row = 9
 
-[node name="@Node2D@106194" type="Node2D" parent="NightScene" unique_id=710376279 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110689" type="Node2D" parent="NightScene" unique_id=1213495414 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(350, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 3
+metadata/grid_row = 9
 
-[node name="@Node2D@106195" type="Node2D" parent="NightScene" unique_id=403487126 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110690" type="Node2D" parent="NightScene" unique_id=455913621 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(450, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 4
+metadata/grid_row = 9
 
-[node name="@Node2D@106196" type="Node2D" parent="NightScene" unique_id=1595410130 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110691" type="Node2D" parent="NightScene" unique_id=1177287203 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(550, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 5
+metadata/grid_row = 9
 
-[node name="@Node2D@106197" type="Node2D" parent="NightScene" unique_id=1681196303 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110692" type="Node2D" parent="NightScene" unique_id=249304800 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(650, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 6
+metadata/grid_row = 9
 
-[node name="@Node2D@106198" type="Node2D" parent="NightScene" unique_id=1776979694 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110693" type="Node2D" parent="NightScene" unique_id=892275206 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(750, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 7
+metadata/grid_row = 9
 
-[node name="@Node2D@106199" type="Node2D" parent="NightScene" unique_id=1910990690 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110694" type="Node2D" parent="NightScene" unique_id=896567171 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(850, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 8
+metadata/grid_row = 9
 
-[node name="@Node2D@106200" type="Node2D" parent="NightScene" unique_id=2106520737 instance=ExtResource("2_5lmwq")]
+[node name="@Node2D@110695" type="Node2D" parent="NightScene" unique_id=1936615064 instance=ExtResource("2_5lmwq")]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(950, 1140)
 script = ExtResource("4_mf2lh")
 sprite = ExtResource("5_hwqq0")
+metadata/grid_col = 9
+metadata/grid_row = 9
+
+[node name="RainZone" type="Node2D" parent="NightScene" unique_id=155496877 instance=ExtResource("17_m26lp")]
+script = ExtResource("18_hw7op")
+metadata/rain_zone_setup = {
+"active": true,
+"cells": [[2.0, 7.0]],
+"id": "rain_01",
+"origin": Vector2(50, 240),
+"tile_size": 100.0
+}
+
+[node name="@Node2D@110696" type="Node2D" parent="NightScene" unique_id=304432908 instance=ExtResource("17_m26lp")]
+script = ExtResource("18_hw7op")
+metadata/rain_zone_setup = {
+"active": true,
+"cells": [[4.0, 5.0]],
+"id": "rain_02",
+"origin": Vector2(50, 240),
+"tile_size": 100.0
+}
 
 [node name="MainCharacter" parent="." unique_id=225226000 instance=ExtResource("2_omf7m")]
 scale = Vector2(0.5, 0.5)

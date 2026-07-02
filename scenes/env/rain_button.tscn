@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://f6rainbtnscn"]
+
+[ext_resource type="Script" uid="uid://e5rainbtn001" path="res://scenes/env/rain_button.gd" id="1_btn"]
+[ext_resource type="Texture2D" uid="uid://c8rainkey001" path="res://assets/environment/tileset/rain_key.png" id="2_rain_key"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btn"]
+size = Vector2(99, 99)
+
+[node name="RainButton" type="Node2D"]
+z_index = 0
+y_sort_enabled = true
+script = ExtResource("1_btn")
+sprite = ExtResource("2_rain_key")
+
+[node name="TileSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rain_key")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_btn")

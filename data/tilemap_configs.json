@@ -74,5 +74,13 @@
 	"has_collision": false,
 	"initial_lit": true,
 	"z_index": 3
+  },
+  "10": {
+	"display_name": "停雨按钮",
+	"scene": "res://scenes/env/rain_button.tscn",
+	"texture": "res://assets/environment/tileset/rain_key.png",
+	"has_collision": false,
+	"rain_target_id": "",
+	"z_index": 0
   }
 }
