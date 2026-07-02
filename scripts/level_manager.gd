@@ -45,12 +45,12 @@ func _load_level_list() -> void:
 			_level_names.append("关卡 %d" % (i + 1))
 		elif typeof(entry) == TYPE_DICTIONARY:
 			var path: String = entry.get("path", "")
-			var name: String = entry.get("name", "关卡 %d" % (i + 1))
+			var level_name: String = entry.get("name", "关卡 %d" % (i + 1))
 			if path.is_empty():
 				push_error("Level entry %d in level_list.json is missing 'path' key." % i)
 				continue
 			_levels.append(path)
-			_level_names.append(name)
+			_level_names.append(level_name)
 
 
 func start_level(index: int) -> bool:

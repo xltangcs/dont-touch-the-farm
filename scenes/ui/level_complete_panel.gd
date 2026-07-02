@@ -4,7 +4,6 @@ const MAIN_MENU_SCENE_PATH := "res://scenes/ui/main_menu_scene.tscn"
 const LEVEL_SELECT_SCENE_PATH := "res://scenes/ui/level_select_control.tscn"
 const GAME_SCENE_PATH := "res://scenes/env/night_game_scene.tscn"
 
-@onready var _panel: PanelContainer = $PanelContainer
 @onready var _next_button: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NextButton
 
 
