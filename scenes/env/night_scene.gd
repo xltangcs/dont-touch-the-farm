@@ -124,6 +124,9 @@ func _spawn_tile(tile_id: int, world_pos: Vector2) -> void:
 	instance.y_sort_enabled = true
 	instance.add_to_group(GENERATED_GROUP)
 
+	if "initial_lit" in instance:
+		instance.initial_lit = config.initial_lit
+
 	if not config.texture_path.is_empty() and "sprite" in instance:
 		instance.sprite = load(config.texture_path)
 

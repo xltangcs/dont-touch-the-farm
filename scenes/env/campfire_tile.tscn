@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b7k3campf1r3"]
+
+[ext_resource type="Script" uid="uid://d5613e02ika0" path="res://scenes/env/campfire_tile.gd" id="1_campfire"]
+[ext_resource type="Texture2D" uid="uid://gt7nb6jnakd7" path="res://assets/environment/tileset/fire_off.png" id="2_fire_off"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(99, 99)
+
+[node name="CampfireTile" type="Node2D" unique_id=923552054]
+script = ExtResource("1_campfire")
+sprite = ExtResource("2_fire_off")
+
+[node name="TileSprite2D" type="Sprite2D" parent="." unique_id=1730247837]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fire_off")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1401563010]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1885194628]
+shape = SubResource("RectangleShape2D_area")

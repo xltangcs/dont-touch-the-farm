@@ -1,20 +1,20 @@
 {
   "levels": [
-	{
-	  "path": "res://data/levels/level_test.json",
-	  "name": "测试关卡"
-	},
-	{
-	  "path": "res://data/levels/level_01.json",
-	  "name": "第一关"
-	},
-	{
-	  "path": "res://data/levels/level_02.json",
-	  "name": "第二关"
-	},
-	{
-	  "path": "res://data/levels/level_03.json",
-	  "name": "柳暗花明又一村"
-	}
+    {
+      "path": "res://data/levels/level_test.json",
+      "name": "测试关卡"
+    },
+    {
+      "path": "res://data/levels/level_01.json",
+      "name": "第一关"
+    },
+    {
+      "path": "res://data/levels/level_02.json",
+      "name": "第二关"
+    },
+    {
+      "path": "res://data/levels/level_03.json",
+      "name": "柳暗花明又一村"
+    }
   ]
 }

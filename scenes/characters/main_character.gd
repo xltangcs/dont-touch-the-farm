@@ -6,6 +6,7 @@ var _is_mining: bool = false
 var _input_enabled: bool = true
 var _facing: String = "forward"
 var _disabled_action: StringName = &""
+var _has_lit_torch: bool = false
 
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -14,6 +15,7 @@ var _dialogue_ui: DialogueUi
 
 func _ready() -> void:
 	call_deferred("_find_dialogue_ui")
+	_play_facing_idle()
 
 
 func _find_dialogue_ui() -> void:
@@ -30,6 +32,24 @@ func set_input_enabled(enabled: bool) -> void:
 	_input_enabled = enabled
 	if not _input_enabled:
 		velocity = Vector2.ZERO
+
+
+func has_lit_torch() -> bool:
+	return _has_lit_torch
+
+
+func light_torch() -> void:
+	if _has_lit_torch:
+		return
+	_has_lit_torch = true
+	_refresh_anim_for_torch_state()
+
+
+func extinguish_torch() -> void:
+	if not _has_lit_torch:
+		return
+	_has_lit_torch = false
+	_refresh_anim_for_torch_state()
 
 
 func apply_disabled_key(action: StringName, key_label: String = "") -> void:
@@ -58,7 +78,7 @@ func _physics_process(_delta: float) -> void:
 
 	if direction != Vector2.ZERO:
 		_facing = _get_facing_from_direction(direction)
-		_anim.play(_get_walk_animation(_facing))
+		_anim.play(_get_torch_animation(_facing))
 	else:
 		_play_facing_idle()
 
@@ -80,6 +100,14 @@ func play_mine_toward(target_position: Vector2) -> void:
 	_play_facing_idle()
 
 
+func play_light_torch_at(target_position: Vector2) -> void:
+	if _has_lit_torch or _is_mining:
+		return
+
+	await play_mine_toward(target_position)
+	light_torch()
+
+
 func _get_facing_from_direction(direction: Vector2) -> String:
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -91,12 +119,16 @@ func _get_facing_from_direction(direction: Vector2) -> String:
 	return "back"
 
 
-func _get_walk_animation(facing: String) -> String:
-	return "normal_%s" % facing
+func _get_torch_prefix() -> String:
+	return "fire_on" if _has_lit_torch else "fire_off"
 
 
-func _get_idle_animation(facing: String) -> String:
-	return "idle_%s" % facing
+func _get_torch_animation(facing: String) -> String:
+	return "%s_%s" % [_get_torch_prefix(), facing]
+
+
+func _get_torch_idle_animation(facing: String) -> String:
+	return "%s_idle_%s" % [_get_torch_prefix(), facing]
 
 
 func _get_mine_animation(facing: String) -> String:
@@ -104,7 +136,16 @@ func _get_mine_animation(facing: String) -> String:
 
 
 func _play_facing_idle() -> void:
-	_anim.play(_get_idle_animation(_facing))
+	_anim.play(_get_torch_idle_animation(_facing))
+
+
+func _refresh_anim_for_torch_state() -> void:
+	if _is_mining:
+		return
+	if velocity != Vector2.ZERO:
+		_anim.play(_get_torch_animation(_facing))
+	else:
+		_play_facing_idle()
 
 
 func _apply_walk_input(action: StringName, delta: Vector2, direction: Vector2) -> Vector2:
